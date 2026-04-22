@@ -1,0 +1,36 @@
+Package: cer
+Title: Download and Tidy Australian Clean Energy Regulator Data
+Version: 0.1.0
+Authors@R:
+    person("Charles", "Coverdale", , "charlesfcoverdale@gmail.com", role = c("aut", "cre"))
+Description: Fetch Australian Clean Energy Regulator data on carbon
+    credits, safeguard mechanism facilities, renewable energy
+    certificates, and greenhouse gas reporting. Provides tidy access
+    to the Australian Carbon Credit Unit ('ACCU') Scheme project
+    register, Safeguard Mechanism baselines and covered emissions,
+    Large-scale Renewable Energy Target ('LRET') power station
+    accreditations, Small-scale Renewable Energy Scheme ('SRES')
+    installation data, the National Greenhouse and Energy Reporting
+    ('NGER') scheme, and Quarterly Carbon Market Reports
+    <https://cer.gov.au/markets/reports-and-data>. Data is published
+    by the Clean Energy Regulator under a Creative Commons
+    Attribution 4.0 International licence.
+Depends: R (>= 4.1.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+    cli (>= 3.6.0),
+    httr2 (>= 1.0.0),
+    readxl (>= 1.4.0),
+    tools,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://github.com/charlescoverdale/cer
+BugReports: https://github.com/charlescoverdale/cer/issues

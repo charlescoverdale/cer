@@ -1,0 +1,13 @@
+bibentry(
+  bibtype = "Manual",
+  title   = "cer: Download and Tidy Australian Clean Energy Regulator Data",
+  author  = person("Charles", "Coverdale"),
+  year    = format(Sys.Date(), "%Y"),
+  note    = sprintf("R package version %s", meta$Version),
+  url     = "https://cran.r-project.org/package=cer",
+  textVersion = sprintf(
+    "Coverdale, C. (%s). cer: Download and Tidy Australian Clean Energy Regulator Data. R package version %s. https://cran.r-project.org/package=cer",
+    format(Sys.Date(), "%Y"),
+    meta$Version
+  )
+)
