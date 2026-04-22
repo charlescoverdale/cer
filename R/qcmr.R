@@ -48,8 +48,10 @@ qcmr_url <- function(quarter) {
 #' @param quarter Character. Quarter identifier in `"YYYYqN"` form
 #'   (e.g. `"2025q4"` for the December 2025 quarter). Defaults to
 #'   `"latest"`, which resolves to the most recent release.
-#' @param sheet Sheet name or integer index. `1` (default)
-#'   returns the first data sheet.
+#' @param sheet Sheet name or integer index. The CER QCMR workbook
+#'   contains a `Contents` sheet (default) plus one sheet per
+#'   figure (e.g. `"Figure 1.1"`, `"Figure 3.14"`). Pass a figure
+#'   name to extract that figure's data.
 #'
 #' @return A `cer_tbl` with the requested sheet's contents.
 #'
@@ -63,14 +65,17 @@ qcmr_url <- function(quarter) {
 #' \donttest{
 #' op <- options(cer.cache_dir = tempdir())
 #' try({
-#'   x <- cer_qcmr("latest")
-#'   head(x)
+#'   # Contents sheet lists all available figures
+#'   toc <- cer_qcmr("latest")
+#'   head(toc)
+#'   # Fetch a specific figure
+#'   fig <- cer_qcmr("latest", sheet = "Figure 1.1")
 #' })
 #' options(op)
 #' }
-cer_qcmr <- function(quarter = "latest", sheet = 1) {
+cer_qcmr <- function(quarter = "latest", sheet = "Contents") {
   url <- qcmr_url(quarter)
-  df <- cer_fetch_xlsx(url, sheet = sheet, skip = 0)
+  df <- cer_fetch_auto(url, sheet = sheet)
   rownames(df) <- NULL
   new_cer_tbl(df,
               source = QCMR_LANDING,

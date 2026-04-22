@@ -11,6 +11,7 @@ test_that("cer_qcmr live fetch", {
   skip_if(Sys.getenv("CER_LIVE_TESTS") != "true",
           "Live network tests disabled by default.")
 
-  x <- cer_qcmr("2025q4")
+  x <- cer_qcmr("latest")
   expect_s3_class(x, "cer_tbl")
+  expect_gt(nrow(x), 0L)
 })

@@ -9,15 +9,17 @@ Clean Energy Regulator, Quarterly Carbon Market Reports:
 Licensed under CC BY 4.0.
 }
 \usage{
-cer_qcmr(quarter = "latest", sheet = 1)
+cer_qcmr(quarter = "latest", sheet = "Contents")
 }
 \arguments{
 \item{quarter}{Character. Quarter identifier in \code{"YYYYqN"} form
 (e.g. \code{"2025q4"} for the December 2025 quarter). Defaults to
 \code{"latest"}, which resolves to the most recent release.}
 
-\item{sheet}{Sheet name or integer index. \code{1} (default)
-returns the first data sheet.}
+\item{sheet}{Sheet name or integer index. The CER QCMR workbook
+contains a \code{Contents} sheet (default) plus one sheet per
+figure (e.g. \code{"Figure 1.1"}, \code{"Figure 3.14"}). Pass a figure
+name to extract that figure's data.}
 }
 \value{
 A \code{cer_tbl} with the requested sheet's contents.
@@ -32,8 +34,11 @@ developments.
 \donttest{
 op <- options(cer.cache_dir = tempdir())
 try({
-  x <- cer_qcmr("latest")
-  head(x)
+  # Contents sheet lists all available figures
+  toc <- cer_qcmr("latest")
+  head(toc)
+  # Fetch a specific figure
+  fig <- cer_qcmr("latest", sheet = "Figure 1.1")
 })
 options(op)
 }

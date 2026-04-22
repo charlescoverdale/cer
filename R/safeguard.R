@@ -11,19 +11,44 @@ safeguard_urls <- function(year) {
   yr_lo <- year - 1L
   yr_hi <- year %% 100L
   yr_label <- sprintf("%d-%02d", yr_lo, yr_hi)
-  # Scrape the safeguard landing page and match on year label.
-  # Prefer CSV (`-0` suffix) over XLSX when both exist.
-  hits <- cer_scrape_links(
-    SAFEGUARD_LANDING,
-    sprintf("safeguard.*%s|%s.*safeguard", yr_label, yr_label)
+
+  # CER uses three different URL conventions across years:
+  #   2023-24+: /safeguard-data/<year>-baselines-and-emissions-data/
+  #             -> /document/baselines-and-emissions-table-<year>
+  #   ~2022-23: /safeguard-facility-covered-emissions-data-<year>/
+  #             -> /document/safeguard-facilities-data-<year>
+  #   Pre-2022: /safeguard-facility-reported-emissions-data/safeguard-facility-reported-emissions-<year>/
+  #             -> similar slug inside
+  # Try each subpage, collect /document/ links, filter to data-table
+  # slugs (not explanation letters, not PDFs).
+  subpages <- c(
+    sprintf("%s/%s-baselines-and-emissions-data", SAFEGUARD_LANDING, yr_label),
+    sprintf("https://cer.gov.au/markets/reports-and-data/safeguard-facility-covered-emissions-data-%s", yr_label),
+    sprintf("https://cer.gov.au/markets/reports-and-data/safeguard-facility-reported-emissions-data/safeguard-facility-reported-emissions-%s", yr_label)
   )
+
+  # Slugs that identify the headline data file (exclude per-facility
+  # "explanation-letter" PDFs and method determinations).
+  table_rx <- paste0(
+    "baselines-and-emissions-table-", yr_label, "|",
+    "safeguard-facilities-data-", yr_label, "|",
+    "safeguard-facility-covered-emissions-", yr_label, "|",
+    "safeguard-facility-reported-emissions-", yr_label
+  )
+
+  hits <- character(0)
+  for (sp in subpages) {
+    hits <- cer_scrape_links(sp, table_rx)
+    if (length(hits) > 0L) break
+  }
   if (length(hits) == 0L) {
     cli::cli_abort(c(
       "No safeguard dataset found for reporting year {yr_lo}-{yr_hi}.",
       "i" = "The CER landing page is {.url {SAFEGUARD_LANDING}}."
     ))
   }
-  csv <- hits[grepl("-0$", hits)]
+  # Prefer CSV (`-0` or `-csv` suffix) over XLSX (`-excel` or plain).
+  csv <- hits[grepl("-0$|-csv$", hits)]
   xlsx <- setdiff(hits, csv)
   list(csv = if (length(csv) > 0L) csv[1L] else NA_character_,
        xlsx = if (length(xlsx) > 0L) xlsx[1L] else NA_character_)
@@ -87,13 +112,10 @@ cer_safeguard_facilities <- function(year = 2025) {
   stopifnot(is.numeric(year), length(year) == 1L, year >= 2017L, year <= 2030L)
   urls <- safeguard_urls(year)
 
-  df <- if (!is.na(urls$csv)) {
-    cer_fetch_csv(urls$csv)
-  } else if (!is.na(urls$xlsx)) {
-    cer_fetch_xlsx(urls$xlsx, sheet = 1, skip = 0)
-  } else {
-    cli::cli_abort("No safeguard dataset URL could be resolved for year {year}.")
-  }
+  # URL suffix convention is inconsistent across years (ACCU inverse
+  # of Safeguard), so fall back on file magic bytes for dispatch.
+  candidate <- if (!is.na(urls$csv)) urls$csv else urls$xlsx
+  df <- cer_fetch_auto(candidate)
 
   rownames(df) <- NULL
   new_cer_tbl(df,
@@ -135,7 +157,7 @@ cer_safeguard_facilities <- function(year = 2025) {
 cer_nger_corporate <- function(year = 2025) {
   stopifnot(is.numeric(year), length(year) == 1L, year >= 2009L, year <= 2030L)
   url <- nger_urls(year, "corporate")
-  df <- if (grepl("-0$", url)) cer_fetch_csv(url) else cer_fetch_xlsx(url, sheet = 1)
+  df <- cer_fetch_auto(url)
   rownames(df) <- NULL
   new_cer_tbl(df,
               source = NGER_LANDING,
@@ -174,7 +196,7 @@ cer_nger_corporate <- function(year = 2025) {
 cer_nger_electricity <- function(year = 2025, facility = NULL) {
   stopifnot(is.numeric(year), length(year) == 1L, year >= 2009L, year <= 2030L)
   url <- nger_urls(year, "electricity")
-  df <- if (grepl("-0$", url)) cer_fetch_csv(url) else cer_fetch_xlsx(url, sheet = 1)
+  df <- cer_fetch_auto(url)
   df <- cer_filter_like(df, "facility_name", facility)
   if (!is.null(facility) && !"facility_name" %in% names(df)) {
     df <- cer_filter_like(df, "facility", facility)
