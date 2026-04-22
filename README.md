@@ -170,10 +170,15 @@ Attribution on derivative work: *Licensed from the Clean Energy Regulator, Commo
 
 ## Related packages
 
-- [**carbondata**](https://github.com/charlescoverdale/carbondata): global carbon markets (EU ETS, UK ETS, RGGI, California, Verra, Gold Standard, ACR, CAR)
-- [**climatekit**](https://github.com/charlescoverdale/climatekit): 35 climate indices (temperature, precipitation, drought)
-- [**readnoaa**](https://github.com/charlescoverdale/readnoaa): NOAA weather data
-- [**readaec**](https://github.com/charlescoverdale/readaec): Australian Electoral Commission
+| Package | Description |
+|---|---|
+| [`carbondata`](https://github.com/charlescoverdale/carbondata) | Global carbon markets (EU ETS, UK ETS, RGGI, California, Verra, Gold Standard, ACR, CAR) |
+| [`aemo`](https://github.com/charlescoverdale/aemo) | Australian Energy Market Operator (NEM prices, demand, dispatch, FCAS, gas) |
+| [`climatekit`](https://github.com/charlescoverdale/climatekit) | 35 climate indices (temperature, precipitation, drought) |
+| [`readnoaa`](https://github.com/charlescoverdale/readnoaa) | NOAA climate and weather data |
+| [`readaec`](https://github.com/charlescoverdale/readaec) | Australian Electoral Commission |
+| [`readabs`](https://github.com/mattcowgill/readabs) | Australian Bureau of Statistics |
+| [`readrba`](https://github.com/mattcowgill/readrba) | Reserve Bank of Australia |
 
 ## Citation
 
