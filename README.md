@@ -8,9 +8,11 @@ An R package for accessing data published by the [Clean Energy Regulator](https:
 
 The Clean Energy Regulator (CER) is the Australian Government agency responsible for administering the country's main climate and clean energy schemes. It sits at the intersection of four policy instruments that together cover roughly half of Australia's emissions and all of its large-scale renewable generation.
 
-The scale is substantial. The **Australian Carbon Credit Unit (ACCU) Scheme** has issued over 230 million credits since 2012, each representing one tonne of CO2-equivalent avoided or sequestered. The **Safeguard Mechanism** was reformed in July 2023 and now requires every facility above 100,000 tonnes of CO2e a year to reduce emissions on a declining baseline: it covers around 215 facilities and ~30% of national emissions. The **Large-scale Renewable Energy Target (LRET)** and **Small-scale Renewable Energy Scheme (SRES)** have underwritten more than AUD 40 billion in renewables investment since 2001. And the **National Greenhouse and Energy Reporting (NGER) scheme** compiles corporate-level Scope 1 and 2 emissions for every large emitter in the country.
+The scale is substantial. The **Australian Carbon Credit Unit (ACCU) Scheme** has issued around 185 million credits since 2012 (Carbon Farming Initiative Act 2011, first issuances 2012-13), each representing one tonne of CO2-equivalent avoided or sequestered. The **Safeguard Mechanism** was reformed in July 2023 and now requires every facility above 100,000 tonnes of CO2e a year to reduce emissions on a declining baseline that falls at 4.9% per year to 2030: the 2024-25 compliance year covered 208 facilities and roughly 30% of national emissions, with an aggregate cumulative budget of 1,233 Mt over 2020 to 2030. The **Large-scale Renewable Energy Target (LRET)** and **Small-scale Renewable Energy Scheme (SRES)** have unlocked more than AUD 20 billion in renewables investment since 2001 (Climate Change Authority estimate). And the **National Greenhouse and Energy Reporting (NGER) scheme** compiles emissions for every corporation above 50 kt CO2e (Scope 1+2) or 200 TJ energy, plus every facility above 25 kt or 100 TJ.
 
-The CER publishes data from all four schemes under a Creative Commons Attribution 4.0 licence. That data is the authoritative public record of Australia's carbon and renewables markets, and it is watched closely by policy analysts, investigative journalists, project developers, and compliance teams at every Safeguard-covered facility. The Chubb Review (January 2023) and the Guardian's long-running investigation into the human-induced regeneration method have kept the integrity of ACCU issuances politically salient.
+Facilities below their Safeguard baseline can be issued **Safeguard Mechanism Credits (SMCs)** that are freely bankable to 2030 and tradeable with other covered facilities; facilities above their baseline must surrender ACCUs or SMCs to return to compliance. In 2024-25 the CER issued 6.7 million SMCs to 54 facilities and recorded 13.4 million units surrendered (ACCUs plus SMCs combined), achieving 98.6% compliance.
+
+The CER publishes data from all four schemes under a Creative Commons Attribution 4.0 licence. That data is the authoritative public record of Australia's carbon and renewables markets, and it is watched closely by policy analysts, investigative journalists, project developers, and compliance teams at every Safeguard-covered facility. The Chubb Review (January 2023) found the scheme "essentially sound" but triggered three governance changes that continue to shape the market: the Emissions Reduction Assurance Committee (ERAC) was abolished in favour of the **Carbon Abatement Integrity Committee (CAIC)**; the **Avoided Deforestation method** was suspended for new projects; and the **Human-Induced Regeneration (HIR) method** is under review, with the proposed **Integrated Farm and Land Management (IFLM) method** delivered to CAIC at end-2025. The **Climate Change Authority's 2026 ACCU Scheme Review** (public consultation open at time of writing) is likely to reshape the method supply from 2027.
 
 ## Why does this package exist?
 
@@ -69,7 +71,7 @@ head(projects)
 
 # Safeguard Mechanism 2024-25 facility emissions and baselines
 facilities <- cer_safeguard_facilities(year = 2025)
-sum(facilities$covered_emissions_t_co2e, na.rm = TRUE)
+sum(facilities$covered_emissions, na.rm = TRUE)
 
 # Rooftop solar installations by postcode
 solar <- cer_sres_installations(
@@ -85,14 +87,14 @@ solar <- cer_sres_installations(
 | `cer_accu_projects()` | ACCU project register with method, proponent, state, crediting period, ACCUs issued and relinquished | 2012 - present |
 | `cer_accu_issuances()` | Per-project issuance summary with optional method and date filters | 2012 - present |
 | `cer_accu_contracts()` | Carbon Abatement Contract register (Emissions Reduction Fund auctions) | 2015 - present |
-| `cer_accu_methods()` | Static lookup of approved ACCU methods across Agriculture, Energy Efficiency, Landfill and Waste, Mining, Oil and Gas, Vegetation, Savanna, Blue Carbon | All live methods |
+| `cer_accu_methods()` | Static lookup of approved ACCU methods across Agriculture, Energy Efficiency, Landfill and Waste, Mining, Oil and Gas, Vegetation, Savanna, Blue Carbon | Live + flagged superseded |
 | `cer_accu_relinquishments()` | Projects with non-zero ACCU relinquishments (voluntary plus compliance) | 2012 - present |
 | `cer_safeguard_facilities()` | Covered emissions, baselines, SMCs issued or surrendered for facilities above 100,000 t CO2e | 2016-17 - present |
-| `cer_nger_corporate()` | Controlling-corporation Scope 1 and 2 emissions | 2008-09 - present |
-| `cer_nger_electricity()` | Facility-level Scope 1 emissions and generation for electricity sector | 2008-09 - present |
+| `cer_nger_corporate()` | Controlling-corporation Scope 1 and 2 emissions above the 50 kt / 200 TJ reporting threshold | 2008-09 - present |
+| `cer_nger_electricity()` | Facility-level Scope 1 emissions and generation for electricity sector above the 25 kt / 100 TJ facility threshold | 2008-09 - present |
 | `cer_lgc_power_stations()` | Accredited LRET power stations (technology, state, capacity, commissioning) | 2001 - present |
 | `cer_sres_installations()` | Monthly rooftop solar PV, solar water heater, heat pump, and battery installations by postcode | 2011 - present |
-| `cer_qcmr()` | Quarterly Carbon Market Report data workbook (certificate volumes, unit surrenders, Safeguard developments) | 2014 Q1 - present |
+| `cer_qcmr()` | Quarterly Carbon Market Report data workbook (certificate volumes, unit surrenders, Safeguard developments) | 2014 Q3 - present |
 | `cer_cache_info()` | Inspect the local cache | - |
 | `cer_clear_cache()` | Clear locally cached files | - |
 
@@ -123,11 +125,11 @@ head(by_method, 10)
 # Facility-level covered emissions for 2024-25
 s <- cer_safeguard_facilities(year = 2025)
 
-# Total covered emissions
-sum(s$covered_emissions_t_co2e, na.rm = TRUE) / 1e6  # Mt CO2e
+# Total covered emissions (Mt CO2e)
+sum(s$covered_emissions, na.rm = TRUE) / 1e6
 
 # Ten largest Safeguard facilities
-top10 <- s[order(-s$covered_emissions_t_co2e), c("facility_name", "covered_emissions_t_co2e")]
+top10 <- s[order(-s$covered_emissions), c("facility_name", "covered_emissions")]
 head(top10, 10)
 ```
 
@@ -146,19 +148,24 @@ head(inst)
 ### Quarterly Carbon Market Report
 
 ```r
-# Latest QCMR data workbook
-qcmr <- cer_qcmr("latest")
-head(qcmr)
+# Table of contents for the latest QCMR data workbook
+toc <- cer_qcmr("latest")
+head(toc)
 
-# Specific historical quarter
-cer_qcmr("2024q4")
+# Fetch a specific figure
+fig <- cer_qcmr("latest", sheet = "Figure 1.1")
 ```
 
 ## Data source and licence
 
 All data is published by the Clean Energy Regulator at <https://cer.gov.au/markets/reports-and-data> under a Creative Commons Attribution 4.0 International licence. Downloads are cached locally to `tools::R_user_dir("cer", "cache")` and re-used on subsequent calls.
 
-Attribution on derivative work: *Licensed from the Clean Energy Regulator, Commonwealth of Australia under a Creative Commons Attribution 4.0 licence.*
+The CER specifies two forms of attribution depending on what you do with the data:
+
+- **Verbatim use:** *Licensed from the Clean Energy Regulator, Commonwealth of Australia under a Creative Commons Attribution 4.0 licence.*
+- **Derivative or adapted data** (the usual case when you clean, join, filter, or reshape): *Based on Clean Energy Regulator material licensed under a Creative Commons Attribution 4.0 licence.*
+
+The package returns cleaned snake_case tables so most use falls under the second form.
 
 ## Known limitations
 
@@ -166,7 +173,7 @@ Attribution on derivative work: *Licensed from the Clean Energy Regulator, Commo
 - **REC Registry isn't scraped.** The transactional registry (<https://rec-registry.gov.au>) has session cookies and CAPTCHAs on some views. `cer` uses the CER's published historical extracts of the same data instead.
 - **Files overwrite in place.** The CER has no versioned URL history. If a release is silently corrected, the cached file diverges from the live one until you run `cer_clear_cache()`.
 - **LGC and STC spot prices aren't in this package.** The CER does not publish spot prices. The `cer_qcmr()` function returns the volume-weighted quarterly averages that the CER does publish, but tick-level price history sits with private exchanges.
-- **ACCU methods are embedded.** Each ACCU method is published as a PDF determination on the Federal Register of Legislation. `cer_accu_methods()` returns a curated table embedded in the package rather than a live scrape.
+- **ACCU methods are embedded.** Each ACCU method is published as a PDF determination on the Federal Register of Legislation. `cer_accu_methods()` returns a curated table embedded in the package. The current table includes the Savanna Fire Management 2026 methods, the Environmental Plantings 2024 FullCAM method (replacing the 2014 method, which expired 30 September 2024), and flags Avoided Deforestation as suspended for new projects post-Chubb. The Human-Induced Regeneration method is flagged as under review pending the IFLM replacement.
 
 ## Related packages
 

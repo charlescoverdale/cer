@@ -142,19 +142,22 @@ cer_accu_contracts <- function(auction = NULL) {
 
 #' Approved ACCU Scheme methods
 #'
-#' A static table of approved ACCU Scheme methods grouped by
-#' sector (Agriculture, Energy Efficiency, Landfill and Waste,
-#' Mining/Oil/Gas, Vegetation). Built from the CER methods index
-#' at build time.
+#' A static table of ACCU Scheme methods grouped by sector
+#' (Agriculture, Energy Efficiency, Landfill and Waste,
+#' Mining/Oil/Gas, Vegetation, Savanna, Blue Carbon,
+#' Transport). Built from the CER methods index at build time.
 #'
 #' Because the CER publishes methods as per-method PDFs on the
 #' Federal Register of Legislation rather than a machine-readable
-#' index, this function returns a package-embedded lookup.
-#' Run [cer_accu_projects()] then `unique(x$method)` to cross-check
-#' against currently-registered projects.
+#' index, this function returns a package-embedded lookup. The
+#' `status` column captures post-Chubb Review changes: methods
+#' are flagged as `"active"`, `"expired"`, `"suspended"`, or
+#' `"under_review"`. Run [cer_accu_projects()] then
+#' `unique(x$method)` to cross-check against currently-registered
+#' projects.
 #'
-#' @return A `cer_tbl` with columns `method`, `sector`, `short_name`,
-#'   `commenced`, and `source_url`.
+#' @return A `cer_tbl` with columns `method`, `sector`,
+#'   `short_name`, `status`, `commenced`, and `source_url`.
 #' @source Clean Energy Regulator ACCU Scheme methods index
 #'   <https://cer.gov.au/schemes/australian-carbon-credit-unit-scheme/accu-scheme-methods>.
 #' @family accu
@@ -167,34 +170,95 @@ cer_accu_methods <- function() {
   df <- get0("accu_methods", envir = asNamespace("cer"))
   if (is.null(df)) {
     # Fallback seed table so the function always works before
-    # sysdata has been built.
+    # sysdata has been built. Reflects the post-Chubb method
+    # landscape as of April 2026.
     df <- data.frame(
       method = c(
+        # Vegetation
         "Human-induced regeneration of a permanent even-aged native forest",
-        "Savanna fire management (emissions avoidance)",
-        "Landfill gas",
-        "Piggery waste",
+        "Avoided deforestation",
+        "Avoided clearing of native regrowth",
+        "Native forest from managed regrowth",
+        "Reforestation by environmental or mallee plantings (2014)",
+        "Reforestation by environmental or mallee plantings (FullCAM 2024)",
+        # Savanna
+        "Savanna fire management 2018 (emissions avoidance)",
+        "Savanna fire management 2018 (sequestration and emissions avoidance)",
+        "Savanna fire management 2026",
+        # Agriculture
         "Beef cattle herd management",
-        "Reforestation by environmental or mallee plantings",
+        "Piggery waste",
+        "Measurement of soil carbon sequestration in agricultural systems",
+        # Landfill and Waste
+        "Landfill gas",
+        "Alternative waste treatment",
+        # Mining / Oil / Gas
         "Coal mine waste gas",
-        "Energy efficiency in commercial buildings"
+        "Oil and gas fugitive emissions",
+        # Energy Efficiency
+        "Energy efficiency in commercial buildings",
+        "Industrial equipment upgrades",
+        # Blue carbon
+        "Tidal restoration of blue carbon ecosystems"
       ),
-      sector = c("Vegetation", "Vegetation", "Landfill and Waste",
-                 "Agriculture", "Agriculture", "Vegetation",
-                 "Mining/Oil/Gas", "Energy Efficiency"),
-      short_name = c("HIR", "Savanna EA", "Landfill", "Piggery",
-                     "Beef cattle", "Plantings", "CMWG", "Commercial"),
-      commenced = as.Date(c("2013-07-01", "2012-12-01", "2012-08-24",
-                            "2012-11-09", "2015-08-12", "2014-05-30",
-                            "2018-03-28", "2013-07-01")),
-      source_url = rep("https://cer.gov.au/schemes/australian-carbon-credit-unit-scheme/accu-scheme-methods", 8L),
+      sector = c(
+        rep("Vegetation", 6L),
+        rep("Savanna", 3L),
+        rep("Agriculture", 3L),
+        rep("Landfill and Waste", 2L),
+        rep("Mining/Oil/Gas", 2L),
+        rep("Energy Efficiency", 2L),
+        "Blue carbon"
+      ),
+      short_name = c(
+        "HIR", "AD", "AC native regrowth", "MNFR",
+        "Plantings 2014", "Plantings 2024",
+        "Savanna EA 2018", "Savanna EA+S 2018", "Savanna 2026",
+        "Beef cattle", "Piggery", "Soil measured",
+        "Landfill", "AWT",
+        "CMWG", "Oil and gas FE",
+        "Commercial", "Industrial",
+        "Blue carbon"
+      ),
+      # Status reflects post-Chubb Review changes (January 2023):
+      #  - "under_review": HIR pending IFLM replacement method
+      #  - "suspended":    Avoided Deforestation closed to new projects
+      #  - "expired":      Plantings 2014 expired 30 September 2024,
+      #                    superseded by Plantings 2024 FullCAM method
+      #  - "superseded":   Savanna 2018 methods superseded by
+      #                    Savanna Fire Management 2026
+      #  - "active":       everything else
+      status = c(
+        "under_review", "suspended", "active", "active",
+        "expired", "active",
+        "superseded", "superseded", "active",
+        "active", "active", "active",
+        "active", "active",
+        "active", "active",
+        "active", "active",
+        "active"
+      ),
+      commenced = as.Date(c(
+        "2013-07-01", "2015-04-01", "2015-04-01", "2015-07-01",
+        "2014-05-30", "2024-10-01",
+        "2018-05-01", "2018-05-01", "2026-01-01",
+        "2015-08-12", "2012-11-09", "2018-02-09",
+        "2012-08-24", "2015-07-01",
+        "2018-03-28", "2022-06-01",
+        "2013-07-01", "2015-07-01",
+        "2022-06-01"
+      )),
+      source_url = rep(
+        "https://cer.gov.au/schemes/australian-carbon-credit-unit-scheme/accu-scheme-methods",
+        19L
+      ),
       stringsAsFactors = FALSE
     )
   }
   new_cer_tbl(df,
               source = "https://cer.gov.au/schemes/australian-carbon-credit-unit-scheme/accu-scheme-methods",
               licence = "CC BY 4.0",
-              title = "Approved ACCU Scheme methods")
+              title = "ACCU Scheme methods (post-Chubb)")
 }
 
 #' ACCU relinquishments by project

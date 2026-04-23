@@ -11,21 +11,24 @@ Clean Energy Regulator ACCU Scheme methods index
 cer_accu_methods()
 }
 \value{
-A \code{cer_tbl} with columns \code{method}, \code{sector}, \code{short_name},
-\code{commenced}, and \code{source_url}.
+A \code{cer_tbl} with columns \code{method}, \code{sector},
+\code{short_name}, \code{status}, \code{commenced}, and \code{source_url}.
 }
 \description{
-A static table of approved ACCU Scheme methods grouped by
-sector (Agriculture, Energy Efficiency, Landfill and Waste,
-Mining/Oil/Gas, Vegetation). Built from the CER methods index
-at build time.
+A static table of ACCU Scheme methods grouped by sector
+(Agriculture, Energy Efficiency, Landfill and Waste,
+Mining/Oil/Gas, Vegetation, Savanna, Blue Carbon,
+Transport). Built from the CER methods index at build time.
 }
 \details{
 Because the CER publishes methods as per-method PDFs on the
 Federal Register of Legislation rather than a machine-readable
-index, this function returns a package-embedded lookup.
-Run \code{\link[=cer_accu_projects]{cer_accu_projects()}} then \code{unique(x$method)} to cross-check
-against currently-registered projects.
+index, this function returns a package-embedded lookup. The
+\code{status} column captures post-Chubb Review changes: methods
+are flagged as \code{"active"}, \code{"expired"}, \code{"suspended"}, or
+\code{"under_review"}. Run \code{\link[=cer_accu_projects]{cer_accu_projects()}} then
+\code{unique(x$method)} to cross-check against currently-registered
+projects.
 }
 \examples{
 m <- cer_accu_methods()
