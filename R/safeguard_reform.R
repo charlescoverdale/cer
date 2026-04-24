@@ -136,7 +136,7 @@ cer_safeguard_teba_facilities <- function() {
   df <- utils::read.csv(path, stringsAsFactors = FALSE,
                          na.strings = c("", "NA"), check.names = FALSE)
   new_cer_tbl(df,
-              source = "https://cer.gov.au/schemes/safeguard-mechanism/trade-exposed-baseline-adjusted-facilities",
+              source = "https://cer.gov.au/markets/reports-and-data/safeguard-data/trade-exposed-baseline-adjusted-facility-data",
               licence = "CC BY 4.0",
               title = "Safeguard TEBA facilities")
 }

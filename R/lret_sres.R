@@ -100,10 +100,12 @@ cer_lgc_power_stations <- function(technology = NULL, state = NULL) {
 #'   Forecasting Methodology}. AEMO uses SRES installation data
 #'   as input to ISP and ESOO forecasts.
 #'
-#' Best, R., Burke, P.J. and Nishitateno, S. (2019). "Understanding
-#'   the determinants of rooftop solar installation: evidence from
-#'   Australian household data." \emph{Energy Economics}, 84.
-#'   \doi{10.1016/j.eneco.2019.104515}
+#' Best, R., Burke, P.J. and Nishitateno, S. (2019).
+#'   "Understanding the determinants of rooftop solar
+#'   installation: evidence from household surveys in Australia."
+#'   \emph{Australian Journal of Agricultural and Resource
+#'   Economics}, 63(4), 922-939.
+#'   \doi{10.1111/1467-8489.12319}
 #'
 #' @family sres
 #' @export

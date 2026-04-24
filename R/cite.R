@@ -24,7 +24,7 @@
 #' @examples
 #' x <- data.frame(a = 1)
 #' x <- structure(x,
-#'   cer_source = "https://cer.gov.au/document/x",
+#'   cer_source = "https://cer.gov.au/markets/reports-and-data/accu-project-and-contract-register",
 #'   cer_licence = "CC BY 4.0",
 #'   cer_retrieved = as.POSIXct("2026-04-24 00:00:00", tz = "UTC"),
 #'   cer_title = "ACCU project register",
@@ -33,7 +33,9 @@
 #'   class = c("cer_tbl", "data.frame"))
 #' cer_cite(x)
 #' cer_cite(x, style = "bibtex")
-#' cer_cite(x, style = "apa", doi = "10.5281/zenodo.12345678")
+#' # DOI style: supply any minted DOI (Zenodo, DataCite, etc.).
+#' # The placeholder below is illustrative only.
+#' cer_cite(x, style = "apa", doi = "10.5281/zenodo.XXXXXXXX")
 cer_cite <- function(x, style = c("text", "bibtex", "apa"),
                       doi = NULL) {
   style <- match.arg(style)

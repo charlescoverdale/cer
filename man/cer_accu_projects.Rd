@@ -54,8 +54,8 @@ Commonwealth of Australia. \emph{Carbon Credits (Carbon Farming
 Initiative) Act 2011}. Enabling legislation for the ACCU Scheme.
 
 Chubb, I. (2022). \emph{Independent Review of Australian Carbon
-Credit Units}. Commonwealth of Australia.
-\url{https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus}
+Credit Units}. Commonwealth of Australia, Department of Climate
+Change, Energy, the Environment and Water.
 
 Climate Change Authority (2024). \emph{2026 Review of the ACCU
 Scheme: Issues paper}.

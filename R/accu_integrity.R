@@ -1,4 +1,4 @@
-# ACCU integrity layer — the unique `cer` contribution.
+# ACCU integrity layer : the unique `cer` contribution.
 #
 # After Chubb (2022), Australian carbon credit units cannot be
 # treated as fungible. Different methods have different integrity
@@ -33,7 +33,6 @@
 #' Chubb, I. (2022). \emph{Independent Review of Australian Carbon
 #'   Credit Units}. Commonwealth of Australia, Department of
 #'   Climate Change, Energy, the Environment and Water.
-#'   \url{https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus}
 #'
 #' Macintosh, A., Butler, D., Larraondo, P., Evans, M.C., Ansell,
 #'   D., Gibbons, P., Lindenmayer, D., Waschka, M. and Fisher, R.

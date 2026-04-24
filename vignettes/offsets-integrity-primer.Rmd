@@ -66,7 +66,7 @@ by_tier
 ```
 
 The function emits a warning when contested-integrity methods
-account for more than 5 per cent of the total — a signal that a
+account for more than 5 per cent of the total : a signal that a
 single headline figure is not appropriate.
 
 ## Warnings when querying a suspended method
