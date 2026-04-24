@@ -24,11 +24,9 @@ bibentry(
   author   = person("Ian", "Chubb"),
   institution = "Commonwealth of Australia",
   year     = "2022",
-  url      = "https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus",
   textVersion = paste(
     "Chubb, I. (2022). Independent Review of Australian Carbon",
-    "Credit Units. Commonwealth of Australia.",
-    "https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus"
+    "Credit Units. Commonwealth of Australia."
   ),
   header = "ACCU integrity:"
 )

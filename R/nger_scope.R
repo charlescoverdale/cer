@@ -84,8 +84,7 @@ cer_nger_scope <- function(x,
 #' @references
 #' Department of Climate Change, Energy, the Environment and Water
 #'   (annual). \emph{Climate Active Carbon Neutral Standard for
-#'   Organisations}.
-#'   \url{https://www.climateactive.org.au}
+#'   Organisations}. Commonwealth of Australia.
 #'
 #' Greenhouse Gas Protocol (2004). \emph{A Corporate Accounting and
 #'   Reporting Standard (Revised Edition)}. World Resources Institute.

@@ -69,7 +69,7 @@ cer_to_carbondata <- function(x) {
 #'
 #' @references
 #' International Carbon Action Partnership (annual). \emph{Emissions
-#'   Trading Worldwide: Status Report}. \url{https://icapcarbonaction.com}
+#'   Trading Worldwide: Status Report}. \url{https://icapcarbonaction.com/en}
 #'
 #' World Bank (annual). \emph{State and Trends of Carbon Pricing}.
 #'
@@ -102,7 +102,7 @@ cer_international_comparator <- function() {
     stringsAsFactors = FALSE
   )
   new_cer_tbl(df,
-              source = "https://icapcarbonaction.com",
+              source = "https://icapcarbonaction.com/en",
               licence = "Mixed (see reference column)",
               title = "International carbon market comparator (indicative)")
 }

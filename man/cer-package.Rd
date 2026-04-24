@@ -40,6 +40,7 @@ Commons Attribution 4.0 International licence.
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://charlescoverdale.github.io/cer/}
   \item \url{https://github.com/charlescoverdale/cer}
   \item Report bugs at \url{https://github.com/charlescoverdale/cer/issues}
 }

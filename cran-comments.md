@@ -1,5 +1,25 @@
 # CRAN submission comments: cer 0.1.0
 
+## Resubmission (same version)
+
+This is a resubmission of the first public release after the
+2026-04-24 pre-test NOTE. The package was not accepted, so the
+version remains 0.1.0. Changes:
+
+* `https://icapcarbonaction.com` replaced with
+  `https://icapcarbonaction.com/en/` (target of 301 redirect)
+  in `R/interop.R` and regenerated `man/cer_international_comparator.Rd`.
+* `https://www.climateactive.org.au` dropped from
+  `R/nger_scope.R` `@references` (URL checker reports HTTP/2
+  stream errors from the upstream server); textual citation
+  retained.
+* `https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus`
+  dropped from `inst/CITATION` Chubb (2022) bibentry for the
+  same reason; textual citation retained.
+
+DESCRIPTION flagged words (ACCU, Chubb, SHA, Zenodo,
+accreditations) are correct technical terms and proper nouns.
+
 ## New submission
 
 First public release. Provides R access to data published by

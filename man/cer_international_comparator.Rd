@@ -21,7 +21,7 @@ cer_international_comparator()
 }
 \references{
 International Carbon Action Partnership (annual). \emph{Emissions
-Trading Worldwide: Status Report}. \url{https://icapcarbonaction.com}
+Trading Worldwide: Status Report}. \url{https://icapcarbonaction.com/en}
 
 World Bank (annual). \emph{State and Trends of Carbon Pricing}.
 }
