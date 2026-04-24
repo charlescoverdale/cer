@@ -1,0 +1,100 @@
+---
+title: "Safeguard Mechanism reform: pre- vs post-1 July 2023"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Safeguard Mechanism reform: pre- vs post-1 July 2023}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
+```
+
+On 1 July 2023 the Safeguard Mechanism shifted from
+production-adjusted facility-specific baselines to industry-average
+default baselines declining 4.9 per cent per annum (nominal) to
+2030. The *Safeguard Mechanism (Crediting) Amendment Act 2023*
+also introduced Safeguard Mechanism Credits (SMCs), a new
+crediting instrument. Time-series analysis across the reform
+without flagging the regime break is a common analytical error.
+
+## The regime flag
+
+```{r}
+library(cer)
+cer_snapshot("2026-04-24")
+
+fac_22_23 <- cer_safeguard_facilities(year = 2023)
+fac_23_24 <- cer_safeguard_facilities(year = 2024)
+
+unique(fac_22_23$regime)
+unique(fac_23_24$regime)
+```
+
+The `regime` column is `"pre_reform"` for FY ending in 2023 or
+earlier; `"post_reform"` from FY 2023-24 onward.
+
+## Declining baseline trajectory
+
+```{r}
+traj <- cer_safeguard_baseline_trajectory("Aluminium smelting",
+                                            from_year = 2023,
+                                            to_year = 2030)
+traj
+```
+
+In 2029-30, the aluminium smelting default baseline is ~27 per
+cent below its 2023-24 value (`(1 - 0.049)^6 ~= 0.738`). This is
+the key number for emissions-intensity reform analysis.
+
+## TEBA facilities
+
+```{r}
+teba <- cer_safeguard_teba_facilities()
+head(teba)
+
+# Safeguard data merged with TEBA declaration status
+sum(fac_23_24$teba_declared, na.rm = TRUE)
+```
+
+Trade-Exposed Baseline-Adjusted (TEBA) facilities are eligible for
+softer baseline treatment where international competition would
+otherwise lead to emissions-leakage.
+
+## Analytical pitfall: summing across regimes
+
+```{r}
+# DO NOT do this without a regime-specific annotation:
+all_years <- rbind(fac_22_23, fac_23_24)
+# If you sum covered_emissions across all_years you are combining
+# two different accounting regimes. Split by regime first:
+aggregate(covered_emissions ~ regime, data = all_years, FUN = sum,
+          na.rm = TRUE)
+```
+
+## SMCs post-reform
+
+SMCs did not exist pre-reform. In post-reform data, the SMC columns
+count issuances and surrenders for facilities operating below
+their baseline.
+
+```{r}
+# Post-reform SMC issuances (approximation; column names may drift)
+sum(fac_23_24[, grep("smc", names(fac_23_24))], na.rm = TRUE)
+```
+
+## Reconciling against the QCMR
+
+```{r}
+total_23_24 <- sum(fac_23_24$covered_emissions, na.rm = TRUE)
+cer_reconcile(
+  value   = total_23_24 / 1e6,  # convert t to Mt
+  quarter = "2023-24",
+  measure = "safeguard_covered_emissions_mt"
+)
+```
+
+If the reconciliation gap exceeds 2 per cent, a CER restatement
+has likely occurred between your snapshot date and the bundled
+QCMR reference.

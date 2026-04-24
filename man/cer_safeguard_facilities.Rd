@@ -39,4 +39,25 @@ try({
 options(op)
 }
 }
+\references{
+Commonwealth of Australia. \emph{National Greenhouse and Energy
+Reporting Act 2007}.
+
+Commonwealth of Australia. \emph{National Greenhouse and Energy
+Reporting (Safeguard Mechanism) Rule 2015} (as amended).
+
+Commonwealth of Australia (2023). \emph{Safeguard Mechanism
+(Crediting) Amendment Act 2023}. Introduced declining industry
+baselines (4.9\% p.a. nominal) and Safeguard Mechanism Credits
+(SMCs).
+
+Climate Change Authority (2023). \emph{Review of the Safeguard
+Mechanism}.
+}
+\seealso{
+Other safeguard: 
+\code{\link{cer_safeguard_baseline_trajectory}()},
+\code{\link{cer_safeguard_industry_baselines}()},
+\code{\link{cer_safeguard_teba_facilities}()}
+}
 \concept{safeguard}

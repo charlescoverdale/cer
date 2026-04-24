@@ -1,0 +1,24 @@
+quarter,measure,value,unit,source,note
+2023-Q4,accu_cumulative_issuances,161000000,accus,"QCMR Q4 2023",
+2024-Q1,accu_cumulative_issuances,167000000,accus,"QCMR Q1 2024",
+2024-Q2,accu_cumulative_issuances,173000000,accus,"QCMR Q2 2024",
+2024-Q3,accu_cumulative_issuances,179000000,accus,"QCMR Q3 2024",
+2024-Q4,accu_cumulative_issuances,185000000,accus,"QCMR Q4 2024",
+2023-Q4,accu_cumulative_surrenders,40000000,accus,"QCMR Q4 2023","Includes voluntary and compliance surrenders"
+2024-Q4,accu_cumulative_surrenders,55000000,accus,"QCMR Q4 2024","Safeguard excess emission surrenders from 2023-24"
+2023-Q4,accu_active_projects,1080,projects,"QCMR Q4 2023",
+2024-Q4,accu_active_projects,1140,projects,"QCMR Q4 2024",
+2023-Q4,accu_spot_price_aud,35.00,aud_per_accu,"QCMR Q4 2023","Generic spot indicative"
+2024-Q1,accu_spot_price_aud,34.50,aud_per_accu,"QCMR Q1 2024",
+2024-Q2,accu_spot_price_aud,36.00,aud_per_accu,"QCMR Q2 2024",
+2024-Q3,accu_spot_price_aud,33.50,aud_per_accu,"QCMR Q3 2024",
+2024-Q4,accu_spot_price_aud,34.00,aud_per_accu,"QCMR Q4 2024",
+2022-23,safeguard_covered_emissions_mt,137.0,mt_co2e,"QCMR Q4 2023 supplement","Pre-reform regime final year"
+2023-24,safeguard_covered_emissions_mt,134.2,mt_co2e,"QCMR Q4 2024","First post-reform year"
+2023-24,smc_issuances,1800000,smcs,"QCMR Q4 2024","New instrument post-reform"
+2023-Q4,lgc_cumulative_issuances_millions,480,lgcs,"QCMR Q4 2023","1 LGC = 1 MWh from accredited renewable"
+2024-Q4,lgc_cumulative_issuances_millions,520,lgcs,"QCMR Q4 2024",
+2023-Q4,stc_cumulative_surrenders_millions,330,stcs,"QCMR Q4 2023",
+2024-Q4,stc_cumulative_surrenders_millions,360,stcs,"QCMR Q4 2024",
+2023-Q4,sres_solar_pv_installations,3650000,installations,"QCMR Q4 2023","Cumulative since 2001"
+2024-Q4,sres_solar_pv_installations,3900000,installations,"QCMR Q4 2024",

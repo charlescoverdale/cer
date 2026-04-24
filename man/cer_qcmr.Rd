@@ -43,4 +43,11 @@ try({
 options(op)
 }
 }
+\references{
+Clean Energy Regulator (quarterly). \emph{Quarterly Carbon
+Market Report}. Methodology notes accompany each release.
+
+Clean Energy Regulator (2024). \emph{Carbon Market Indicators:
+methodology and data dictionary}.
+}
 \concept{qcmr}

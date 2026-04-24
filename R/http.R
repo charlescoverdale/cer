@@ -31,7 +31,11 @@ cer_download_cached <- function(url, cache = TRUE) {
   ext <- if (nzchar(ext)) paste0(".", ext) else ""
   file <- file.path(d, paste0(cer_digest_url(url), ext))
 
-  if (cache && file.exists(file)) return(file)
+  if (cache && file.exists(file)) {
+    cer_sha_verify(file)
+    .cer_manifest_append(url = url, file = file)
+    return(file)
+  }
 
   cli::cli_progress_step("Downloading {.url {url}}")
 
@@ -54,6 +58,9 @@ cer_download_cached <- function(url, cache = TRUE) {
       "i" = "The CER may have moved or renamed the resource."
     ))
   }
+
+  cer_sha_write(file)
+  .cer_manifest_append(url = url, file = file)
   file
 }
 

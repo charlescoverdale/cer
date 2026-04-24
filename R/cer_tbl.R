@@ -2,12 +2,25 @@
 
 #' @noRd
 new_cer_tbl <- function(df, source = NULL, licence = "CC BY 4.0",
-                         retrieved = Sys.time(), title = NULL) {
+                         retrieved = Sys.time(), title = NULL,
+                         sha256 = NA_character_,
+                         snapshot_date = cer_snapshot_str()) {
   stopifnot(is.data.frame(df))
+  if (is.na(sha256) && !is.null(source) && nzchar(source)) {
+    d <- tryCatch(cer_cache_dir(), error = function(e) NULL)
+    if (!is.null(d)) {
+      ext <- tools::file_ext(source)
+      ext <- if (nzchar(ext)) paste0(".", ext) else ""
+      f <- file.path(d, paste0(cer_digest_url(source), ext))
+      if (file.exists(f)) sha256 <- cer_sha_read(f)
+    }
+  }
   attr(df, "cer_source") <- source
   attr(df, "cer_licence") <- licence
   attr(df, "cer_retrieved") <- retrieved
   attr(df, "cer_title") <- title
+  attr(df, "cer_sha256") <- sha256
+  attr(df, "cer_snapshot_date") <- snapshot_date
   class(df) <- c("cer_tbl", class(df))
   df
 }
@@ -38,10 +51,18 @@ print.cer_tbl <- function(x, ...) {
     "-"
   }
 
+  sha <- attr(x, "cer_sha256")
+  snap <- attr(x, "cer_snapshot_date")
   cat("# cer_tbl: ", title, "\n", sep = "")
   cat("# Source:   ", source, "\n", sep = "")
   cat("# Licence:  ", licence, "\n", sep = "")
   cat("# Retrieved:", retrieved_str, "\n")
+  if (!is.null(snap) && !is.na(snap)) {
+    cat("# Snapshot: ", snap, "\n", sep = "")
+  }
+  if (!is.null(sha) && !is.na(sha) && nzchar(sha)) {
+    cat("# SHA-256:  ", substr(sha, 1, 16), "...\n", sep = "")
+  }
   cat("# Rows: ", formatC(nrow(x), big.mark = ",", format = "d"),
       "  Cols: ", ncol(x), "\n", sep = "")
   cat("\n")

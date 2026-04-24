@@ -97,6 +97,21 @@ nger_urls <- function(year, kind = c("corporate", "electricity")) {
 #'   <https://cer.gov.au/markets/reports-and-data/safeguard-data>.
 #'   Licensed under CC BY 4.0.
 #'
+#' @references
+#' Commonwealth of Australia. \emph{National Greenhouse and Energy
+#'   Reporting Act 2007}.
+#'
+#' Commonwealth of Australia. \emph{National Greenhouse and Energy
+#'   Reporting (Safeguard Mechanism) Rule 2015} (as amended).
+#'
+#' Commonwealth of Australia (2023). \emph{Safeguard Mechanism
+#'   (Crediting) Amendment Act 2023}. Introduced declining industry
+#'   baselines (4.9% p.a. nominal) and Safeguard Mechanism Credits
+#'   (SMCs).
+#'
+#' Climate Change Authority (2023). \emph{Review of the Safeguard
+#'   Mechanism}.
+#'
 #' @family safeguard
 #' @export
 #' @examples
@@ -116,6 +131,24 @@ cer_safeguard_facilities <- function(year = 2025) {
   # of Safeguard), so fall back on file magic bytes for dispatch.
   candidate <- if (!is.na(urls$csv)) urls$csv else urls$xlsx
   df <- cer_fetch_auto(candidate)
+
+  # Regime flag: pre-reform (FY 2016-17 to 2022-23) vs post-reform
+  # (FY 2023-24 onward). The reform changed baseline methodology
+  # fundamentally; a cross-regime time series should not be
+  # summarised as a single trend without this split.
+  fy_start <- year - 1L
+  df$regime <- cer_safeguard_regime(fy_start)
+  df$financial_year <- sprintf("%d-%02d", fy_start, fy_start %% 100L + 1L)
+
+  # TEBA flag: join declared Trade-Exposed Baseline-Adjusted list.
+  teba <- as.data.frame(cer_safeguard_teba_facilities())
+  fac_col <- intersect(c("facility_name", "facility"), names(df))[1]
+  if (!is.na(fac_col)) {
+    teba_set <- tolower(teba$facility_name)
+    df$teba_declared <- tolower(df[[fac_col]]) %in% teba_set
+  } else {
+    df$teba_declared <- NA
+  }
 
   rownames(df) <- NULL
   new_cer_tbl(df,
@@ -142,6 +175,20 @@ cer_safeguard_facilities <- function(year = 2025) {
 #' @source Clean Energy Regulator, NGER reporting data and registers:
 #'   <https://cer.gov.au/markets/reports-and-data/nger-reporting-data-and-registers>.
 #'   Licensed under CC BY 4.0.
+#'
+#' @references
+#' Commonwealth of Australia. \emph{National Greenhouse and Energy
+#'   Reporting Act 2007}; \emph{National Greenhouse and Energy
+#'   Reporting (Measurement) Determination 2008} (as amended
+#'   annually).
+#'
+#' Greenhouse Gas Protocol (2004). \emph{A Corporate Accounting
+#'   and Reporting Standard (Revised Edition)}. World Resources
+#'   Institute.
+#'
+#' Department of Climate Change, Energy, the Environment and Water
+#'   (annual). \emph{NGER Technical Guidelines}. Methodology for
+#'   Scope 1 and Scope 2 calculations.
 #'
 #' @family nger
 #' @export

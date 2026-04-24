@@ -44,4 +44,17 @@ head(inst)
 options(op)
 }
 }
+\references{
+Commonwealth of Australia. \emph{Renewable Energy (Electricity)
+Act 2000}, Small-scale Renewable Energy Scheme provisions.
+
+Australian Energy Market Operator (2024). \emph{Distributed PV
+Forecasting Methodology}. AEMO uses SRES installation data
+as input to ISP and ESOO forecasts.
+
+Best, R., Burke, P.J. and Nishitateno, S. (2019). "Understanding
+the determinants of rooftop solar installation: evidence from
+Australian household data." \emph{Energy Economics}, 84.
+\doi{10.1016/j.eneco.2019.104515}
+}
 \concept{sres}

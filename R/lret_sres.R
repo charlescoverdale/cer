@@ -35,6 +35,18 @@ SRES_LANDING <- "https://cer.gov.au/markets/reports-and-data/small-scale-install
 #'   <https://cer.gov.au/markets/reports-and-data/large-scale-renewable-energy-data/historical-large-scale-renewable-energy-supply-data>.
 #'   Licensed under CC BY 4.0.
 #'
+#' @references
+#' Commonwealth of Australia. \emph{Renewable Energy (Electricity)
+#'   Act 2000}. Establishes the Renewable Energy Target (RET), the
+#'   LGC (Large-scale Generation Certificate) and the shortfall
+#'   charge mechanism.
+#'
+#' Clean Energy Regulator (annual). \emph{LRET: Accreditation and
+#'   eligibility guidelines for power stations}.
+#'
+#' Australian Energy Market Commission (2023). \emph{Integrated
+#'   System Plan 2024} reference on renewable capacity expansion.
+#'
 #' @family lret
 #' @export
 #' @examples
@@ -79,6 +91,19 @@ cer_lgc_power_stations <- function(technology = NULL, state = NULL) {
 #'   postcode data:
 #'   <https://cer.gov.au/markets/reports-and-data/small-scale-installation-postcode-data>.
 #'   Licensed under CC BY 4.0.
+#'
+#' @references
+#' Commonwealth of Australia. \emph{Renewable Energy (Electricity)
+#'   Act 2000}, Small-scale Renewable Energy Scheme provisions.
+#'
+#' Australian Energy Market Operator (2024). \emph{Distributed PV
+#'   Forecasting Methodology}. AEMO uses SRES installation data
+#'   as input to ISP and ESOO forecasts.
+#'
+#' Best, R., Burke, P.J. and Nishitateno, S. (2019). "Understanding
+#'   the determinants of rooftop solar installation: evidence from
+#'   Australian household data." \emph{Energy Economics}, 84.
+#'   \doi{10.1016/j.eneco.2019.104515}
 #'
 #' @family sres
 #' @export

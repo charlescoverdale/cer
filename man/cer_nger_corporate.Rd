@@ -38,8 +38,24 @@ try({
 options(op)
 }
 }
+\references{
+Commonwealth of Australia. \emph{National Greenhouse and Energy
+Reporting Act 2007}; \emph{National Greenhouse and Energy
+Reporting (Measurement) Determination 2008} (as amended
+annually).
+
+Greenhouse Gas Protocol (2004). \emph{A Corporate Accounting
+and Reporting Standard (Revised Edition)}. World Resources
+Institute.
+
+Department of Climate Change, Energy, the Environment and Water
+(annual). \emph{NGER Technical Guidelines}. Methodology for
+Scope 1 and Scope 2 calculations.
+}
 \seealso{
 Other nger: 
-\code{\link{cer_nger_electricity}()}
+\code{\link{cer_nger_climate_active}()},
+\code{\link{cer_nger_electricity}()},
+\code{\link{cer_nger_scope}()}
 }
 \concept{nger}

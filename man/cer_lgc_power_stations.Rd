@@ -37,4 +37,16 @@ head(s)
 options(op)
 }
 }
+\references{
+Commonwealth of Australia. \emph{Renewable Energy (Electricity)
+Act 2000}. Establishes the Renewable Energy Target (RET), the
+LGC (Large-scale Generation Certificate) and the shortfall
+charge mechanism.
+
+Clean Energy Regulator (annual). \emph{LRET: Accreditation and
+eligibility guidelines for power stations}.
+
+Australian Energy Market Commission (2023). \emph{Integrated
+System Plan 2024} reference on renewable capacity expansion.
+}
 \concept{lret}

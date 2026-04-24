@@ -30,9 +30,12 @@ options(op)
 }
 \seealso{
 Other accu: 
+\code{\link{cer_accu_aggregate}()},
 \code{\link{cer_accu_issuances}()},
 \code{\link{cer_accu_methods}()},
 \code{\link{cer_accu_projects}()},
-\code{\link{cer_accu_relinquishments}()}
+\code{\link{cer_accu_relinquishments}()},
+\code{\link{cer_method_determination}()},
+\code{\link{cer_method_integrity}()}
 }
 \concept{accu}

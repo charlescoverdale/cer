@@ -49,11 +49,30 @@ head(p)
 options(op)
 }
 }
+\references{
+Commonwealth of Australia. \emph{Carbon Credits (Carbon Farming
+Initiative) Act 2011}. Enabling legislation for the ACCU Scheme.
+
+Chubb, I. (2022). \emph{Independent Review of Australian Carbon
+Credit Units}. Commonwealth of Australia.
+\url{https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus}
+
+Climate Change Authority (2024). \emph{2026 Review of the ACCU
+Scheme: Issues paper}.
+
+Macintosh, A., Butler, D., Larraondo, P., Evans, M.C., Ansell, D.,
+Gibbons, P., Lindenmayer, D., Waschka, M. and Fisher, R.
+(2022). "The emperor's new clothes: assessing the integrity
+of ACCUs." Australian National University working paper series.
+}
 \seealso{
 Other accu: 
+\code{\link{cer_accu_aggregate}()},
 \code{\link{cer_accu_contracts}()},
 \code{\link{cer_accu_issuances}()},
 \code{\link{cer_accu_methods}()},
-\code{\link{cer_accu_relinquishments}()}
+\code{\link{cer_accu_relinquishments}()},
+\code{\link{cer_method_determination}()},
+\code{\link{cer_method_integrity}()}
 }
 \concept{accu}

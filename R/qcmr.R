@@ -59,6 +59,13 @@ qcmr_url <- function(quarter) {
 #'   <https://cer.gov.au/markets/reports-and-data/quarterly-carbon-market-reports>.
 #'   Licensed under CC BY 4.0.
 #'
+#' @references
+#' Clean Energy Regulator (quarterly). \emph{Quarterly Carbon
+#'   Market Report}. Methodology notes accompany each release.
+#'
+#' Clean Energy Regulator (2024). \emph{Carbon Market Indicators:
+#'   methodology and data dictionary}.
+#'
 #' @family qcmr
 #' @export
 #' @examples

@@ -11,3 +11,62 @@ bibentry(
     meta$Version
   )
 )
+
+# When published work using cer cites CER data, please cite the
+# underlying dataset in addition to the package. cer_cite() on any
+# cer_tbl produces BibTeX or APA output with snapshot date and
+# SHA-256 digest.
+#
+# Key policy references for carbon market research using cer:
+bibentry(
+  bibtype  = "TechReport",
+  title    = "Independent Review of Australian Carbon Credit Units",
+  author   = person("Ian", "Chubb"),
+  institution = "Commonwealth of Australia",
+  year     = "2022",
+  url      = "https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus",
+  textVersion = paste(
+    "Chubb, I. (2022). Independent Review of Australian Carbon",
+    "Credit Units. Commonwealth of Australia.",
+    "https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus"
+  ),
+  header = "ACCU integrity:"
+)
+
+bibentry(
+  bibtype  = "TechReport",
+  title    = "The emperor's new clothes: assessing the integrity of ACCUs",
+  author   = c(person("Andrew", "Macintosh"),
+               person("Don", "Butler"),
+               person("Pablo", "Larraondo"),
+               person("Megan C.", "Evans"),
+               person("Dean", "Ansell"),
+               person("Philip", "Gibbons"),
+               person("David", "Lindenmayer"),
+               person("Marie", "Waschka"),
+               person("Rod", "Fisher")),
+  institution = "Australian National University",
+  year     = "2022",
+  textVersion = paste(
+    "Macintosh, A., Butler, D., Larraondo, P., Evans, M.C.,",
+    "Ansell, D., Gibbons, P., Lindenmayer, D., Waschka, M. and",
+    "Fisher, R. (2022). The emperor's new clothes: assessing the",
+    "integrity of ACCUs. Australian National University."
+  ),
+  header = "Academic critique (ANU working paper series):"
+)
+
+bibentry(
+  bibtype  = "Manual",
+  title    = "carbondata: International carbon market data",
+  author   = person("Charles", "Coverdale"),
+  year     = format(Sys.Date(), "%Y"),
+  note     = "R package",
+  url      = "https://cran.r-project.org/package=carbondata",
+  textVersion = paste0(
+    "Coverdale, C. (", format(Sys.Date(), "%Y"),
+    "). carbondata: International carbon market data. ",
+    "R package. https://cran.r-project.org/package=carbondata"
+  ),
+  header = "International comparator (ETS, Verra, Gold Standard):"
+)

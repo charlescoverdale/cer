@@ -38,6 +38,8 @@ options(op)
 }
 \seealso{
 Other nger: 
-\code{\link{cer_nger_corporate}()}
+\code{\link{cer_nger_climate_active}()},
+\code{\link{cer_nger_corporate}()},
+\code{\link{cer_nger_scope}()}
 }
 \concept{nger}

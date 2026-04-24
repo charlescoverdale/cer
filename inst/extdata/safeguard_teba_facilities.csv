@@ -1,0 +1,14 @@
+facility_name,parent_entity,anzsic,teba_status,note
+"Alcoa Wagerup Refinery","Alcoa of Australia",2131,declared,"Alumina refining TEBA"
+"Alcoa Pinjarra Refinery","Alcoa of Australia",2131,declared,
+"Alcoa Kwinana Refinery","Alcoa of Australia",2131,declared,
+"Tomago Aluminium","Tomago Aluminium Company",2132,declared,"Primary aluminium smelting"
+"Boyne Island Aluminium Smelter","Rio Tinto",2132,declared,
+"Portland Aluminium Smelter","Alcoa of Australia",2132,declared,
+"Bluescope Port Kembla","BlueScope Steel",2110,declared,"Integrated steelmaking"
+"Liberty Whyalla Steelworks","GFG Alliance",2110,declared,
+"Incitec Pivot Gibson Island","Incitec Pivot",1829,declared,"Ammonia/urea (closed 2022)"
+"Orica Kooragang Island","Orica",1829,declared,
+"Visy Pulp and Paper Tumut","Visy",1510,declared,
+"Adbri Cement Birkenhead","Adbri",2030,declared,
+"Boral Cement Berrima","Boral",2030,declared,

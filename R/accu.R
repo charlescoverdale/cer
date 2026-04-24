@@ -32,6 +32,22 @@ ACCU_CONTRACT_CSV <- "https://cer.gov.au/document/carbon-abatement-contract-regi
 #'   <https://cer.gov.au/markets/reports-and-data/accu-project-and-contract-register>.
 #'   Licensed under CC BY 4.0.
 #'
+#' @references
+#' Commonwealth of Australia. \emph{Carbon Credits (Carbon Farming
+#'   Initiative) Act 2011}. Enabling legislation for the ACCU Scheme.
+#'
+#' Chubb, I. (2022). \emph{Independent Review of Australian Carbon
+#'   Credit Units}. Commonwealth of Australia.
+#'   \url{https://www.dcceew.gov.au/climate-change/emissions-reporting/review-accus}
+#'
+#' Climate Change Authority (2024). \emph{2026 Review of the ACCU
+#'   Scheme: Issues paper}.
+#'
+#' Macintosh, A., Butler, D., Larraondo, P., Evans, M.C., Ansell, D.,
+#'   Gibbons, P., Lindenmayer, D., Waschka, M. and Fisher, R.
+#'   (2022). "The emperor's new clothes: assessing the integrity
+#'   of ACCUs." Australian National University working paper series.
+#'
 #' @family accu
 #' @export
 #' @examples
@@ -53,6 +69,23 @@ cer_accu_projects <- function(state = NULL, method = NULL,
     status_col <- intersect(c("project_status", "status"), names(df))[1]
     if (!is.na(status_col)) {
       df <- df[tolower(df[[status_col]]) == status, , drop = FALSE]
+    }
+  }
+
+  # Attach post-Chubb integrity flag (under_review, suspended,
+  # superseded, expired, or active).
+  df <- cer_attach_chubb_flag(df)
+
+  # Warn when the user queried a suspended or under-review method.
+  if (!is.null(method)) {
+    flagged <- unique(df$chubb_flag[df$chubb_flag %in%
+                                     c("suspended", "under_review")])
+    if (length(flagged) > 0L) {
+      cli::cli_alert_warning(c(
+        "Method filter matches {.val {flagged}} methods.",
+        "i" = "Chubb (2022) flagged these; do not aggregate without disclosing the integrity tier.",
+        "i" = "See {.code cer_method_integrity()} for details."
+      ))
     }
   }
 
