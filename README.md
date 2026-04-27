@@ -167,14 +167,6 @@ The CER specifies two forms of attribution depending on what you do with the dat
 
 The package returns cleaned snake_case tables so most use falls under the second form.
 
-## Known limitations
-
-- **No facility-level Scope 1 and 2 across all sectors.** NGER publishes facility-level data only for electricity generators. Every other sector reports at controlling-corporation level. Use `cer_nger_corporate()` for those.
-- **REC Registry isn't scraped.** The transactional registry (<https://rec-registry.gov.au>) has session cookies and CAPTCHAs on some views. `cer` uses the CER's published historical extracts of the same data instead.
-- **Files overwrite in place.** The CER has no versioned URL history. If a release is silently corrected, the cached file diverges from the live one until you run `cer_clear_cache()`.
-- **LGC and STC spot prices aren't in this package.** The CER does not publish spot prices. The `cer_qcmr()` function returns the volume-weighted quarterly averages that the CER does publish, but tick-level price history sits with private exchanges.
-- **ACCU methods are embedded.** Each ACCU method is published as a PDF determination on the Federal Register of Legislation. `cer_accu_methods()` returns a curated table embedded in the package. The current table includes the Savanna Fire Management 2026 methods, the Environmental Plantings 2024 FullCAM method (replacing the 2014 method, which expired 30 September 2024), and flags Avoided Deforestation as suspended for new projects post-Chubb. The Human-Induced Regeneration method is flagged as under review pending the IFLM replacement.
-
 ## Related packages
 
 | Package | Description |
@@ -192,3 +184,11 @@ The package returns cleaned snake_case tables so most use falls under the second
 ```r
 citation("cer")
 ```
+
+## Issues
+
+Please report bugs or requests at <https://github.com/charlescoverdale/cer/issues>.
+
+## Keywords
+
+Clean Energy Regulator, CER, Australian climate policy, ACCU, Australian Carbon Credit Units, Safeguard Mechanism, NGER, National Greenhouse and Energy Reporting, LRET, SRES, LGC, STC, QCMR, carbon market, carbon offsets, emissions reduction, renewable energy, decarbonisation, net zero, R package, Australian government data
