@@ -1,0 +1,71 @@
+# NGER scope reconciliation: Scope 1 vs Scope 2 vs Climate Active
+
+Scope confusion is the single most common error in Australian emissions
+reporting. NGER publishes:
+
+- **Scope 1** (direct emissions) at the corporate level.
+- **Scope 2** (indirect from purchased energy) at the corporate level.
+- **Scope 1 at facility level** for the electricity generation sector
+  only.
+
+NGER does not cover Scope 3. Climate Active (Australia’s voluntary
+carbon-neutral certification) requires Scope 3 separately, with
+location-based and market-based Scope 2 distinction.
+
+## Explicit scope selection
+
+``` r
+library(cer)
+cer_snapshot("2026-04-24")
+
+corp <- cer_nger_corporate(year = 2025)
+
+scope1 <- cer_nger_scope(corp, scope = "1")
+head(scope1[, c("reporting_corporation", "emissions_t_co2e", "scope")])
+
+scope12 <- cer_nger_scope(corp, scope = "1_plus_2")
+sum(scope12$emissions_t_co2e, na.rm = TRUE)
+```
+
+If the scope column is missing (NGER renames columns year to year), the
+error message lists available columns so you can pass `col_pattern`
+explicitly.
+
+## Climate Active translator
+
+``` r
+ca <- cer_nger_climate_active(corp)
+ca_cols <- grep("operational_scope", names(ca), value = TRUE)
+head(ca[, c("reporting_corporation", ca_cols)])
+```
+
+The renamed columns match a typical Climate Active inventory template:
+`operational_scope_1_t_co2e`, `operational_scope_2_market_t_co2e`,
+`operational_scope_2_location_t_co2e`.
+
+## Reconciling facility-level electricity to corporate-level
+
+Electricity is the only sector with facility-level Scope 1 in NGER.
+Facility-level total should reconcile to the corporate-level electricity
+total, within rounding.
+
+``` r
+elec_fac <- cer_nger_electricity(year = 2025)
+
+# Electricity subset at corporate level (heuristic: ANZSIC 26 or
+# a "generation" substring).
+elec_corp <- corp[grepl("electric|power|generat",
+                         corp$reporting_corporation,
+                         ignore.case = TRUE), ]
+
+fac_total <- sum(elec_fac$emissions_t_co2e, na.rm = TRUE)
+corp_total <- sum(elec_corp$scope_1_emissions_t_co2e, na.rm = TRUE)
+
+# Gap is informative: mismatch suggests corporate/facility
+# attribution differs or NGER updated one but not the other.
+pct_gap <- (fac_total - corp_total) / corp_total
+pct_gap
+```
+
+A gap above 5 per cent is worth investigating before reporting aggregate
+electricity emissions.
