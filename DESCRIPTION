@@ -6,12 +6,12 @@ Authors@R:
 Description: Fetch Australian Clean Energy Regulator data on carbon
     credits, safeguard mechanism facilities, renewable energy
     certificates, and greenhouse gas reporting. Provides tidy access
-    to the Australian Carbon Credit Unit ('ACCU') Scheme project
+    to the Australian Carbon Credit Unit (ACCU) Scheme project
     register, Safeguard Mechanism baselines and covered emissions,
-    Large-scale Renewable Energy Target ('LRET') power station
-    accreditations, Small-scale Renewable Energy Scheme ('SRES')
+    Large-scale Renewable Energy Target (LRET) power station
+    accreditations, Small-scale Renewable Energy Scheme (SRES)
     installation data, the National Greenhouse and Energy Reporting
-    ('NGER') scheme, and Quarterly Carbon Market Reports
+    (NGER) scheme, and Quarterly Carbon Market Reports
     <https://cer.gov.au/markets/reports-and-data>. Includes a
     post-Chubb ACCU integrity layer (Chubb 2022 Independent Review),
     Safeguard reform handling (declining industry baselines from
