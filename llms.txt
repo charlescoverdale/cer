@@ -79,6 +79,7 @@ XLSX or CSV, navigating heterogeneous header rows, and cleaning column
 names one release at a time. You did it every quarter.
 
 ``` r
+
 # Without this package
 landing <- "https://cer.gov.au/markets/reports-and-data/safeguard-data"
 html    <- rvest::read_html(landing)
@@ -117,14 +118,15 @@ give you the full global carbon markets picture with Australian
 granularity, using the same `*_cache_info()` / `*_clear_cache()` idioms
 and the same provenance-aware print methods.
 
-| Package        | Covers                                                                             |
-|----------------|------------------------------------------------------------------------------------|
+| Package | Covers |
+|----|----|
 | **carbondata** | Global ETS (EU, UK, RGGI, California) + voluntary (Verra, Gold Standard, ACR, CAR) |
-| **cer**        | Australian carbon: ACCUs, Safeguard, NGER, LRET, SRES, QCMR                        |
+| **cer** | Australian carbon: ACCUs, Safeguard, NGER, LRET, SRES, QCMR |
 
 ## Installation
 
 ``` r
+
 install.packages("cer")
 
 # Or install the development version from GitHub
@@ -135,6 +137,7 @@ devtools::install_github("charlescoverdale/cer")
 ## Quick start
 
 ``` r
+
 library(cer)
 
 # Current ACCU project register (issuances, methods, proponents, relinquishments)
@@ -154,27 +157,28 @@ solar <- cer_sres_installations(
 
 ## Functions
 
-| Function                                                                                                     | Description                                                                                                                                             | Coverage                  |
-|--------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [`cer_accu_projects()`](https://charlescoverdale.github.io/cer/reference/cer_accu_projects.md)               | ACCU project register with method, proponent, state, crediting period, ACCUs issued and relinquished                                                    | 2012 - present            |
-| [`cer_accu_issuances()`](https://charlescoverdale.github.io/cer/reference/cer_accu_issuances.md)             | Per-project issuance summary with optional method and date filters                                                                                      | 2012 - present            |
-| [`cer_accu_contracts()`](https://charlescoverdale.github.io/cer/reference/cer_accu_contracts.md)             | Carbon Abatement Contract register (Emissions Reduction Fund auctions)                                                                                  | 2015 - present            |
-| [`cer_accu_methods()`](https://charlescoverdale.github.io/cer/reference/cer_accu_methods.md)                 | Static lookup of approved ACCU methods across Agriculture, Energy Efficiency, Landfill and Waste, Mining, Oil and Gas, Vegetation, Savanna, Blue Carbon | Live + flagged superseded |
-| [`cer_accu_relinquishments()`](https://charlescoverdale.github.io/cer/reference/cer_accu_relinquishments.md) | Projects with non-zero ACCU relinquishments (voluntary plus compliance)                                                                                 | 2012 - present            |
-| [`cer_safeguard_facilities()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_facilities.md) | Covered emissions, baselines, SMCs issued or surrendered for facilities above 100,000 t CO2e                                                            | 2016-17 - present         |
-| [`cer_nger_corporate()`](https://charlescoverdale.github.io/cer/reference/cer_nger_corporate.md)             | Controlling-corporation Scope 1 and 2 emissions above the 50 kt / 200 TJ reporting threshold                                                            | 2008-09 - present         |
-| [`cer_nger_electricity()`](https://charlescoverdale.github.io/cer/reference/cer_nger_electricity.md)         | Facility-level Scope 1 emissions and generation for electricity sector above the 25 kt / 100 TJ facility threshold                                      | 2008-09 - present         |
-| [`cer_lgc_power_stations()`](https://charlescoverdale.github.io/cer/reference/cer_lgc_power_stations.md)     | Accredited LRET power stations (technology, state, capacity, commissioning)                                                                             | 2001 - present            |
-| [`cer_sres_installations()`](https://charlescoverdale.github.io/cer/reference/cer_sres_installations.md)     | Monthly rooftop solar PV, solar water heater, heat pump, and battery installations by postcode                                                          | 2011 - present            |
-| [`cer_qcmr()`](https://charlescoverdale.github.io/cer/reference/cer_qcmr.md)                                 | Quarterly Carbon Market Report data workbook (certificate volumes, unit surrenders, Safeguard developments)                                             | 2014 Q3 - present         |
-| [`cer_cache_info()`](https://charlescoverdale.github.io/cer/reference/cer_cache_info.md)                     | Inspect the local cache                                                                                                                                 | \-                        |
-| [`cer_clear_cache()`](https://charlescoverdale.github.io/cer/reference/cer_clear_cache.md)                   | Clear locally cached files                                                                                                                              | \-                        |
+| Function | Description | Coverage |
+|----|----|----|
+| [`cer_accu_projects()`](https://charlescoverdale.github.io/cer/reference/cer_accu_projects.md) | ACCU project register with method, proponent, state, crediting period, ACCUs issued and relinquished | 2012 - present |
+| [`cer_accu_issuances()`](https://charlescoverdale.github.io/cer/reference/cer_accu_issuances.md) | Per-project issuance summary with optional method and date filters | 2012 - present |
+| [`cer_accu_contracts()`](https://charlescoverdale.github.io/cer/reference/cer_accu_contracts.md) | Carbon Abatement Contract register (Emissions Reduction Fund auctions) | 2015 - present |
+| [`cer_accu_methods()`](https://charlescoverdale.github.io/cer/reference/cer_accu_methods.md) | Static lookup of approved ACCU methods across Agriculture, Energy Efficiency, Landfill and Waste, Mining, Oil and Gas, Vegetation, Savanna, Blue Carbon | Live + flagged superseded |
+| [`cer_accu_relinquishments()`](https://charlescoverdale.github.io/cer/reference/cer_accu_relinquishments.md) | Projects with non-zero ACCU relinquishments (voluntary plus compliance) | 2012 - present |
+| [`cer_safeguard_facilities()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_facilities.md) | Covered emissions, baselines, SMCs issued or surrendered for facilities above 100,000 t CO2e | 2016-17 - present |
+| [`cer_nger_corporate()`](https://charlescoverdale.github.io/cer/reference/cer_nger_corporate.md) | Controlling-corporation Scope 1 and 2 emissions above the 50 kt / 200 TJ reporting threshold | 2008-09 - present |
+| [`cer_nger_electricity()`](https://charlescoverdale.github.io/cer/reference/cer_nger_electricity.md) | Facility-level Scope 1 emissions and generation for electricity sector above the 25 kt / 100 TJ facility threshold | 2008-09 - present |
+| [`cer_lgc_power_stations()`](https://charlescoverdale.github.io/cer/reference/cer_lgc_power_stations.md) | Accredited LRET power stations (technology, state, capacity, commissioning) | 2001 - present |
+| [`cer_sres_installations()`](https://charlescoverdale.github.io/cer/reference/cer_sres_installations.md) | Monthly rooftop solar PV, solar water heater, heat pump, and battery installations by postcode | 2011 - present |
+| [`cer_qcmr()`](https://charlescoverdale.github.io/cer/reference/cer_qcmr.md) | Quarterly Carbon Market Report data workbook (certificate volumes, unit surrenders, Safeguard developments) | 2014 Q3 - present |
+| [`cer_cache_info()`](https://charlescoverdale.github.io/cer/reference/cer_cache_info.md) | Inspect the local cache | \- |
+| [`cer_clear_cache()`](https://charlescoverdale.github.io/cer/reference/cer_clear_cache.md) | Clear locally cached files | \- |
 
 ## Examples
 
 ### ACCU issuances by method
 
 ``` r
+
 library(cer)
 
 # All active projects
@@ -194,6 +198,7 @@ head(by_method, 10)
 ### Safeguard Mechanism covered emissions
 
 ``` r
+
 # Facility-level covered emissions for 2024-25
 s <- cer_safeguard_facilities(year = 2025)
 
@@ -208,6 +213,7 @@ head(top10, 10)
 ### Rooftop solar trends by state
 
 ``` r
+
 library(cer)
 
 inst <- cer_sres_installations(technology = "solar_pv",
@@ -220,6 +226,7 @@ head(inst)
 ### Quarterly Carbon Market Report
 
 ``` r
+
 # Table of contents for the latest QCMR data workbook
 toc <- cer_qcmr("latest")
 head(toc)
@@ -250,19 +257,20 @@ the second form.
 
 ## Related packages
 
-| Package                                                        | Description                                                                              |
-|----------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Package | Description |
+|----|----|
+| [`aemo`](https://github.com/charlescoverdale/aemo) | Australian Energy Market Operator (NEM prices, demand, dispatch, FCAS, gas) |
 | [`carbondata`](https://github.com/charlescoverdale/carbondata) | Global carbon markets (EU ETS, UK ETS, RGGI, California, Verra, Gold Standard, ACR, CAR) |
-| [`aemo`](https://github.com/charlescoverdale/aemo)             | Australian Energy Market Operator (NEM prices, demand, dispatch, FCAS, gas)              |
-| [`climatekit`](https://github.com/charlescoverdale/climatekit) | 35 climate indices (temperature, precipitation, drought)                                 |
-| [`readnoaa`](https://github.com/charlescoverdale/readnoaa)     | NOAA climate and weather data                                                            |
-| [`readaec`](https://github.com/charlescoverdale/readaec)       | Australian Electoral Commission                                                          |
-| [`readabs`](https://github.com/mattcowgill/readabs)            | Australian Bureau of Statistics                                                          |
-| [`readrba`](https://github.com/mattcowgill/readrba)            | Reserve Bank of Australia                                                                |
+| [`climatekit`](https://github.com/charlescoverdale/climatekit) | 35 climate indices (temperature, precipitation, drought) |
+| [`readnoaa`](https://github.com/charlescoverdale/readnoaa) | NOAA climate and weather data |
+| [`ato`](https://github.com/charlescoverdale/ato) | Australian Taxation Office data (Australian gov data peer) |
+| [`readabs`](https://github.com/mattcowgill/readabs) | Australian Bureau of Statistics |
+| [`readrba`](https://github.com/mattcowgill/readrba) | Reserve Bank of Australia |
 
 ## Citation
 
 ``` r
+
 citation("cer")
 ```
 

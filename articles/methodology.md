@@ -7,7 +7,9 @@ vignette walks through the three formula functions.
 
 ### Formula
 
-$$B_{t}\; = \; B_{2023\text{-}24} \times (1 - 0.049)^{t - 2023}$$
+``` math
+B_t \;=\; B_{2023\text{-}24} \times (1 - 0.049)^{t - 2023}
+```
 
 Source: Safeguard Mechanism (Crediting) Amendment Act 2023.
 
@@ -16,11 +18,14 @@ Source: Safeguard Mechanism (Crediting) Amendment Act 2023.
 Aluminium smelting 2023-24 default baseline = 1.650 t CO2e per tonne
 aluminium. For FY 2029-30 (t = 2029):
 
-$$B_{2029\text{-}30} = 1.650 \times (1 - 0.049)^{6} = 1.650 \times 0.738 = 1.218$$
+``` math
+B_{2029\text{-}30} = 1.650 \times (1 - 0.049)^6 = 1.650 \times 0.738 = 1.218
+```
 
 ### Package output
 
 ``` r
+
 traj <- cer_safeguard_baseline_trajectory("Aluminium smelting",
                                            from_year = 2023,
                                            to_year = 2029)
@@ -40,6 +45,7 @@ Row for 2029: baseline ~= 1.218. Matches.
 ### Sanity check at base year
 
 ``` r
+
 traj[traj$year == 2023, ]
 #>   year financial_year baseline decline_factor
 #> 1 2023        2023-24     1.65              1
@@ -51,7 +57,9 @@ Decline factor = 1.000; baseline = 1.650. Identity holds.
 
 ### Formula
 
-$$\pi\; = \;\frac{V - R}{R}$$
+``` math
+\pi \;=\; \frac{V - R}{R}
+```
 
 where V is the live-fetched aggregate and R the QCMR reference.
 
@@ -60,11 +68,15 @@ where V is the live-fetched aggregate and R the QCMR reference.
 ACCU cumulative issuances at end of 2024-Q4 per QCMR = 185,000,000.
 Suppose a user’s fetch shows 184,200,000 (0.43 per cent low).
 
-$$\pi = \frac{184,200,000 - 185,000,000}{185,000,000} = \frac{- 800,000}{185,000,000} = - 0.00432 = - 0.432\%$$
+``` math
+\pi = \frac{184{,}200{,}000 - 185{,}000{,}000}{185{,}000{,}000}
+     = \frac{-800{,}000}{185{,}000{,}000} = -0.00432 = -0.432\%
+```
 
 ### Package output
 
 ``` r
+
 cer_reconcile(value   = 184200000,
               quarter = "2024-Q4",
               measure = "accu_cumulative_issuances")
@@ -88,6 +100,7 @@ SHA-256 as defined in NIST FIPS 180-4. Empty-string digest:
 ### Verification
 
 ``` r
+
 f <- tempfile()
 file.create(f)
 #> [1] TRUE

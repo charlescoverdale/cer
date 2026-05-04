@@ -17,6 +17,7 @@ percentage. The **shortfall charge** caps the price: AUD 65 per MWh
 ## LRET: accredited power stations
 
 ``` r
+
 library(cer)
 cer_snapshot("2026-04-24")
 
@@ -28,6 +29,7 @@ head(stations[, c("accredited_power_station", "state",
 ## SRES: postcode installations
 
 ``` r
+
 sres <- cer_sres_installations(measure = "installations")
 head(sres[, 1:8])
 ```
@@ -41,6 +43,7 @@ shortfall is 100,000 LGCs, and the shortfall charge is AUD 6.5m
 (pre-tax).
 
 ``` r
+
 liable_mwh <- 10e6
 target_pct <- 0.18
 lgcs_required <- liable_mwh * target_pct
@@ -54,6 +57,7 @@ shortfall_aud
 ## Reconciling against QCMR headline
 
 ``` r
+
 # Cumulative LGC issuances
 cer_reconcile(
   value    = sum(stations$capacity_mw, na.rm = TRUE) * 1e3,  # rough

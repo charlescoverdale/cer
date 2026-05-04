@@ -15,6 +15,7 @@ location-based and market-based Scope 2 distinction.
 ## Explicit scope selection
 
 ``` r
+
 library(cer)
 cer_snapshot("2026-04-24")
 
@@ -34,6 +35,7 @@ explicitly.
 ## Climate Active translator
 
 ``` r
+
 ca <- cer_nger_climate_active(corp)
 ca_cols <- grep("operational_scope", names(ca), value = TRUE)
 head(ca[, c("reporting_corporation", ca_cols)])
@@ -50,6 +52,7 @@ Facility-level total should reconcile to the corporate-level electricity
 total, within rounding.
 
 ``` r
+
 elec_fac <- cer_nger_electricity(year = 2025)
 
 # Electricity subset at corporate level (heuristic: ANZSIC 26 or

@@ -27,6 +27,7 @@ on HIR specifically. The live debate is continuing.
 ## Query the integrity scorecard
 
 ``` r
+
 library(cer)
 cer_snapshot("2026-04-24")
 
@@ -37,6 +38,7 @@ all_methods[, c("method_short", "status", "integrity_tier", "chubb_affected")]
 ## Filter to contested methods
 
 ``` r
+
 contested <- cer_method_integrity(tier = "contested")
 contested[, c("method_short", "method_full_name", "status")]
 ```
@@ -44,6 +46,7 @@ contested[, c("method_short", "method_full_name", "status")]
 ## Aggregating ACCUs by integrity tier
 
 ``` r
+
 projects <- cer_accu_projects(status = "all")
 
 by_tier <- cer_accu_aggregate(projects,
@@ -59,6 +62,7 @@ figure is not appropriate.
 ## Warnings when querying a suspended method
 
 ``` r
+
 # Will emit a post-Chubb integrity warning
 ad <- cer_accu_projects(method = "avoided deforestation",
                          status = "all")
@@ -67,6 +71,7 @@ ad <- cer_accu_projects(method = "avoided deforestation",
 ## Linking to the authoritative determination
 
 ``` r
+
 cer_method_determination("HIR")
 cer_legislative_instrument("F2019C00664")
 ```

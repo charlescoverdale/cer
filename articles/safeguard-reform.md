@@ -11,6 +11,7 @@ analytical error.
 ## The regime flag
 
 ``` r
+
 library(cer)
 cer_snapshot("2026-04-24")
 
@@ -27,6 +28,7 @@ The `regime` column is `"pre_reform"` for FY ending in 2023 or earlier;
 ## Declining baseline trajectory
 
 ``` r
+
 traj <- cer_safeguard_baseline_trajectory("Aluminium smelting",
                                             from_year = 2023,
                                             to_year = 2030)
@@ -40,6 +42,7 @@ number for emissions-intensity reform analysis.
 ## TEBA facilities
 
 ``` r
+
 teba <- cer_safeguard_teba_facilities()
 head(teba)
 
@@ -54,6 +57,7 @@ otherwise lead to emissions-leakage.
 ## Analytical pitfall: summing across regimes
 
 ``` r
+
 # DO NOT do this without a regime-specific annotation:
 all_years <- rbind(fac_22_23, fac_23_24)
 # If you sum covered_emissions across all_years you are combining
@@ -69,6 +73,7 @@ count issuances and surrenders for facilities operating below their
 baseline.
 
 ``` r
+
 # Post-reform SMC issuances (approximation; column names may drift)
 sum(fac_23_24[, grep("smc", names(fac_23_24))], na.rm = TRUE)
 ```
@@ -76,6 +81,7 @@ sum(fac_23_24[, grep("smc", names(fac_23_24))], na.rm = TRUE)
 ## Reconciling against the QCMR
 
 ``` r
+
 total_23_24 <- sum(fac_23_24$covered_emissions, na.rm = TRUE)
 cer_reconcile(
   value   = total_23_24 / 1e6,  # convert t to Mt
