@@ -1,0 +1,1064 @@
+# cer: full API reference
+
+> Fetch Australian Clean Energy Regulator data on carbon credits, safeguard mechanism facilities, renewable energy certificates, and greenhouse gas reporting.
+
+- Version: 0.1.0
+- Install: `install.packages("cer")`
+- CRAN: https://CRAN.R-project.org/package=cer
+- GitHub: https://github.com/charlescoverdale/cer
+- Reference site: https://charlescoverdale.github.io/cer/
+
+This file is a self-contained reference for LLM agents: every exported
+function with its signature, arguments, return value, and example.
+
+---
+
+## `cer_accu_aggregate()`
+
+**Integrity-weighted ACCU aggregation**
+
+Takes an `ato_tbl` or data frame of ACCU project records (from `cer_accu_projects()`), joins the method integrity scorecard, and aggregates by integrity tier. Emits a warning if contested or under-review methods contribute materially to the total so the analyst cannot silently aggregate them into a single headline figure.
+
+**Usage**
+
+```r
+cer_accu_aggregate(x, value_col = "accus_issued", warn_contested_pct = 0.05)
+```
+
+**Arguments**
+
+- `x`: A `cer_tbl` or data frame with columns `method` and (typically) `accus_issued`.
+- `value_col`: Column to sum. Default `"accus_issued"`.
+- `warn_contested_pct`: Warn if the contested tier exceeds this share of the total. Default `0.05` (5%).
+
+**Returns**
+
+A data frame with one row per integrity tier and columns `integrity_tier`, `projects`, `accus_issued_sum`, `share_pct`.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  p <- cer_accu_projects()
+  cer_accu_aggregate(p)
+})
+options(op)
+```
+
+---
+
+## `cer_accu_contracts()`
+
+**ACCU Carbon Abatement Contract register**
+
+Government purchase contracts under Emissions Reduction Fund auctions administered by the CER.
+
+**Usage**
+
+```r
+cer_accu_contracts(auction = NULL)
+```
+
+**Arguments**
+
+- `auction`: Optional character vector of auction identifiers (e.g. `"ERF Auction 18"`).
+
+**Returns**
+
+A `cer_tbl` with one row per contract.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+cer_accu_contracts()
+options(op)
+```
+
+---
+
+## `cer_accu_issuances()`
+
+**ACCU issuances by project**
+
+Derived from the ACCU Scheme project register: returns one row per project with `accus_issued`, project metadata, and total issuance net of relinquishments. For method- or period-level issuance tracking, query `cer_accu_projects()` directly.
+
+**Usage**
+
+```r
+cer_accu_issuances(method = NULL, project_id = NULL, from = NULL, to = NULL)
+```
+
+**Arguments**
+
+- `method`: Optional character vector of method substrings.
+- `project_id`: Optional character vector of ERF / EOP project identifiers.
+- `from, to`: Optional `Date` (or YYYY-MM-DD string) for crediting-period overlap filter. `NULL` returns all projects.
+
+**Returns**
+
+A `cer_tbl` with one row per project.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+i <- cer_accu_issuances(method = "savanna")
+head(i)
+options(op)
+```
+
+---
+
+## `cer_accu_methods()`
+
+**Approved ACCU Scheme methods**
+
+A static table of ACCU Scheme methods grouped by sector (Agriculture, Energy Efficiency, Landfill and Waste, Mining/Oil/Gas, Vegetation, Savanna, Blue Carbon, Transport). Built from the CER methods index at build time.
+
+**Usage**
+
+```r
+cer_accu_methods()
+```
+
+**Returns**
+
+A `cer_tbl` with columns `method`, `sector`, `short_name`, `status`, `commenced`, and `source_url`.
+
+**Example**
+
+```r
+m <- cer_accu_methods()
+head(m)
+```
+
+---
+
+## `cer_accu_projects()`
+
+**ACCU Scheme project register**
+
+Download and parse the Clean Energy Regulator's Australian Carbon Credit Unit ('ACCU') Scheme project register. Returns one row per project with proponent, method, state, crediting period, permanence period, and cumulative ACCUs issued and relinquished.
+
+**Usage**
+
+```r
+cer_accu_projects(
+  state = NULL,
+  method = NULL,
+  status = c("active", "revoked", "completed", "all")
+)
+```
+
+**Arguments**
+
+- `state`: Optional character vector of Australian state codes (e.g. `"NSW"`, `c("VIC", "QLD")`) to filter on. `NULL` returns projects across all states.
+- `method`: Optional character vector of method name substrings (case-insensitive, e.g. `"savanna"`, `"landfill"`, `"vegetation"`).
+- `status`: Character. One of `"active"` (default), `"revoked"`, `"completed"`, or `"all"`.
+
+**Returns**
+
+A `cer_tbl` (data frame) with one row per ACCU project.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+p <- cer_accu_projects(state = "NSW")
+head(p)
+options(op)
+```
+
+---
+
+## `cer_accu_relinquishments()`
+
+**ACCU relinquishments by project**
+
+Returns projects with non-zero ACCU relinquishments. Useful for tracking voluntary cancellations and compliance obligations.
+
+**Usage**
+
+```r
+cer_accu_relinquishments(project_id = NULL)
+```
+
+**Arguments**
+
+- `project_id`: Optional character vector of project IDs.
+
+**Returns**
+
+A `cer_tbl` with one row per project with `accus_relinquished > 0`.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+cer_accu_relinquishments()
+options(op)
+```
+
+---
+
+## `cer_cache_info()`
+
+**Inspect the local cer cache**
+
+Returns the cache directory, number of files, total size, and a per-file summary. Useful for deciding whether to call `cer_clear_cache()`.
+
+**Usage**
+
+```r
+cer_cache_info()
+```
+
+**Returns**
+
+A list with elements `dir`, `n_files`, `size_bytes`, `size_human`, and `files` (a data frame with `name`, `size_bytes`, `modified`).
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+cer_cache_info()
+options(op)
+```
+
+---
+
+## `cer_cite()`
+
+**Cite a cer_tbl or URL in BibTeX, plain-text, or APA form**
+
+Returns a citation suitable for footnotes, papers, and carbon market analysis reports. Uses the provenance attributes attached to every `cer_tbl`: source URL, licence, retrieval date, title, snapshot pin (from `cer_snapshot()`), and SHA-256 digest.
+
+**Usage**
+
+```r
+cer_cite(x, style = c("text", "bibtex", "apa"), doi = NULL)
+```
+
+**Arguments**
+
+- `x`: A `cer_tbl` (as returned by any cer_* data function) or a character URL.
+- `style`: One of `"text"` (default), `"bibtex"`, or `"apa"`.
+- `doi`: Optional DOI (e.g. from `cer_deposit_zenodo()`) to include in BibTeX output as a `doi` field and APA suffix.
+
+**Returns**
+
+A character string.
+
+**Example**
+
+```r
+x <- data.frame(a = 1)
+x <- structure(x,
+  cer_source = "https://cer.gov.au/markets/reports-and-data/accu-project-and-contract-register",
+  cer_licence = "CC BY 4.0",
+  cer_retrieved = as.POSIXct("2026-04-24 00:00:00", tz = "UTC"),
+  cer_title = "ACCU project register",
+  cer_sha256 = "abc123def456",
+  cer_snapshot_date = "2026-04-24",
+  class = c("cer_tbl", "data.frame"))
+cer_cite(x)
+cer_cite(x, style = "bibtex")
+# DOI style: supply any minted DOI (Zenodo, DataCite, etc.).
+# The placeholder below is illustrative only.
+cer_cite(x, style = "apa", doi = "10.5281/zenodo.XXXXXXXX")
+```
+
+---
+
+## `cer_clear_cache()`
+
+**Clear the cer cache**
+
+Deletes all locally cached files. The next call to any data function will re-download from the Clean Energy Regulator.
+
+**Usage**
+
+```r
+cer_clear_cache()
+```
+
+**Returns**
+
+Invisibly returns `NULL`.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+cer_clear_cache()
+options(op)
+```
+
+---
+
+## `cer_deposit_zenodo()`
+
+**Prepare a Zenodo deposit payload for the session manifest**
+
+Builds Zenodo-shaped metadata for a data deposit using the current `cer_manifest()` and the snapshot pin set via `cer_snapshot()`. Dry run by default; pass `upload = TRUE` and a token to actually deposit.
+
+**Usage**
+
+```r
+cer_deposit_zenodo(
+  title = NULL,
+  description = NULL,
+  creators = list(list(name = "Anonymous")),
+  keywords = c("Clean Energy Regulator", "carbon markets", "Australia", "ACCU",
+    "Safeguard", "reproducibility"),
+  upload = FALSE,
+  sandbox = FALSE,
+  token = Sys.getenv("ZENODO_TOKEN")
+)
+```
+
+**Arguments**
+
+- `title`: Deposit title. Defaults to a snapshot-date string.
+- `description`: Free-text description. Defaults to a short auto-generated summary of datasets fetched.
+- `creators`: List of creator records.
+- `keywords`: Character vector of keywords.
+- `upload`: Logical. If `TRUE`, POSTs to Zenodo.
+- `sandbox`: Logical. If `TRUE`, uses Zenodo Sandbox for tests.
+- `token`: Zenodo personal access token. Defaults to `Sys.getenv("ZENODO_TOKEN")`.
+
+**Returns**
+
+A list with `payload`, `manifest_path`, and (on upload) `deposit_id`, `doi_prereserve`, `url`.
+
+**Example**
+
+```r
+cer_snapshot("2026-04-24")
+cer_deposit_zenodo(
+  title = "CER data snapshot for working paper v1",
+  creators = list(list(name = "Author, A.")),
+  upload = FALSE
+)
+```
+
+---
+
+## `cer_international_comparator()`
+
+**Bundled international carbon market comparator**
+
+Returns headline price/volume figures for comparison between ACCU (Australia) and major international markets: EU ETS, New Zealand ETS, California-Quebec (WCI), Verra VCUs, and Gold Standard. Values are indicative snapshots. For live data use the companion `carbondata` package.
+
+**Usage**
+
+```r
+cer_international_comparator()
+```
+
+**Returns**
+
+A `cer_tbl` of indicative comparator data.
+
+**Example**
+
+```r
+cer_international_comparator()
+```
+
+---
+
+## `cer_legislative_instrument()`
+
+**Build a Federal Register of Legislation URL**
+
+Given a Legislative Instrument identifier (e.g. `"F2024L01292"` for the Environmental Plantings 2024 method), return the stable URL on the Federal Register of Legislation. This is the authoritative source of truth for ACCU methods, Safeguard Rule amendments, and NGER Determinations.
+
+**Usage**
+
+```r
+cer_legislative_instrument(instrument)
+```
+
+**Arguments**
+
+- `instrument`: Character identifier (e.g. `"F2024L01292"`). Case-insensitive.
+
+**Returns**
+
+A length-1 character URL string.
+
+**Example**
+
+```r
+cer_legislative_instrument("F2024L01292")
+cer_legislative_instrument("F2015L00398")
+```
+
+---
+
+## `cer_lgc_power_stations()`
+
+**LRET accredited power stations**
+
+Power stations accredited under the Large-scale Renewable Energy Target ('LRET') and eligible to create Large-scale Generation Certificates ('LGCs').
+
+**Usage**
+
+```r
+cer_lgc_power_stations(technology = NULL, state = NULL)
+```
+
+**Arguments**
+
+- `technology`: Optional character vector of technology substrings (e.g. `"solar"`, `"wind"`, `"hydro"`, `"bioenergy"`).
+- `state`: Optional character vector of Australian state codes (e.g. `c("VIC", "SA")`).
+
+**Returns**
+
+A `cer_tbl` with one row per accredited power station, including accreditation date, technology, capacity (MW), and state.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+s <- cer_lgc_power_stations(technology = "solar", state = "VIC")
+head(s)
+options(op)
+```
+
+---
+
+## `cer_manifest()`
+
+**Return the session manifest of fetched CER datasets**
+
+Every call to a data function appends one row to the session manifest, recording URL, dataset title, SHA-256 of the cached file, size, retrieval timestamp, and the snapshot pin set via `cer_snapshot()`. Duplicate URLs within a session are deduplicated (last fetch wins).
+
+**Usage**
+
+```r
+cer_manifest(format = c("df", "yaml", "json"))
+```
+
+**Arguments**
+
+- `format`: One of `"df"` (default), `"yaml"`, or `"json"`.
+
+**Returns**
+
+A data frame, YAML string, or JSON string.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+cer_manifest_clear()
+cer_snapshot("2026-04-24")
+cer_manifest()
+options(op)
+```
+
+---
+
+## `cer_manifest_clear()`
+
+**Clear the session manifest**
+
+Clear the session manifest
+
+**Usage**
+
+```r
+cer_manifest_clear()
+```
+
+**Returns**
+
+Invisibly `NULL`.
+
+**Example**
+
+```r
+cer_manifest_clear()
+```
+
+---
+
+## `cer_manifest_write()`
+
+**Write the session manifest to a file**
+
+Write the session manifest to a file
+
+**Usage**
+
+```r
+cer_manifest_write(path, format = c("auto", "csv", "yaml", "json"))
+```
+
+**Arguments**
+
+- `path`: Output file path. Extension determines format when `format = "auto"`.
+- `format`: One of `"auto"`, `"csv"`, `"yaml"`, `"json"`.
+
+**Returns**
+
+Invisibly, the absolute path written.
+
+**Example**
+
+```r
+p <- tempfile(fileext = ".csv")
+cer_manifest_clear()
+cer_manifest_write(p)
+```
+
+---
+
+## `cer_method_determination()`
+
+**Federal Register URL for an ACCU method determination**
+
+Given a method short name (e.g. `"HIR"`, `"Savanna_2026"`), return the authoritative legislative instrument URL on the Federal Register of Legislation. This is the technical determination document that defines measurement, monitoring, baseline, and permanence rules for the method.
+
+**Usage**
+
+```r
+cer_method_determination(method_short)
+```
+
+**Arguments**
+
+- `method_short`: Character scalar matching a `method_short` value from `cer_method_integrity()`.
+
+**Returns**
+
+A length-1 character URL, or `NA_character_` if not found.
+
+**Example**
+
+```r
+cer_method_determination("HIR")
+cer_method_determination("Savanna_2026")
+```
+
+---
+
+## `cer_method_integrity()`
+
+**ACCU method integrity scorecard**
+
+Returns a method-level integrity scorecard for all ACCU methods. Columns include `integrity_tier` (high / standard / contested), `chubb_affected` (whether the Chubb 2022 Independent Review flagged the method), `chubb_recommendation_applies` (whether a specific Chubb recommendation targets the method), and `federal_register_instrument` (authoritative legislative instrument ID).
+
+**Usage**
+
+```r
+cer_method_integrity(tier = NULL, status = NULL)
+```
+
+**Arguments**
+
+- `tier`: Optional filter on `integrity_tier`. One or more of `"high"`, `"standard"`, `"contested"`.
+- `status`: Optional filter on method `status`. One or more of `"active"`, `"suspended"`, `"under_review"`, `"superseded"`, `"expired"`.
+
+**Returns**
+
+A `cer_tbl` with one row per method (19 rows at v0.2.0).
+
+**Example**
+
+```r
+cer_method_integrity()
+cer_method_integrity(tier = "contested")
+cer_method_integrity(status = "active")
+```
+
+---
+
+## `cer_nger_climate_active()`
+
+**Translate NGER scope columns to Climate Active categories**
+
+Climate Active (Australia's voluntary carbon-neutral certification) uses a Scope 1 / Scope 2 (market-based and location-based) / Scope 3 taxonomy. NGER publishes Scope 1 and Scope 2 only (Scope 3 is not NGER-reportable). This helper renames columns so an NGER output flows into a Climate Active inventory template.
+
+**Usage**
+
+```r
+cer_nger_climate_active(x)
+```
+
+**Arguments**
+
+- `x`: A `cer_tbl` or data frame from `cer_nger_corporate()`.
+
+**Returns**
+
+A data frame with Climate Active-style columns: `operational_scope_1_t_co2e`, `operational_scope_2_location_t_co2e`, `operational_scope_2_market_t_co2e`.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  x <- cer_nger_corporate(2025)
+  cer_nger_climate_active(x)
+})
+options(op)
+```
+
+---
+
+## `cer_nger_corporate()`
+
+**NGER corporate emissions and energy data**
+
+Controlling-corporation-level Scope 1 and Scope 2 emissions and energy use from the National Greenhouse and Energy Reporting ('NGER') scheme.
+
+**Usage**
+
+```r
+cer_nger_corporate(year = 2025)
+```
+
+**Arguments**
+
+- `year`: Integer. Reporting year ending 30 June.
+
+**Returns**
+
+A `cer_tbl` with one row per reporting corporation.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  x <- cer_nger_corporate(year = 2025)
+  head(x)
+})
+options(op)
+```
+
+---
+
+## `cer_nger_electricity()`
+
+**NGER electricity sector facility emissions**
+
+Facility-level Scope 1 emissions and generated electricity for facilities in the electricity generation sector that met the NGER reporting threshold.
+
+**Usage**
+
+```r
+cer_nger_electricity(year = 2025, facility = NULL)
+```
+
+**Arguments**
+
+- `year`: Integer. Reporting year ending 30 June.
+- `facility`: Optional character vector of facility name substrings (case-insensitive).
+
+**Returns**
+
+A `cer_tbl` with one row per generator facility.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  e <- cer_nger_electricity(year = 2025, facility = "Bayswater")
+  head(e)
+})
+options(op)
+```
+
+---
+
+## `cer_nger_scope()`
+
+**Select NGER columns by scope with explicit errors**
+
+Given an NGER corporate-level data frame from `cer_nger_corporate()`, select the requested scope columns and error if they are not present. Avoids the silent-misaggregation failure mode where a user sums a column that is actually Scope 1+2 combined when they intended Scope 1 only.
+
+**Usage**
+
+```r
+cer_nger_scope(
+  x,
+  scope = c("1_plus_2", "1", "2_market", "2_location"),
+  col_pattern = NULL
+)
+```
+
+**Arguments**
+
+- `x`: A `cer_tbl` or data frame from `cer_nger_corporate()`.
+- `scope`: One of `"1_plus_2"` (default), `"1"`, `"2_market"`, or `"2_location"`.
+- `col_pattern`: Optional regex override for the target column.
+
+**Returns**
+
+A data frame with an `emissions_t_co2e` column populated by the requested scope and a `scope` column recording which scope was selected.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  x <- cer_nger_corporate(2025)
+  cer_nger_scope(x, scope = "1")
+})
+options(op)
+```
+
+---
+
+## `cer_qcmr()`
+
+**Quarterly Carbon Market Report data workbook**
+
+Aggregate carbon market statistics from the CER's Quarterly Carbon Market Report, including ACCU issuances, LGC creations, STC volumes, unit surrenders, and Safeguard Mechanism developments.
+
+**Usage**
+
+```r
+cer_qcmr(quarter = "latest", sheet = "Contents")
+```
+
+**Arguments**
+
+- `quarter`: Character. Quarter identifier in `"YYYYqN"` form (e.g. `"2025q4"` for the December 2025 quarter). Defaults to `"latest"`, which resolves to the most recent release.
+- `sheet`: Sheet name or integer index. The CER QCMR workbook contains a `Contents` sheet (default) plus one sheet per figure (e.g. `"Figure 1.1"`, `"Figure 3.14"`). Pass a figure name to extract that figure's data.
+
+**Returns**
+
+A `cer_tbl` with the requested sheet's contents.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  # Contents sheet lists all available figures
+  toc <- cer_qcmr("latest")
+  head(toc)
+  # Fetch a specific figure
+  fig <- cer_qcmr("latest", sheet = "Figure 1.1")
+})
+options(op)
+```
+
+---
+
+## `cer_qcmr_reference()`
+
+**QCMR headline reference totals**
+
+Bundled quarterly Clean Energy Regulator QCMR headline figures for cross-validation of live-fetched aggregates.
+
+**Usage**
+
+```r
+cer_qcmr_reference(quarter = NULL, measure = NULL)
+```
+
+**Arguments**
+
+- `quarter`: Optional character filter (e.g. `"2024-Q4"`).
+- `measure`: Optional character filter (e.g. `"accu_cumulative_issuances"`).
+
+**Returns**
+
+A `cer_tbl` of reference totals.
+
+**Example**
+
+```r
+cer_qcmr_reference()
+cer_qcmr_reference(quarter = "2024-Q4")
+```
+
+---
+
+## `cer_reconcile()`
+
+**Reconcile an aggregate against the QCMR headline figure**
+
+Compares a scalar or data-frame sum against the CER Quarterly Carbon Market Report headline for the same quarter and measure. Warns on absolute percentage gap > 2% (default). Small gaps (sub-1%) are expected because ACCU project registers are retroactively revised between QCMR releases.
+
+**Usage**
+
+```r
+cer_reconcile(value, quarter, measure, sum_column = NULL, warn_pct = 0.02)
+```
+
+**Arguments**
+
+- `value`: Numeric scalar or data frame. If a data frame, pass `sum_column` to pick which numeric column to sum.
+- `quarter`: Character, e.g. `"2024-Q4"` or `"2023-24"`.
+- `measure`: Character, matching a `measure` value in `cer_qcmr_reference()`. For example `"accu_cumulative_issuances"`, `"safeguard_covered_emissions_mt"`, `"smc_issuances"`.
+- `sum_column`: Column name to sum when `value` is a data frame.
+- `warn_pct`: Warn if |pct_diff| > this threshold. Default 0.02.
+
+**Returns**
+
+A one-row data frame: `measure`, `quarter`, `value`, `reference`, `diff`, `pct_diff`, `unit`, `source`.
+
+**Example**
+
+```r
+cer_reconcile(value = 185e6,
+              quarter = "2024-Q4",
+              measure = "accu_cumulative_issuances")
+```
+
+---
+
+## `cer_safeguard_baseline_trajectory()`
+
+**Compute a declining Safeguard baseline trajectory**
+
+Implements the 4.9% per-annum nominal decline in industry-average default baselines introduced by the 2023 reform. The formula is:
+
+**Usage**
+
+```r
+cer_safeguard_baseline_trajectory(industry, from_year = 2023, to_year = 2030)
+```
+
+**Arguments**
+
+- `industry`: Character scalar matching an `industry` value from `cer_safeguard_industry_baselines()`.
+- `from_year`: Start year (default 2023 for FY 2023-24).
+- `to_year`: End year (default 2029 for FY 2029-30).
+
+**Returns**
+
+A data frame with `year`, `financial_year`, `baseline`, and `decline_factor` columns.
+
+**Example**
+
+```r
+cer_safeguard_baseline_trajectory("Aluminium smelting")
+cer_safeguard_baseline_trajectory("Cement clinker",
+                                   from_year = 2023, to_year = 2030)
+```
+
+---
+
+## `cer_safeguard_facilities()`
+
+**Safeguard Mechanism facility-level data**
+
+Covered emissions, baselines, Safeguard Mechanism Credits (SMCs) issued or surrendered, and abatement information for facilities above the 100,000 tonne CO2e threshold.
+
+**Usage**
+
+```r
+cer_safeguard_facilities(year = 2025)
+```
+
+**Arguments**
+
+- `year`: Integer. Reporting year ending 30 June (e.g. `2025` for 2024-25). Defaults to the most recently released year.
+
+**Returns**
+
+A `cer_tbl` with one row per facility.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  f <- cer_safeguard_facilities(year = 2025)
+  head(f)
+})
+options(op)
+```
+
+---
+
+## `cer_safeguard_industry_baselines()`
+
+**Bundled Safeguard industry-average default baselines**
+
+Bundled Safeguard industry-average default baselines
+
+**Usage**
+
+```r
+cer_safeguard_industry_baselines()
+```
+
+**Returns**
+
+A `cer_tbl` of industry default baselines.
+
+**Example**
+
+```r
+cer_safeguard_industry_baselines()
+```
+
+---
+
+## `cer_safeguard_teba_facilities()`
+
+**Trade-exposed baseline-adjusted (TEBA) facility list**
+
+Returns the bundled list of facilities declared as TEBA under the 2023 reform. TEBA facilities are eligible for softer baseline treatment reflecting international competitiveness.
+
+**Usage**
+
+```r
+cer_safeguard_teba_facilities()
+```
+
+**Returns**
+
+A `cer_tbl` of TEBA facilities.
+
+**Example**
+
+```r
+cer_safeguard_teba_facilities()
+```
+
+---
+
+## `cer_sha256()`
+
+**Compute the SHA-256 digest of a file**
+
+Compute the SHA-256 digest of a file
+
+**Usage**
+
+```r
+cer_sha256(file)
+```
+
+**Arguments**
+
+- `file`: Path to a local file.
+
+**Returns**
+
+A length-1 character string (hex digest), or `NA` if the file does not exist. Uses `digest::digest()` when the `digest` package is available (recommended for research work), falling back to `tools::md5sum()` otherwise.
+
+**Example**
+
+```r
+f <- tempfile()
+writeLines("hello", f)
+cer_sha256(f)
+```
+
+---
+
+## `cer_snapshot()`
+
+**Pin or inspect the session snapshot date**
+
+Call once at the top of an analysis script to declare the vintage of CER data you intend to use. Every subsequent cer_* fetch records this date in the `cer_tbl` provenance header, in `cer_manifest()` entries, and in `cer_cite()` output.
+
+**Usage**
+
+```r
+cer_snapshot(date)
+```
+
+**Arguments**
+
+- `date`: ISO `"YYYY-MM-DD"` character, `Date`, or `POSIXct`. Pass `NULL` to clear.
+
+**Returns**
+
+Invisibly, the new pinned date (as `Date`), or `NULL`.
+
+**Example**
+
+```r
+cer_snapshot("2026-04-24")
+cer_snapshot()
+cer_snapshot(NULL)
+```
+
+---
+
+## `cer_sres_installations()`
+
+**SRES small-scale installations by postcode**
+
+Monthly Small-scale Renewable Energy Scheme ('SRES') installation counts or capacity by postcode. Covers rooftop solar PV, solar water heaters, air-source heat pumps, and small batteries.
+
+**Usage**
+
+```r
+cer_sres_installations(
+  technology = c("solar_pv", "swh", "heat_pump", "battery"),
+  postcode = NULL,
+  measure = c("installations", "capacity")
+)
+```
+
+**Arguments**
+
+- `technology`: Character. One of `"solar_pv"` (default), `"swh"` (solar water heater), `"heat_pump"`, or `"battery"`.
+- `postcode`: Optional character vector of 4-digit Australian postcodes to filter on.
+- `measure`: Character. `"installations"` (default, counts) or `"capacity"` (total kW installed).
+
+**Returns**
+
+A `cer_tbl`. For `measure = "installations"` columns include postcode and per-month install counts. For `measure = "capacity"`, per-month kW capacity.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+inst <- cer_sres_installations(postcode = c("2000", "3000"))
+head(inst)
+options(op)
+```
+
+---
+
+## `cer_to_carbondata()`
+
+**Remap an ACCU project data frame to the carbondata voluntary- project schema**
+
+The `carbondata` R package exposes Verra, Gold Standard, ACR, and CAR voluntary projects under a unified schema. This function renames ACCU register columns to match, so an analyst can compare ACCU issuance patterns against international voluntary markets on a consistent basis.
+
+**Usage**
+
+```r
+cer_to_carbondata(x)
+```
+
+**Arguments**
+
+- `x`: A `cer_tbl` from `cer_accu_projects()`.
+
+**Returns**
+
+A data frame with carbondata-style columns: `project_id`, `project_name`, `methodology`, `project_type`, `country`, `registry`, `issued_credits_to_date`, `retired_credits_to_date`.
+
+**Example**
+
+```r
+op <- options(cer.cache_dir = tempdir())
+try({
+  ccy <- cer_accu_projects()
+  carb <- cer_to_carbondata(ccy)
+  head(carb)
+})
+options(op)
+```
+
+---
+
