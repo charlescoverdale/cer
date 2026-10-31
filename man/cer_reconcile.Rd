@@ -14,8 +14,8 @@ cer_reconcile(value, quarter, measure, sum_column = NULL, warn_pct = 0.02)
 
 \item{measure}{Character, matching a \code{measure} value in
 \code{\link[=cer_qcmr_reference]{cer_qcmr_reference()}}. For example
-\code{"accu_cumulative_issuances"},
-\code{"safeguard_covered_emissions_mt"}, \code{"smc_issuances"}.}
+\code{"accu_cumulative_issuances"}, \code{"lgc_validations"},
+\code{"safeguard_accu_surrenders"}.}
 
 \item{sum_column}{Column name to sum when \code{value} is a data frame.}
 
@@ -33,7 +33,7 @@ Warns on absolute percentage gap > 2\% (default). Small gaps
 retroactively revised between QCMR releases.
 }
 \examples{
-cer_reconcile(value = 185e6,
+cer_reconcile(value = 158.4e6,
               quarter = "2024-Q4",
               measure = "accu_cumulative_issuances")
 }
@@ -42,7 +42,7 @@ Clean Energy Regulator (quarterly). \emph{Quarterly Carbon Market
 Report}. \url{https://cer.gov.au/markets/reports-and-data/quarterly-carbon-market-reports}
 }
 \seealso{
-Other reconciliation: 
-\code{\link{cer_qcmr_reference}()}
+Other reconciliation:
+\code{\link[=cer_qcmr_reference]{cer_qcmr_reference()}}
 }
 \concept{reconciliation}

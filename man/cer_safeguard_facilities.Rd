@@ -55,9 +55,9 @@ Climate Change Authority (2023). \emph{Review of the Safeguard
 Mechanism}.
 }
 \seealso{
-Other safeguard: 
-\code{\link{cer_safeguard_baseline_trajectory}()},
-\code{\link{cer_safeguard_industry_baselines}()},
-\code{\link{cer_safeguard_teba_facilities}()}
+Other safeguard:
+\code{\link[=cer_safeguard_baseline_trajectory]{cer_safeguard_baseline_trajectory()}},
+\code{\link[=cer_safeguard_industry_baselines]{cer_safeguard_industry_baselines()}},
+\code{\link[=cer_safeguard_teba_facilities]{cer_safeguard_teba_facilities()}}
 }
 \concept{safeguard}

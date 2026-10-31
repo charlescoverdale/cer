@@ -21,7 +21,7 @@ options(op)
 }
 }
 \seealso{
-Other configuration: 
-\code{\link{cer_cache_info}()}
+Other configuration:
+\code{\link[=cer_cache_info]{cer_cache_info()}}
 }
 \concept{configuration}

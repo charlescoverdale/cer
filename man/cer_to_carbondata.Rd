@@ -40,7 +40,7 @@ options(op)
 }
 }
 \seealso{
-Other interop: 
-\code{\link{cer_international_comparator}()}
+Other interop:
+\code{\link[=cer_international_comparator]{cer_international_comparator()}}
 }
 \concept{interop}

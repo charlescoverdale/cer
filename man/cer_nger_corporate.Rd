@@ -53,9 +53,9 @@ Department of Climate Change, Energy, the Environment and Water
 Scope 1 and Scope 2 calculations.
 }
 \seealso{
-Other nger: 
-\code{\link{cer_nger_climate_active}()},
-\code{\link{cer_nger_electricity}()},
-\code{\link{cer_nger_scope}()}
+Other nger:
+\code{\link[=cer_nger_climate_active]{cer_nger_climate_active()}},
+\code{\link[=cer_nger_electricity]{cer_nger_electricity()}},
+\code{\link[=cer_nger_scope]{cer_nger_scope()}}
 }
 \concept{nger}

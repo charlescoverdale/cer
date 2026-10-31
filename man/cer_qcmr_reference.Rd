@@ -19,12 +19,24 @@ A \code{cer_tbl} of reference totals.
 Bundled quarterly Clean Energy Regulator QCMR headline figures
 for cross-validation of live-fetched aggregates.
 }
+\details{
+Every value is read from the QCMR data workbook by
+\code{data-raw/qcmr_headline_totals.R}, and the \code{source} column names the
+workbook vintage, figure and column. Measures: \code{accu_issuances},
+\code{accu_cumulative_issuances}, \code{accu_projects_registered},
+\code{accu_cumulative_projects_registered}, \code{safeguard_accu_surrenders},
+\code{safeguard_smc_surrenders}, \code{lgc_validations},
+\code{lgc_cumulative_validations}, \code{sres_solar_installations} and
+\code{sres_cumulative_solar_installations}. Cumulative measures are
+running sums of the quarterly figures over the history the workbook
+covers.
+}
 \examples{
 cer_qcmr_reference()
 cer_qcmr_reference(quarter = "2024-Q4")
 }
 \seealso{
-Other reconciliation: 
-\code{\link{cer_reconcile}()}
+Other reconciliation:
+\code{\link[=cer_reconcile]{cer_reconcile()}}
 }
 \concept{reconciliation}

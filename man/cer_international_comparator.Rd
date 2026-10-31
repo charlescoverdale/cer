@@ -26,7 +26,7 @@ Trading Worldwide: Status Report}. \url{https://icapcarbonaction.com/en}
 World Bank (annual). \emph{State and Trends of Carbon Pricing}.
 }
 \seealso{
-Other interop: 
-\code{\link{cer_to_carbondata}()}
+Other interop:
+\code{\link[=cer_to_carbondata]{cer_to_carbondata()}}
 }
 \concept{interop}

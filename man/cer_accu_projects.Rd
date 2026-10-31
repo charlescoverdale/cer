@@ -66,13 +66,13 @@ Gibbons, P., Lindenmayer, D., Waschka, M. and Fisher, R.
 of ACCUs." Australian National University working paper series.
 }
 \seealso{
-Other accu: 
-\code{\link{cer_accu_aggregate}()},
-\code{\link{cer_accu_contracts}()},
-\code{\link{cer_accu_issuances}()},
-\code{\link{cer_accu_methods}()},
-\code{\link{cer_accu_relinquishments}()},
-\code{\link{cer_method_determination}()},
-\code{\link{cer_method_integrity}()}
+Other accu:
+\code{\link[=cer_accu_aggregate]{cer_accu_aggregate()}},
+\code{\link[=cer_accu_contracts]{cer_accu_contracts()}},
+\code{\link[=cer_accu_issuances]{cer_accu_issuances()}},
+\code{\link[=cer_accu_methods]{cer_accu_methods()}},
+\code{\link[=cer_accu_relinquishments]{cer_accu_relinquishments()}},
+\code{\link[=cer_method_determination]{cer_method_determination()}},
+\code{\link[=cer_method_integrity]{cer_method_integrity()}}
 }
 \concept{accu}

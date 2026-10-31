@@ -47,13 +47,13 @@ cer_cite(x, style = "bibtex")
 cer_cite(x, style = "apa", doi = "10.5281/zenodo.XXXXXXXX")
 }
 \seealso{
-Other reproducibility: 
-\code{\link{cer_deposit_zenodo}()},
-\code{\link{cer_legislative_instrument}()},
-\code{\link{cer_manifest}()},
-\code{\link{cer_manifest_clear}()},
-\code{\link{cer_manifest_write}()},
-\code{\link{cer_sha256}()},
-\code{\link{cer_snapshot}()}
+Other reproducibility:
+\code{\link[=cer_deposit_zenodo]{cer_deposit_zenodo()}},
+\code{\link[=cer_legislative_instrument]{cer_legislative_instrument()}},
+\code{\link[=cer_manifest]{cer_manifest()}},
+\code{\link[=cer_manifest_clear]{cer_manifest_clear()}},
+\code{\link[=cer_manifest_write]{cer_manifest_write()}},
+\code{\link[=cer_sha256]{cer_sha256()}},
+\code{\link[=cer_snapshot]{cer_snapshot()}}
 }
 \concept{reproducibility}

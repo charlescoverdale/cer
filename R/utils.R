@@ -39,12 +39,12 @@ cer_clean_names <- function(x) {
 #' @noRd
 cer_fetch_csv <- function(url, ...) {
   file <- cer_download_cached(url)
-  df <- utils::read.csv(file, stringsAsFactors = FALSE,
+  df <- utils::read.csv(text = cer_read_text(file), stringsAsFactors = FALSE,
                         check.names = FALSE,
                         na.strings = c("", "NA", "N/A", "-"),
                         ...)
   names(df) <- cer_clean_names(names(df))
-  df
+  cer_parse_grouped_numbers(df)
 }
 
 #' Fetch an XLSX from the CER site, returning a data frame
@@ -91,6 +91,17 @@ cer_fetch_xlsx <- function(url, sheet = 1, skip = 0) {
 #' @noRd
 cer_fetch_auto <- function(url, sheet = 1) {
   file <- cer_download_cached(url)
+  # A web page is never a dataset. Refuse it rather than parse its markup
+  # into a one-column data frame.
+  head_txt <- tryCatch(rawToChar(readBin(file, what = "raw", n = 512L)),
+                       error = function(e) "")
+  if (grepl("^\\s*(<!doctype html|<html)", tolower(head_txt))) {
+    cli::cli_abort(c(
+      "The CER returned a web page rather than a data file.",
+      "i" = "URL: {.url {url}}.",
+      "!" = "The CER may have moved this dataset. Please file an issue at https://github.com/charlescoverdale/cer/issues."
+    ))
+  }
   sig <- tryCatch(readBin(file, what = "raw", n = 4L),
                   error = function(e) raw(0))
   is_xlsx <- length(sig) >= 4L &&
@@ -109,13 +120,12 @@ cer_fetch_auto <- function(url, sheet = 1) {
       stringsAsFactors = FALSE
     )
   } else {
-    df <- utils::read.csv(file, stringsAsFactors = FALSE,
+    df <- utils::read.csv(text = cer_read_text(file), stringsAsFactors = FALSE,
                           check.names = FALSE,
-                          na.strings = c("", "NA", "N/A", "-"),
-                          fileEncoding = "UTF-8")
+                          na.strings = c("", "NA", "N/A", "-"))
   }
   names(df) <- cer_clean_names(names(df))
-  df
+  cer_parse_grouped_numbers(df)
 }
 
 #' Find the first row in an XLSX sheet that looks like a header
@@ -177,4 +187,51 @@ cer_filter_in <- function(df, col, values) {
   values <- toupper(values)
   keep <- toupper(df[[col]]) %in% values
   df[keep, , drop = FALSE]
+}
+
+#' Read a CER text file as UTF-8
+#'
+#' Most CER CSVs are UTF-8, but some (the 2024-25 NGER files among them)
+#' are Windows-1252. Reading those with `fileEncoding = "UTF-8"` stops at
+#' the first non-UTF-8 byte with only a warning, silently dropping every
+#' later row. Decode explicitly instead, and strip any byte-order mark.
+#' @noRd
+cer_read_text <- function(file) {
+  bytes <- readBin(file, what = "raw", n = file.size(file))
+  txt <- rawToChar(bytes)
+  if (!validUTF8(txt)) {
+    txt <- iconv(txt, from = "CP1252", to = "UTF-8")
+    if (is.na(txt)) {
+      cli::cli_abort("Could not decode {.file {basename(file)}} as UTF-8 or Windows-1252.")
+    }
+  }
+  sub("^\ufeff", "", txt)
+}
+
+#' Convert columns of comma-grouped numbers to numeric
+#'
+#' CER CSVs write quantities with thousands separators ("30,439,497"), so
+#' they arrive as character and cannot be summed. A character column is
+#' converted only when every non-missing value is a plain or comma-grouped
+#' number and at least one value carries a separator. Identifiers that
+#' look numeric but never use separators (postcodes, years, ABNs written
+#' with spaces) are left as they are.
+#' @noRd
+cer_parse_grouped_numbers <- function(df) {
+  grouped <- "^-?[0-9]{1,3}(,[0-9]{3})+(\\.[0-9]+)?$"
+  plain   <- "^-?[0-9]+(\\.[0-9]+)?$"
+  for (nm in names(df)) {
+    x <- df[[nm]]
+    if (!is.character(x)) next
+    v <- trimws(x[!is.na(x) & nzchar(trimws(x))])
+    if (length(v) == 0L) next
+    has_sep <- grepl(grouped, v)
+    if (any(has_sep) && all(has_sep | grepl(plain, v))) {
+      out <- rep(NA_real_, length(x))
+      ok <- !is.na(x) & nzchar(trimws(x))
+      out[ok] <- as.numeric(gsub(",", "", trimws(x[ok]), fixed = TRUE))
+      df[[nm]] <- out
+    }
+  }
+  df
 }

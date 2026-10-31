@@ -85,11 +85,19 @@ cer_scrape_links <- function(page_url, pattern) {
     error = function(e) NA_character_
   )
   if (is.na(html)) return(character(0L))
+  cer_document_links(html, pattern)
+}
 
+#' Absolute /document/ links in a CER page whose path matches `pattern`
+#' @noRd
+cer_document_links <- function(html, pattern) {
   hrefs <- regmatches(html, gregexpr('href="(/document/[^"]+)"', html))[[1]]
   hrefs <- gsub('^href="|"$', "", hrefs)
   hrefs <- unique(hrefs)
   keep <- grepl(pattern, hrefs, ignore.case = TRUE)
+  # paste0() recycles a zero-length vector to the base URL alone, which
+  # callers would then take for a match and download the CER home page.
+  if (!any(keep)) return(character(0L))
   paste0(CER_BASE_URL, hrefs[keep])
 }
 

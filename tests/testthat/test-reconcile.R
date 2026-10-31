@@ -4,6 +4,15 @@ test_that("cer_qcmr_reference returns rows", {
   expect_gt(nrow(df), 10L)
 })
 
+test_that("cer_qcmr_reference values are the QCMR workbook's", {
+  df <- as.data.frame(cer_qcmr_reference(measure = "accu_cumulative_issuances"))
+  # Cumulative series must be non-decreasing and match the running sum
+  expect_false(is.unsorted(df$value))
+  flow <- as.data.frame(cer_qcmr_reference(measure = "accu_issuances"))
+  expect_equal(df$value, cumsum(flow$value[match(df$quarter, flow$quarter)]))
+  expect_true(all(grepl("QCMR data workbook", df$source)))
+})
+
 test_that("cer_qcmr_reference filters by quarter", {
   df <- cer_qcmr_reference(quarter = "2024-Q4")
   expect_true(all(df$quarter == "2024-Q4"))
@@ -11,7 +20,7 @@ test_that("cer_qcmr_reference filters by quarter", {
 
 # Level 2: reconcile at exact match returns diff = 0.
 test_that("cer_reconcile returns zero diff on exact match", {
-  res <- cer_reconcile(value = 185000000,
+  res <- cer_reconcile(value = 159125069,
                        quarter = "2024-Q4",
                        measure = "accu_cumulative_issuances")
   expect_equal(res$diff, 0)
@@ -32,7 +41,7 @@ test_that("cer_reconcile warns on gap > 2%", {
 test_that("pct_diff sign is consistent with diff", {
   high <- suppressWarnings(cer_reconcile(200000000, "2024-Q4",
                                            "accu_cumulative_issuances"))
-  low  <- suppressWarnings(cer_reconcile(170000000, "2024-Q4",
+  low  <- suppressWarnings(cer_reconcile(150000000, "2024-Q4",
                                            "accu_cumulative_issuances"))
   expect_gt(high$diff, 0)
   expect_gt(high$pct_diff, 0)

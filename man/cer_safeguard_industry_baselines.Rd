@@ -2,23 +2,30 @@
 % Please edit documentation in R/safeguard_reform.R
 \name{cer_safeguard_industry_baselines}
 \alias{cer_safeguard_industry_baselines}
-\title{Bundled Safeguard industry-average default baselines}
+\title{Safeguard default emissions intensities by production variable}
 \usage{
 cer_safeguard_industry_baselines()
 }
 \value{
-A \code{cer_tbl} of industry default baselines.
+A \code{cer_tbl} with columns \code{section}, \code{production_variable},
+\code{default_emissions_intensity}, \code{unit} (the Rule's wording) and
+\code{source} (section and compilation date).
 }
 \description{
-Bundled Safeguard industry-average default baselines
+The default (industry-average) emissions intensity for every
+production variable in Schedule 1 of the Safeguard Mechanism Rule
+2015 that has one, read from the Rule by
+\code{data-raw/safeguard_industry_baselines.R}. Production variables whose
+default is yet to be specified are omitted.
 }
 \examples{
-cer_safeguard_industry_baselines()
+b <- cer_safeguard_industry_baselines()
+b[b$production_variable \%in\% c("Aluminium", "Alumina"), ]
 }
 \seealso{
-Other safeguard: 
-\code{\link{cer_safeguard_baseline_trajectory}()},
-\code{\link{cer_safeguard_facilities}()},
-\code{\link{cer_safeguard_teba_facilities}()}
+Other safeguard:
+\code{\link[=cer_safeguard_baseline_trajectory]{cer_safeguard_baseline_trajectory()}},
+\code{\link[=cer_safeguard_facilities]{cer_safeguard_facilities()}},
+\code{\link[=cer_safeguard_teba_facilities]{cer_safeguard_teba_facilities()}}
 }
 \concept{safeguard}

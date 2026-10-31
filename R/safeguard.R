@@ -15,6 +15,7 @@ safeguard_urls <- function(year) {
   # CER uses three different URL conventions across years:
   #   2023-24+: /safeguard-data/<year>-baselines-and-emissions-data/
   #             -> /document/baselines-and-emissions-table-<year>
+  #                (2023-24 itself: /document/<year>-baselines-and-emissions-table)
   #   ~2022-23: /safeguard-facility-covered-emissions-data-<year>/
   #             -> /document/safeguard-facilities-data-<year>
   #   Pre-2022: /safeguard-facility-reported-emissions-data/safeguard-facility-reported-emissions-<year>/
@@ -31,7 +32,9 @@ safeguard_urls <- function(year) {
   # "explanation-letter" PDFs and method determinations).
   table_rx <- paste0(
     "baselines-and-emissions-table-", yr_label, "|",
+    yr_label, "-baselines-and-emissions-table", "|",
     "safeguard-facilities-data-", yr_label, "|",
+    "safeguard-facility-data-", yr_label, "|",
     "safeguard-facility-covered-emissions-", yr_label, "|",
     "safeguard-facility-reported-emissions-", yr_label
   )
@@ -60,18 +63,30 @@ nger_urls <- function(year, kind = c("corporate", "electricity")) {
   yr_lo <- year - 1L
   yr_hi <- year %% 100L
   yr_label <- sprintf("%d-%02d", yr_lo, yr_hi)
-  pattern <- switch(kind,
-    corporate   = sprintf("corporate.*%s|%s.*corporate", yr_label, yr_label),
-    electricity = sprintf("(electricity|greenhouse-and-energy-register).*%s|%s.*(electricity|greenhouse)",
-                          yr_label, yr_label)
+
+  # Since 2026 each reporting year has its own subpage under the NGER
+  # landing page, and the data files are /document/ links on that page.
+  subpage <- switch(kind,
+    corporate   = sprintf("%s/corporate-emissions-and-energy-data-%s",
+                          NGER_LANDING, yr_label),
+    electricity = sprintf("%s/electricity-sector-emissions-and-generation-data-%s",
+                          NGER_LANDING, yr_label)
   )
-  hits <- cer_scrape_links(NGER_LANDING, pattern)
+  pattern <- switch(kind,
+    corporate   = sprintf("greenhouse-and-energy-information-registered-corporation-%s",
+                          yr_label),
+    electricity = sprintf("greenhouse-and-energy-information-designated-generation-facilit(y|ies)-%s",
+                          yr_label)
+  )
+  hits <- cer_scrape_links(subpage, pattern)
   if (length(hits) == 0L) {
     cli::cli_abort(c(
       "No NGER {kind} dataset found for reporting year {yr_lo}-{yr_hi}.",
+      "i" = "Looked on {.url {subpage}}.",
       "i" = "The CER landing page is {.url {NGER_LANDING}}."
     ))
   }
+  # The "-0" document is the CSV rendition; the plain slug is XLSX.
   csv <- hits[grepl("-0$", hits)]
   if (length(csv) > 0L) return(csv[1L])
   hits[1L]
@@ -140,12 +155,18 @@ cer_safeguard_facilities <- function(year = 2025) {
   df$regime <- cer_safeguard_regime(fy_start)
   df$financial_year <- sprintf("%d-%02d", fy_start, fy_start %% 100L + 1L)
 
-  # TEBA flag: join declared Trade-Exposed Baseline-Adjusted list.
+  # TEBA flag: a facility is flagged when a TEBA determination covers
+  # this financial year, matched on facility name. Determinations only
+  # exist from FY 2023-24, so earlier years are all FALSE.
   teba <- as.data.frame(cer_safeguard_teba_facilities())
+  fy_from <- as.Date(sprintf("%d-07-01", fy_start))
+  fy_to <- as.Date(sprintf("%d-06-30", fy_start + 1L))
+  covering <- teba[teba$start_date <= fy_from & teba$end_date >= fy_to, ,
+                   drop = FALSE]
   fac_col <- intersect(c("facility_name", "facility"), names(df))[1]
   if (!is.na(fac_col)) {
-    teba_set <- tolower(teba$facility_name)
-    df$teba_declared <- tolower(df[[fac_col]]) %in% teba_set
+    norm <- function(x) gsub("\\s+", " ", trimws(tolower(x)))
+    df$teba_declared <- norm(df[[fac_col]]) %in% norm(covering$facility_name)
   } else {
     df$teba_declared <- NA
   }

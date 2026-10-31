@@ -16,13 +16,13 @@ Clear the session manifest
 cer_manifest_clear()
 }
 \seealso{
-Other reproducibility: 
-\code{\link{cer_cite}()},
-\code{\link{cer_deposit_zenodo}()},
-\code{\link{cer_legislative_instrument}()},
-\code{\link{cer_manifest}()},
-\code{\link{cer_manifest_write}()},
-\code{\link{cer_sha256}()},
-\code{\link{cer_snapshot}()}
+Other reproducibility:
+\code{\link[=cer_cite]{cer_cite()}},
+\code{\link[=cer_deposit_zenodo]{cer_deposit_zenodo()}},
+\code{\link[=cer_legislative_instrument]{cer_legislative_instrument()}},
+\code{\link[=cer_manifest]{cer_manifest()}},
+\code{\link[=cer_manifest_write]{cer_manifest_write()}},
+\code{\link[=cer_sha256]{cer_sha256()}},
+\code{\link[=cer_snapshot]{cer_snapshot()}}
 }
 \concept{reproducibility}

@@ -45,9 +45,9 @@ options(op)
 }
 }
 \seealso{
-Other nger: 
-\code{\link{cer_nger_climate_active}()},
-\code{\link{cer_nger_corporate}()},
-\code{\link{cer_nger_electricity}()}
+Other nger:
+\code{\link[=cer_nger_climate_active]{cer_nger_climate_active()}},
+\code{\link[=cer_nger_corporate]{cer_nger_corporate()}},
+\code{\link[=cer_nger_electricity]{cer_nger_electricity()}}
 }
 \concept{nger}

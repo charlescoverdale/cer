@@ -2,7 +2,7 @@
 
 > Fetch Australian Clean Energy Regulator data on carbon credits, safeguard mechanism facilities, renewable energy certificates, and greenhouse gas reporting.
 
-- Version: 0.1.0
+- Version: 0.2.0
 - Install: `install.packages("cer")`
 - CRAN: https://CRAN.R-project.org/package=cer
 - GitHub: https://github.com/charlescoverdale/cer

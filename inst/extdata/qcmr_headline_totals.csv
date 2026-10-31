@@ -1,24 +1,715 @@
-quarter,measure,value,unit,source,note
-2023-Q4,accu_cumulative_issuances,161000000,accus,"QCMR Q4 2023",
-2024-Q1,accu_cumulative_issuances,167000000,accus,"QCMR Q1 2024",
-2024-Q2,accu_cumulative_issuances,173000000,accus,"QCMR Q2 2024",
-2024-Q3,accu_cumulative_issuances,179000000,accus,"QCMR Q3 2024",
-2024-Q4,accu_cumulative_issuances,185000000,accus,"QCMR Q4 2024",
-2023-Q4,accu_cumulative_surrenders,40000000,accus,"QCMR Q4 2023","Includes voluntary and compliance surrenders"
-2024-Q4,accu_cumulative_surrenders,55000000,accus,"QCMR Q4 2024","Safeguard excess emission surrenders from 2023-24"
-2023-Q4,accu_active_projects,1080,projects,"QCMR Q4 2023",
-2024-Q4,accu_active_projects,1140,projects,"QCMR Q4 2024",
-2023-Q4,accu_spot_price_aud,35.00,aud_per_accu,"QCMR Q4 2023","Generic spot indicative"
-2024-Q1,accu_spot_price_aud,34.50,aud_per_accu,"QCMR Q1 2024",
-2024-Q2,accu_spot_price_aud,36.00,aud_per_accu,"QCMR Q2 2024",
-2024-Q3,accu_spot_price_aud,33.50,aud_per_accu,"QCMR Q3 2024",
-2024-Q4,accu_spot_price_aud,34.00,aud_per_accu,"QCMR Q4 2024",
-2022-23,safeguard_covered_emissions_mt,137.0,mt_co2e,"QCMR Q4 2023 supplement","Pre-reform regime final year"
-2023-24,safeguard_covered_emissions_mt,134.2,mt_co2e,"QCMR Q4 2024","First post-reform year"
-2023-24,smc_issuances,1800000,smcs,"QCMR Q4 2024","New instrument post-reform"
-2023-Q4,lgc_cumulative_issuances_millions,480,lgcs,"QCMR Q4 2023","1 LGC = 1 MWh from accredited renewable"
-2024-Q4,lgc_cumulative_issuances_millions,520,lgcs,"QCMR Q4 2024",
-2023-Q4,stc_cumulative_surrenders_millions,330,stcs,"QCMR Q4 2023",
-2024-Q4,stc_cumulative_surrenders_millions,360,stcs,"QCMR Q4 2024",
-2023-Q4,sres_solar_pv_installations,3650000,installations,"QCMR Q4 2023","Cumulative since 2001"
-2024-Q4,sres_solar_pv_installations,3900000,installations,"QCMR Q4 2024",
+"quarter","measure","value","unit","source","note"
+"2012-Q1","accu_cumulative_issuances",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2012-Q2","accu_cumulative_issuances",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2012-Q3","accu_cumulative_issuances",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2012-Q4","accu_cumulative_issuances",348110,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2013-Q1","accu_cumulative_issuances",393451,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2013-Q2","accu_cumulative_issuances",1750179,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2013-Q3","accu_cumulative_issuances",1995862,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2013-Q4","accu_cumulative_issuances",4226090,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2014-Q1","accu_cumulative_issuances",4838321,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2014-Q2","accu_cumulative_issuances",6130652,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2014-Q3","accu_cumulative_issuances",8652761,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2014-Q4","accu_cumulative_issuances",11847595,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2015-Q1","accu_cumulative_issuances",14591415,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2015-Q2","accu_cumulative_issuances",15448758,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2015-Q3","accu_cumulative_issuances",17087516,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2015-Q4","accu_cumulative_issuances",19715431,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2016-Q1","accu_cumulative_issuances",22511367,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2016-Q2","accu_cumulative_issuances",26168493,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2016-Q3","accu_cumulative_issuances",28967829,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2016-Q4","accu_cumulative_issuances",32848827,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2017-Q1","accu_cumulative_issuances",34772491,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2017-Q2","accu_cumulative_issuances",39320484,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2017-Q3","accu_cumulative_issuances",41336424,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2017-Q4","accu_cumulative_issuances",45019233,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2018-Q1","accu_cumulative_issuances",47205087,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2018-Q2","accu_cumulative_issuances",51528387,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2018-Q3","accu_cumulative_issuances",55001290,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2018-Q4","accu_cumulative_issuances",57457452,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2019-Q1","accu_cumulative_issuances",60293685,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2019-Q2","accu_cumulative_issuances",65191796,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2019-Q3","accu_cumulative_issuances",68812557,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2019-Q4","accu_cumulative_issuances",72287557,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2020-Q1","accu_cumulative_issuances",75882022,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2020-Q2","accu_cumulative_issuances",80668254,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2020-Q3","accu_cumulative_issuances",83151823,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2020-Q4","accu_cumulative_issuances",88340362,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2021-Q1","accu_cumulative_issuances",91447690,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2021-Q2","accu_cumulative_issuances",97134529,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2021-Q3","accu_cumulative_issuances",101949302,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2021-Q4","accu_cumulative_issuances",105381144,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2022-Q1","accu_cumulative_issuances",108719797,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2022-Q2","accu_cumulative_issuances",113643056,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2022-Q3","accu_cumulative_issuances",119322001,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2022-Q4","accu_cumulative_issuances",123119203,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2023-Q1","accu_cumulative_issuances",124951625,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2023-Q2","accu_cumulative_issuances",129329083,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2023-Q3","accu_cumulative_issuances",136327095,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2023-Q4","accu_cumulative_issuances",140340311,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2024-Q1","accu_cumulative_issuances",144132928,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2024-Q2","accu_cumulative_issuances",148000802,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2024-Q3","accu_cumulative_issuances",152951549,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2024-Q4","accu_cumulative_issuances",159125069,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2025-Q1","accu_cumulative_issuances",162168838,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2025-Q2","accu_cumulative_issuances",168622051,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2025-Q3","accu_cumulative_issuances",174084868,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2025-Q4","accu_cumulative_issuances",180778992,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2026-Q1","accu_cumulative_issuances",186239527,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2026-Q2","accu_cumulative_issuances",191674877,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2026-Q3","accu_cumulative_issuances",199918137,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'","Running sum of quarterly issuances from 2012-Q1"
+"2012-Q1","accu_cumulative_projects_registered",0,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2012-Q2","accu_cumulative_projects_registered",0,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2012-Q3","accu_cumulative_projects_registered",4,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2012-Q4","accu_cumulative_projects_registered",20,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2013-Q1","accu_cumulative_projects_registered",43,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2013-Q2","accu_cumulative_projects_registered",56,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2013-Q3","accu_cumulative_projects_registered",76,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2013-Q4","accu_cumulative_projects_registered",86,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2014-Q1","accu_cumulative_projects_registered",108,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2014-Q2","accu_cumulative_projects_registered",128,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2014-Q3","accu_cumulative_projects_registered",155,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2014-Q4","accu_cumulative_projects_registered",181,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2015-Q1","accu_cumulative_projects_registered",210,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2015-Q2","accu_cumulative_projects_registered",241,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2015-Q3","accu_cumulative_projects_registered",350,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2015-Q4","accu_cumulative_projects_registered",375,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2016-Q1","accu_cumulative_projects_registered",390,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2016-Q2","accu_cumulative_projects_registered",424,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2016-Q3","accu_cumulative_projects_registered",427,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2016-Q4","accu_cumulative_projects_registered",448,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2017-Q1","accu_cumulative_projects_registered",465,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2017-Q2","accu_cumulative_projects_registered",470,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2017-Q3","accu_cumulative_projects_registered",476,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2017-Q4","accu_cumulative_projects_registered",505,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2018-Q1","accu_cumulative_projects_registered",516,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2018-Q2","accu_cumulative_projects_registered",567,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2018-Q3","accu_cumulative_projects_registered",573,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2018-Q4","accu_cumulative_projects_registered",597,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2019-Q1","accu_cumulative_projects_registered",600,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2019-Q2","accu_cumulative_projects_registered",610,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2019-Q3","accu_cumulative_projects_registered",615,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2019-Q4","accu_cumulative_projects_registered",623,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2020-Q1","accu_cumulative_projects_registered",637,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2020-Q2","accu_cumulative_projects_registered",656,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2020-Q3","accu_cumulative_projects_registered",693,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2020-Q4","accu_cumulative_projects_registered",744,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2021-Q1","accu_cumulative_projects_registered",780,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2021-Q2","accu_cumulative_projects_registered",819,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2021-Q3","accu_cumulative_projects_registered",870,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2021-Q4","accu_cumulative_projects_registered",919,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2022-Q1","accu_cumulative_projects_registered",1036,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2022-Q2","accu_cumulative_projects_registered",1136,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2022-Q3","accu_cumulative_projects_registered",1205,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2022-Q4","accu_cumulative_projects_registered",1283,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2023-Q1","accu_cumulative_projects_registered",1352,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2023-Q2","accu_cumulative_projects_registered",1433,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2023-Q3","accu_cumulative_projects_registered",1551,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2023-Q4","accu_cumulative_projects_registered",1620,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2024-Q1","accu_cumulative_projects_registered",1711,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2024-Q2","accu_cumulative_projects_registered",1770,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2024-Q3","accu_cumulative_projects_registered",1946,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2024-Q4","accu_cumulative_projects_registered",2036,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2025-Q1","accu_cumulative_projects_registered",2126,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2025-Q2","accu_cumulative_projects_registered",2224,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2025-Q3","accu_cumulative_projects_registered",2375,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2025-Q4","accu_cumulative_projects_registered",2443,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2026-Q1","accu_cumulative_projects_registered",2512,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2026-Q2","accu_cumulative_projects_registered",2587,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2026-Q3","accu_cumulative_projects_registered",2650,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'","Running sum of registrations; not net of revocations"
+"2012-Q1","accu_issuances",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2012-Q2","accu_issuances",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2012-Q3","accu_issuances",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2012-Q4","accu_issuances",348110,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2013-Q1","accu_issuances",45341,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2013-Q2","accu_issuances",1356728,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2013-Q3","accu_issuances",245683,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2013-Q4","accu_issuances",2230228,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2014-Q1","accu_issuances",612231,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2014-Q2","accu_issuances",1292331,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2014-Q3","accu_issuances",2522109,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2014-Q4","accu_issuances",3194834,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2015-Q1","accu_issuances",2743820,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2015-Q2","accu_issuances",857343,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2015-Q3","accu_issuances",1638758,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2015-Q4","accu_issuances",2627915,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2016-Q1","accu_issuances",2795936,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2016-Q2","accu_issuances",3657126,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2016-Q3","accu_issuances",2799336,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2016-Q4","accu_issuances",3880998,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2017-Q1","accu_issuances",1923664,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2017-Q2","accu_issuances",4547993,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2017-Q3","accu_issuances",2015940,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2017-Q4","accu_issuances",3682809,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2018-Q1","accu_issuances",2185854,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2018-Q2","accu_issuances",4323300,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2018-Q3","accu_issuances",3472903,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2018-Q4","accu_issuances",2456162,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2019-Q1","accu_issuances",2836233,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2019-Q2","accu_issuances",4898111,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2019-Q3","accu_issuances",3620761,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2019-Q4","accu_issuances",3475000,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2020-Q1","accu_issuances",3594465,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2020-Q2","accu_issuances",4786232,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2020-Q3","accu_issuances",2483569,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2020-Q4","accu_issuances",5188539,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2021-Q1","accu_issuances",3107328,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2021-Q2","accu_issuances",5686839,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2021-Q3","accu_issuances",4814773,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2021-Q4","accu_issuances",3431842,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2022-Q1","accu_issuances",3338653,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2022-Q2","accu_issuances",4923259,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2022-Q3","accu_issuances",5678945,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2022-Q4","accu_issuances",3797202,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2023-Q1","accu_issuances",1832422,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2023-Q2","accu_issuances",4377458,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2023-Q3","accu_issuances",6998012,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2023-Q4","accu_issuances",4013216,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2024-Q1","accu_issuances",3792617,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2024-Q2","accu_issuances",3867874,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2024-Q3","accu_issuances",4950747,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2024-Q4","accu_issuances",6173520,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2025-Q1","accu_issuances",3043769,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2025-Q2","accu_issuances",6453213,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2025-Q3","accu_issuances",5462817,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2025-Q4","accu_issuances",6694124,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2026-Q1","accu_issuances",5460535,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2026-Q2","accu_issuances",5435350,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2026-Q3","accu_issuances",8243260,"accus","QCMR data workbook (september-quarter-2026), Figure 1.2, column 'Total'",
+"2012-Q1","accu_projects_registered",0,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2012-Q2","accu_projects_registered",0,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2012-Q3","accu_projects_registered",4,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2012-Q4","accu_projects_registered",16,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2013-Q1","accu_projects_registered",23,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2013-Q2","accu_projects_registered",13,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2013-Q3","accu_projects_registered",20,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2013-Q4","accu_projects_registered",10,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2014-Q1","accu_projects_registered",22,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2014-Q2","accu_projects_registered",20,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2014-Q3","accu_projects_registered",27,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2014-Q4","accu_projects_registered",26,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2015-Q1","accu_projects_registered",29,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2015-Q2","accu_projects_registered",31,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2015-Q3","accu_projects_registered",109,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2015-Q4","accu_projects_registered",25,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2016-Q1","accu_projects_registered",15,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2016-Q2","accu_projects_registered",34,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2016-Q3","accu_projects_registered",3,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2016-Q4","accu_projects_registered",21,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2017-Q1","accu_projects_registered",17,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2017-Q2","accu_projects_registered",5,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2017-Q3","accu_projects_registered",6,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2017-Q4","accu_projects_registered",29,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2018-Q1","accu_projects_registered",11,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2018-Q2","accu_projects_registered",51,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2018-Q3","accu_projects_registered",6,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2018-Q4","accu_projects_registered",24,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2019-Q1","accu_projects_registered",3,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2019-Q2","accu_projects_registered",10,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2019-Q3","accu_projects_registered",5,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2019-Q4","accu_projects_registered",8,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2020-Q1","accu_projects_registered",14,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2020-Q2","accu_projects_registered",19,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2020-Q3","accu_projects_registered",37,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2020-Q4","accu_projects_registered",51,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2021-Q1","accu_projects_registered",36,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2021-Q2","accu_projects_registered",39,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2021-Q3","accu_projects_registered",51,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2021-Q4","accu_projects_registered",49,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2022-Q1","accu_projects_registered",117,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2022-Q2","accu_projects_registered",100,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2022-Q3","accu_projects_registered",69,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2022-Q4","accu_projects_registered",78,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2023-Q1","accu_projects_registered",69,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2023-Q2","accu_projects_registered",81,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2023-Q3","accu_projects_registered",118,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2023-Q4","accu_projects_registered",69,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2024-Q1","accu_projects_registered",91,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2024-Q2","accu_projects_registered",59,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2024-Q3","accu_projects_registered",176,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2024-Q4","accu_projects_registered",90,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2025-Q1","accu_projects_registered",90,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2025-Q2","accu_projects_registered",98,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2025-Q3","accu_projects_registered",151,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2025-Q4","accu_projects_registered",68,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2026-Q1","accu_projects_registered",69,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2026-Q2","accu_projects_registered",75,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2026-Q3","accu_projects_registered",63,"projects","QCMR data workbook (september-quarter-2026), Figure 1.3, column 'Total'",
+"2001-Q2","lgc_cumulative_validations",0,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2001-Q3","lgc_cumulative_validations",6371,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2001-Q4","lgc_cumulative_validations",168169,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2002-Q1","lgc_cumulative_validations",535521,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2002-Q2","lgc_cumulative_validations",701338,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2002-Q3","lgc_cumulative_validations",906417,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2002-Q4","lgc_cumulative_validations",1934110,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2003-Q1","lgc_cumulative_validations",2402013,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2003-Q2","lgc_cumulative_validations",2714510,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2003-Q3","lgc_cumulative_validations",3018767,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2003-Q4","lgc_cumulative_validations",5342626,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2004-Q1","lgc_cumulative_validations",5661868,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2004-Q2","lgc_cumulative_validations",6236523,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2004-Q3","lgc_cumulative_validations",6668413,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2004-Q4","lgc_cumulative_validations",7754935,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2005-Q1","lgc_cumulative_validations",8863191,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2005-Q2","lgc_cumulative_validations",9357021,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2005-Q3","lgc_cumulative_validations",10256115,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2005-Q4","lgc_cumulative_validations",11547344,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2006-Q1","lgc_cumulative_validations",12734617,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2006-Q2","lgc_cumulative_validations",13493771,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2006-Q3","lgc_cumulative_validations",14055944,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2006-Q4","lgc_cumulative_validations",15958332,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2007-Q1","lgc_cumulative_validations",17131668,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2007-Q2","lgc_cumulative_validations",18062337,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2007-Q3","lgc_cumulative_validations",19220860,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2007-Q4","lgc_cumulative_validations",21132267,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2008-Q1","lgc_cumulative_validations",22350003,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2008-Q2","lgc_cumulative_validations",23498534,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2008-Q3","lgc_cumulative_validations",25175914,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2008-Q4","lgc_cumulative_validations",26989234,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2009-Q1","lgc_cumulative_validations",28462674,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2009-Q2","lgc_cumulative_validations",30078055,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2009-Q3","lgc_cumulative_validations",31992742,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2009-Q4","lgc_cumulative_validations",35051177,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2010-Q1","lgc_cumulative_validations",38465184,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2010-Q2","lgc_cumulative_validations",43729383,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2010-Q3","lgc_cumulative_validations",51095485,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2010-Q4","lgc_cumulative_validations",63803807,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2011-Q1","lgc_cumulative_validations",68818815,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2011-Q2","lgc_cumulative_validations",72713522,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2011-Q3","lgc_cumulative_validations",75539408,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2011-Q4","lgc_cumulative_validations",79643978,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2012-Q1","lgc_cumulative_validations",82511194,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2012-Q2","lgc_cumulative_validations",84791146,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2012-Q3","lgc_cumulative_validations",88004499,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2012-Q4","lgc_cumulative_validations",91409294,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2013-Q1","lgc_cumulative_validations",94115154,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2013-Q2","lgc_cumulative_validations",97216601,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2013-Q3","lgc_cumulative_validations",100322278,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2013-Q4","lgc_cumulative_validations",105357357,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2014-Q1","lgc_cumulative_validations",109854218,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2014-Q2","lgc_cumulative_validations",112802459,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2014-Q3","lgc_cumulative_validations",116968672,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2014-Q4","lgc_cumulative_validations",123463001,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2015-Q1","lgc_cumulative_validations",128205598,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2015-Q2","lgc_cumulative_validations",131200663,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2015-Q3","lgc_cumulative_validations",135020367,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2015-Q4","lgc_cumulative_validations",139926437,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2016-Q1","lgc_cumulative_validations",143549899,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2016-Q2","lgc_cumulative_validations",147150503,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2016-Q3","lgc_cumulative_validations",150811023,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2016-Q4","lgc_cumulative_validations",157247258,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2017-Q1","lgc_cumulative_validations",163038694,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2017-Q2","lgc_cumulative_validations",166525157,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2017-Q3","lgc_cumulative_validations",169745840,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2017-Q4","lgc_cumulative_validations",176322593,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2018-Q1","lgc_cumulative_validations",181409763,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2018-Q2","lgc_cumulative_validations",186548169,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2018-Q3","lgc_cumulative_validations",192026972,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2018-Q4","lgc_cumulative_validations",199314043,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2019-Q1","lgc_cumulative_validations",206596823,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2019-Q2","lgc_cumulative_validations",212798891,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2019-Q3","lgc_cumulative_validations",219557279,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2019-Q4","lgc_cumulative_validations",228930174,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2020-Q1","lgc_cumulative_validations",236327852,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2020-Q2","lgc_cumulative_validations",243295881,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2020-Q3","lgc_cumulative_validations",250618626,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2020-Q4","lgc_cumulative_validations",262083170,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2021-Q1","lgc_cumulative_validations",271288803,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2021-Q2","lgc_cumulative_validations",279241725,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2021-Q3","lgc_cumulative_validations",288450404,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2021-Q4","lgc_cumulative_validations",301015371,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2022-Q1","lgc_cumulative_validations",311195065,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2022-Q2","lgc_cumulative_validations",320722215,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2022-Q3","lgc_cumulative_validations",331900468,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2022-Q4","lgc_cumulative_validations",343106081,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2023-Q1","lgc_cumulative_validations",356171790,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2023-Q2","lgc_cumulative_validations",367459661,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2023-Q3","lgc_cumulative_validations",379578962,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2023-Q4","lgc_cumulative_validations",392708540,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2024-Q1","lgc_cumulative_validations",406552725,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2024-Q2","lgc_cumulative_validations",417610244,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2024-Q3","lgc_cumulative_validations",430178136,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2024-Q4","lgc_cumulative_validations",444188723,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2025-Q1","lgc_cumulative_validations",458384712,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2025-Q2","lgc_cumulative_validations",471345739,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2025-Q3","lgc_cumulative_validations",487002627,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2025-Q4","lgc_cumulative_validations",503855143,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2026-Q1","lgc_cumulative_validations",521086784,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2026-Q2","lgc_cumulative_validations",536298898,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2026-Q3","lgc_cumulative_validations",551622084,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'","Running sum of quarterly validations from 2001-Q2"
+"2001-Q2","lgc_validations",0,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2001-Q3","lgc_validations",6371,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2001-Q4","lgc_validations",161798,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2002-Q1","lgc_validations",367352,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2002-Q2","lgc_validations",165817,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2002-Q3","lgc_validations",205079,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2002-Q4","lgc_validations",1027693,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2003-Q1","lgc_validations",467903,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2003-Q2","lgc_validations",312497,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2003-Q3","lgc_validations",304257,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2003-Q4","lgc_validations",2323859,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2004-Q1","lgc_validations",319242,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2004-Q2","lgc_validations",574655,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2004-Q3","lgc_validations",431890,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2004-Q4","lgc_validations",1086522,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2005-Q1","lgc_validations",1108256,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2005-Q2","lgc_validations",493830,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2005-Q3","lgc_validations",899094,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2005-Q4","lgc_validations",1291229,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2006-Q1","lgc_validations",1187273,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2006-Q2","lgc_validations",759154,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2006-Q3","lgc_validations",562173,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2006-Q4","lgc_validations",1902388,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2007-Q1","lgc_validations",1173336,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2007-Q2","lgc_validations",930669,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2007-Q3","lgc_validations",1158523,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2007-Q4","lgc_validations",1911407,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2008-Q1","lgc_validations",1217736,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2008-Q2","lgc_validations",1148531,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2008-Q3","lgc_validations",1677380,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2008-Q4","lgc_validations",1813320,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2009-Q1","lgc_validations",1473440,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2009-Q2","lgc_validations",1615381,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2009-Q3","lgc_validations",1914687,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2009-Q4","lgc_validations",3058435,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2010-Q1","lgc_validations",3414007,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2010-Q2","lgc_validations",5264199,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2010-Q3","lgc_validations",7366102,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2010-Q4","lgc_validations",12708322,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2011-Q1","lgc_validations",5015008,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2011-Q2","lgc_validations",3894707,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2011-Q3","lgc_validations",2825886,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2011-Q4","lgc_validations",4104570,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2012-Q1","lgc_validations",2867216,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2012-Q2","lgc_validations",2279952,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2012-Q3","lgc_validations",3213353,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2012-Q4","lgc_validations",3404795,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2013-Q1","lgc_validations",2705860,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2013-Q2","lgc_validations",3101447,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2013-Q3","lgc_validations",3105677,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2013-Q4","lgc_validations",5035079,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2014-Q1","lgc_validations",4496861,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2014-Q2","lgc_validations",2948241,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2014-Q3","lgc_validations",4166213,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2014-Q4","lgc_validations",6494329,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2015-Q1","lgc_validations",4742597,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2015-Q2","lgc_validations",2995065,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2015-Q3","lgc_validations",3819704,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2015-Q4","lgc_validations",4906070,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2016-Q1","lgc_validations",3623462,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2016-Q2","lgc_validations",3600604,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2016-Q3","lgc_validations",3660520,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2016-Q4","lgc_validations",6436235,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2017-Q1","lgc_validations",5791436,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2017-Q2","lgc_validations",3486463,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2017-Q3","lgc_validations",3220683,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2017-Q4","lgc_validations",6576753,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2018-Q1","lgc_validations",5087170,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2018-Q2","lgc_validations",5138406,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2018-Q3","lgc_validations",5478803,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2018-Q4","lgc_validations",7287071,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2019-Q1","lgc_validations",7282780,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2019-Q2","lgc_validations",6202068,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2019-Q3","lgc_validations",6758388,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2019-Q4","lgc_validations",9372895,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2020-Q1","lgc_validations",7397678,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2020-Q2","lgc_validations",6968029,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2020-Q3","lgc_validations",7322745,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2020-Q4","lgc_validations",11464544,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2021-Q1","lgc_validations",9205633,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2021-Q2","lgc_validations",7952922,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2021-Q3","lgc_validations",9208679,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2021-Q4","lgc_validations",12564967,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2022-Q1","lgc_validations",10179694,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2022-Q2","lgc_validations",9527150,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2022-Q3","lgc_validations",11178253,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2022-Q4","lgc_validations",11205613,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2023-Q1","lgc_validations",13065709,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2023-Q2","lgc_validations",11287871,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2023-Q3","lgc_validations",12119301,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2023-Q4","lgc_validations",13129578,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2024-Q1","lgc_validations",13844185,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2024-Q2","lgc_validations",11057519,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2024-Q3","lgc_validations",12567892,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2024-Q4","lgc_validations",14010587,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2025-Q1","lgc_validations",14195989,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2025-Q2","lgc_validations",12961027,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2025-Q3","lgc_validations",15656888,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2025-Q4","lgc_validations",16852516,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2026-Q1","lgc_validations",17231641,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2026-Q2","lgc_validations",15212114,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2026-Q3","lgc_validations",15323186,"lgcs","QCMR data workbook (september-quarter-2026), Figure 2.1, column 'Total'",
+"2018-Q1","safeguard_accu_surrenders",379792,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2018-Q2","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2018-Q3","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2018-Q4","safeguard_accu_surrenders",10101,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2019-Q1","safeguard_accu_surrenders",141206,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2019-Q2","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2019-Q3","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2019-Q4","safeguard_accu_surrenders",2637,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2020-Q1","safeguard_accu_surrenders",56994,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2020-Q2","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2020-Q3","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2020-Q4","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2021-Q1","safeguard_accu_surrenders",88325,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2021-Q2","safeguard_accu_surrenders",33254,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2021-Q3","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2021-Q4","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2022-Q1","safeguard_accu_surrenders",250809,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2022-Q2","safeguard_accu_surrenders",37726,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2022-Q3","safeguard_accu_surrenders",50000,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2022-Q4","safeguard_accu_surrenders",10000,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2023-Q1","safeguard_accu_surrenders",202613,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2023-Q2","safeguard_accu_surrenders",33611,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2023-Q3","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2023-Q4","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2024-Q1","safeguard_accu_surrenders",896225,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2024-Q2","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2024-Q3","safeguard_accu_surrenders",6253,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2024-Q4","safeguard_accu_surrenders",623613,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2025-Q1","safeguard_accu_surrenders",6380493,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2025-Q2","safeguard_accu_surrenders",172900,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2025-Q3","safeguard_accu_surrenders",211222,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2025-Q4","safeguard_accu_surrenders",1917208,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2026-Q1","safeguard_accu_surrenders",8764299,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2026-Q2","safeguard_accu_surrenders",0,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2026-Q3","safeguard_accu_surrenders",134759,"accus","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'ACCUs surrendered'",
+"2018-Q1","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2018-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2018-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2018-Q4","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2019-Q1","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2019-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2019-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2019-Q4","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2020-Q1","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2020-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2020-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2020-Q4","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2021-Q1","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2021-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2021-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2021-Q4","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2022-Q1","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2022-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2022-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2022-Q4","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2023-Q1","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2023-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2023-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2023-Q4","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2024-Q1","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2024-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2024-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2024-Q4","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2025-Q1","safeguard_smc_surrenders",1386610,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2025-Q2","safeguard_smc_surrenders",1420,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2025-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2025-Q4","safeguard_smc_surrenders",9745,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2026-Q1","safeguard_smc_surrenders",2572367,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2026-Q2","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2026-Q3","safeguard_smc_surrenders",0,"smcs","QCMR data workbook (september-quarter-2026), Figure 1.7, column 'SMCs surrendered'",
+"2001-Q2","sres_cumulative_solar_installations",42,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2001-Q3","sres_cumulative_solar_installations",76,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2001-Q4","sres_cumulative_solar_installations",118,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2002-Q1","sres_cumulative_solar_installations",167,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2002-Q2","sres_cumulative_solar_installations",217,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2002-Q3","sres_cumulative_solar_installations",279,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2002-Q4","sres_cumulative_solar_installations",369,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2003-Q1","sres_cumulative_solar_installations",490,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2003-Q2","sres_cumulative_solar_installations",567,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2003-Q3","sres_cumulative_solar_installations",782,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2003-Q4","sres_cumulative_solar_installations",1033,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2004-Q1","sres_cumulative_solar_installations",1237,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2004-Q2","sres_cumulative_solar_installations",1481,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2004-Q3","sres_cumulative_solar_installations",1757,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2004-Q4","sres_cumulative_solar_installations",2122,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2005-Q1","sres_cumulative_solar_installations",2449,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2005-Q2","sres_cumulative_solar_installations",2820,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2005-Q3","sres_cumulative_solar_installations",3130,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2005-Q4","sres_cumulative_solar_installations",3528,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2006-Q1","sres_cumulative_solar_installations",3735,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2006-Q2","sres_cumulative_solar_installations",3997,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2006-Q3","sres_cumulative_solar_installations",4251,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2006-Q4","sres_cumulative_solar_installations",4643,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2007-Q1","sres_cumulative_solar_installations",5021,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2007-Q2","sres_cumulative_solar_installations",5473,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2007-Q3","sres_cumulative_solar_installations",6537,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2007-Q4","sres_cumulative_solar_installations",8123,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2008-Q1","sres_cumulative_solar_installations",9980,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2008-Q2","sres_cumulative_solar_installations",12814,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2008-Q3","sres_cumulative_solar_installations",16467,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2008-Q4","sres_cumulative_solar_installations",22187,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2009-Q1","sres_cumulative_solar_installations",30920,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2009-Q2","sres_cumulative_solar_installations",42776,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2009-Q3","sres_cumulative_solar_installations",59937,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2009-Q4","sres_cumulative_solar_installations",85103,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2010-Q1","sres_cumulative_solar_installations",117024,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2010-Q2","sres_cumulative_solar_installations",165283,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2010-Q3","sres_cumulative_solar_installations",218503,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2010-Q4","sres_cumulative_solar_installations",283311,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2011-Q1","sres_cumulative_solar_installations",373155,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2011-Q2","sres_cumulative_solar_installations",525490,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2011-Q3","sres_cumulative_solar_installations",594712,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2011-Q4","sres_cumulative_solar_installations",644056,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2012-Q1","sres_cumulative_solar_installations",700266,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2012-Q2","sres_cumulative_solar_installations",829510,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2012-Q3","sres_cumulative_solar_installations",911698,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2012-Q4","sres_cumulative_solar_installations",987376,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2013-Q1","sres_cumulative_solar_installations",1034014,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2013-Q2","sres_cumulative_solar_installations",1093109,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2013-Q3","sres_cumulative_solar_installations",1139697,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2013-Q4","sres_cumulative_solar_installations",1187783,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2014-Q1","sres_cumulative_solar_installations",1229948,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2014-Q2","sres_cumulative_solar_installations",1274064,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2014-Q3","sres_cumulative_solar_installations",1321831,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2014-Q4","sres_cumulative_solar_installations",1367922,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2015-Q1","sres_cumulative_solar_installations",1405426,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2015-Q2","sres_cumulative_solar_installations",1439911,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2015-Q3","sres_cumulative_solar_installations",1476410,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2015-Q4","sres_cumulative_solar_installations",1509422,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2016-Q1","sres_cumulative_solar_installations",1539240,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2016-Q2","sres_cumulative_solar_installations",1570283,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2016-Q3","sres_cumulative_solar_installations",1603189,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2016-Q4","sres_cumulative_solar_installations",1642119,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2017-Q1","sres_cumulative_solar_installations",1679479,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2017-Q2","sres_cumulative_solar_installations",1719878,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2017-Q3","sres_cumulative_solar_installations",1765023,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2017-Q4","sres_cumulative_solar_installations",1817061,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2018-Q1","sres_cumulative_solar_installations",1865725,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2018-Q2","sres_cumulative_solar_installations",1916249,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2018-Q3","sres_cumulative_solar_installations",1972603,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2018-Q4","sres_cumulative_solar_installations",2041913,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2019-Q1","sres_cumulative_solar_installations",2106757,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2019-Q2","sres_cumulative_solar_installations",2169656,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2019-Q3","sres_cumulative_solar_installations",2238705,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2019-Q4","sres_cumulative_solar_installations",2325944,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2020-Q1","sres_cumulative_solar_installations",2408964,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2020-Q2","sres_cumulative_solar_installations",2493708,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2020-Q3","sres_cumulative_solar_installations",2587392,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2020-Q4","sres_cumulative_solar_installations",2696264,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2021-Q1","sres_cumulative_solar_installations",2795221,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2021-Q2","sres_cumulative_solar_installations",2890434,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2021-Q3","sres_cumulative_solar_installations",2979637,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2021-Q4","sres_cumulative_solar_installations",3073722,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2022-Q1","sres_cumulative_solar_installations",3142291,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2022-Q2","sres_cumulative_solar_installations",3213838,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2022-Q3","sres_cumulative_solar_installations",3298198,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2022-Q4","sres_cumulative_solar_installations",3389439,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2023-Q1","sres_cumulative_solar_installations",3465552,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2023-Q2","sres_cumulative_solar_installations",3542767,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2023-Q3","sres_cumulative_solar_installations",3630155,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2023-Q4","sres_cumulative_solar_installations",3723304,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2024-Q1","sres_cumulative_solar_installations",3798876,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2024-Q2","sres_cumulative_solar_installations",3880831,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2024-Q3","sres_cumulative_solar_installations",3960578,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2024-Q4","sres_cumulative_solar_installations",4042485,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2025-Q1","sres_cumulative_solar_installations",4109316,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2025-Q2","sres_cumulative_solar_installations",4169573,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2025-Q3","sres_cumulative_solar_installations",4234380,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2025-Q4","sres_cumulative_solar_installations",4315414,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2026-Q1","sres_cumulative_solar_installations",4395365,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2026-Q2","sres_cumulative_solar_installations",4497689,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2026-Q3","sres_cumulative_solar_installations",4587731,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'","Running sum of quarterly installations from 2001-Q2"
+"2001-Q2","sres_solar_installations",42,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2001-Q3","sres_solar_installations",34,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2001-Q4","sres_solar_installations",42,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2002-Q1","sres_solar_installations",49,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2002-Q2","sres_solar_installations",50,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2002-Q3","sres_solar_installations",62,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2002-Q4","sres_solar_installations",90,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2003-Q1","sres_solar_installations",121,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2003-Q2","sres_solar_installations",77,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2003-Q3","sres_solar_installations",215,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2003-Q4","sres_solar_installations",251,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2004-Q1","sres_solar_installations",204,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2004-Q2","sres_solar_installations",244,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2004-Q3","sres_solar_installations",276,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2004-Q4","sres_solar_installations",365,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2005-Q1","sres_solar_installations",327,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2005-Q2","sres_solar_installations",371,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2005-Q3","sres_solar_installations",310,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2005-Q4","sres_solar_installations",398,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2006-Q1","sres_solar_installations",207,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2006-Q2","sres_solar_installations",262,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2006-Q3","sres_solar_installations",254,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2006-Q4","sres_solar_installations",392,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2007-Q1","sres_solar_installations",378,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2007-Q2","sres_solar_installations",452,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2007-Q3","sres_solar_installations",1064,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2007-Q4","sres_solar_installations",1586,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2008-Q1","sres_solar_installations",1857,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2008-Q2","sres_solar_installations",2834,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2008-Q3","sres_solar_installations",3653,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2008-Q4","sres_solar_installations",5720,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2009-Q1","sres_solar_installations",8733,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2009-Q2","sres_solar_installations",11856,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2009-Q3","sres_solar_installations",17161,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2009-Q4","sres_solar_installations",25166,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2010-Q1","sres_solar_installations",31921,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2010-Q2","sres_solar_installations",48259,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2010-Q3","sres_solar_installations",53220,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2010-Q4","sres_solar_installations",64808,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2011-Q1","sres_solar_installations",89844,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2011-Q2","sres_solar_installations",152335,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2011-Q3","sres_solar_installations",69222,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2011-Q4","sres_solar_installations",49344,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2012-Q1","sres_solar_installations",56210,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2012-Q2","sres_solar_installations",129244,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2012-Q3","sres_solar_installations",82188,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2012-Q4","sres_solar_installations",75678,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2013-Q1","sres_solar_installations",46638,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2013-Q2","sres_solar_installations",59095,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2013-Q3","sres_solar_installations",46588,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2013-Q4","sres_solar_installations",48086,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2014-Q1","sres_solar_installations",42165,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2014-Q2","sres_solar_installations",44116,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2014-Q3","sres_solar_installations",47767,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2014-Q4","sres_solar_installations",46091,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2015-Q1","sres_solar_installations",37504,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2015-Q2","sres_solar_installations",34485,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2015-Q3","sres_solar_installations",36499,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2015-Q4","sres_solar_installations",33012,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2016-Q1","sres_solar_installations",29818,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2016-Q2","sres_solar_installations",31043,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2016-Q3","sres_solar_installations",32906,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2016-Q4","sres_solar_installations",38930,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2017-Q1","sres_solar_installations",37360,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2017-Q2","sres_solar_installations",40399,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2017-Q3","sres_solar_installations",45145,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2017-Q4","sres_solar_installations",52038,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2018-Q1","sres_solar_installations",48664,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2018-Q2","sres_solar_installations",50524,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2018-Q3","sres_solar_installations",56354,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2018-Q4","sres_solar_installations",69310,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2019-Q1","sres_solar_installations",64844,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2019-Q2","sres_solar_installations",62899,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2019-Q3","sres_solar_installations",69049,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2019-Q4","sres_solar_installations",87239,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2020-Q1","sres_solar_installations",83020,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2020-Q2","sres_solar_installations",84744,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2020-Q3","sres_solar_installations",93684,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2020-Q4","sres_solar_installations",108872,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2021-Q1","sres_solar_installations",98957,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2021-Q2","sres_solar_installations",95213,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2021-Q3","sres_solar_installations",89203,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2021-Q4","sres_solar_installations",94085,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2022-Q1","sres_solar_installations",68569,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2022-Q2","sres_solar_installations",71547,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2022-Q3","sres_solar_installations",84360,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2022-Q4","sres_solar_installations",91241,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2023-Q1","sres_solar_installations",76113,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2023-Q2","sres_solar_installations",77215,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2023-Q3","sres_solar_installations",87388,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2023-Q4","sres_solar_installations",93149,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2024-Q1","sres_solar_installations",75572,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2024-Q2","sres_solar_installations",81955,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2024-Q3","sres_solar_installations",79747,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2024-Q4","sres_solar_installations",81907,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2025-Q1","sres_solar_installations",66831,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2025-Q2","sres_solar_installations",60257,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2025-Q3","sres_solar_installations",64807,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2025-Q4","sres_solar_installations",81034,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2026-Q1","sres_solar_installations",79951,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2026-Q2","sres_solar_installations",102324,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",
+"2026-Q3","sres_solar_installations",90042,"installations","QCMR data workbook (september-quarter-2026), Figure 3.7, column 'Installations'",

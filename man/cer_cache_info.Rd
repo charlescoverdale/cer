@@ -24,7 +24,7 @@ options(op)
 }
 }
 \seealso{
-Other configuration: 
-\code{\link{cer_clear_cache}()}
+Other configuration:
+\code{\link[=cer_clear_cache]{cer_clear_cache()}}
 }
 \concept{configuration}

@@ -7,26 +7,33 @@
 cer_safeguard_teba_facilities()
 }
 \value{
-A \code{cer_tbl} of TEBA facilities.
+A \code{cer_tbl} with columns \code{facility_name},
+\code{responsible_emitter}, \code{start_date}, \code{end_date} (the financial
+years covered), \code{facility_type}, \code{decline_rate}, \code{erc_2023_24} to
+\code{erc_2026_27} (\code{NA} where the determination does not apply),
+\code{status} (\code{"current"} or \code{"historical"}) and \code{historical_reason}.
 }
 \description{
-Returns the bundled list of facilities declared as TEBA under
-the 2023 reform. TEBA facilities are eligible for softer
-baseline treatment reflecting international competitiveness.
+Returns the Clean Energy Regulator's table of trade-exposed
+baseline-adjusted (TEBA) determinations, bundled by
+\code{data-raw/safeguard_teba_facilities.R}. A TEBA determination sets a
+slower decline in a facility's emissions reduction contribution
+(ERC) than the default, for the financial years it covers. A
+facility appears once per determination, so a revoked and replaced
+determination gives two rows.
 }
 \examples{
 cer_safeguard_teba_facilities()
 }
 \references{
-Commonwealth of Australia (2023). \emph{National Greenhouse
-and Energy Reporting (Safeguard Mechanism) Rule 2015} as
-amended by the Safeguard Mechanism (Crediting) Amendment
-Rule 2023. TEBA definition and declaration process.
+Clean Energy Regulator. \emph{Trade-exposed baseline-adjusted
+facility data}.
+\url{https://cer.gov.au/markets/reports-and-data/safeguard-data/trade-exposed-baseline-adjusted-facility-data}
 }
 \seealso{
-Other safeguard: 
-\code{\link{cer_safeguard_baseline_trajectory}()},
-\code{\link{cer_safeguard_facilities}()},
-\code{\link{cer_safeguard_industry_baselines}()}
+Other safeguard:
+\code{\link[=cer_safeguard_baseline_trajectory]{cer_safeguard_baseline_trajectory()}},
+\code{\link[=cer_safeguard_facilities]{cer_safeguard_facilities()}},
+\code{\link[=cer_safeguard_industry_baselines]{cer_safeguard_industry_baselines()}}
 }
 \concept{safeguard}

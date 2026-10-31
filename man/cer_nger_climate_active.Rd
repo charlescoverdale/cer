@@ -40,9 +40,9 @@ Greenhouse Gas Protocol (2004). \emph{A Corporate Accounting and
 Reporting Standard (Revised Edition)}. World Resources Institute.
 }
 \seealso{
-Other nger: 
-\code{\link{cer_nger_corporate}()},
-\code{\link{cer_nger_electricity}()},
-\code{\link{cer_nger_scope}()}
+Other nger:
+\code{\link[=cer_nger_corporate]{cer_nger_corporate()}},
+\code{\link[=cer_nger_electricity]{cer_nger_electricity()}},
+\code{\link[=cer_nger_scope]{cer_nger_scope()}}
 }
 \concept{nger}

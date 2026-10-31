@@ -1,14 +1,25 @@
-facility_name,parent_entity,anzsic,teba_status,note
-"Alcoa Wagerup Refinery","Alcoa of Australia",2131,declared,"Alumina refining TEBA"
-"Alcoa Pinjarra Refinery","Alcoa of Australia",2131,declared,
-"Alcoa Kwinana Refinery","Alcoa of Australia",2131,declared,
-"Tomago Aluminium","Tomago Aluminium Company",2132,declared,"Primary aluminium smelting"
-"Boyne Island Aluminium Smelter","Rio Tinto",2132,declared,
-"Portland Aluminium Smelter","Alcoa of Australia",2132,declared,
-"Bluescope Port Kembla","BlueScope Steel",2110,declared,"Integrated steelmaking"
-"Liberty Whyalla Steelworks","GFG Alliance",2110,declared,
-"Incitec Pivot Gibson Island","Incitec Pivot",1829,declared,"Ammonia/urea (closed 2022)"
-"Orica Kooragang Island","Orica",1829,declared,
-"Visy Pulp and Paper Tumut","Visy",1510,declared,
-"Adbri Cement Birkenhead","Adbri",2030,declared,
-"Boral Cement Berrima","Boral",2030,declared,
+"facility_name","responsible_emitter","start_date","end_date","facility_type","decline_rate","erc_2023_24","erc_2024_25","erc_2025_26","erc_2026_27","status","historical_reason"
+"Angaston Operations","ADBRI LIMITED",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Bell Bay Smelter","RIO TINTO ALUMINIUM (BELL BAY) LIMITED",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Boyne Smelters Limited","RIO TINTO ALUMINIUM LIMITED",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Dandenong","OCEANIA GLASS PTY LTD",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Geelong Refinery","Viva Energy Refining Pty Ltd",2023-07-01,2024-06-30,"Manufacturing",0.01,0.99,,,,"historical","This determination has been revoked as a new TEBA determination has been made for the facility."
+"Kwinana Alumina Refinery","Alcoa of Australia Limited",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Kwinana Pigment Plant","Tronox Management Pty Ltd",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Liberty Primary Steel Whyalla Steelworks","ONESTEEL MANUFACTURING PTY LIMITED",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Norske Skog Boyer Mill","Boyer Paper Mill Limited",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Nyrstar Port Pirie Facility","Nyrstar Port Pirie Pty Ltd",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Opal Australian Paper Maryvale Mill","PAPER AUSTRALIA PTY LTD",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Parkhurst Magnesia Manufacturing Plant","QMAG PTY LIMITED",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Phosphate Hill","DYNO NOBEL LIMITED",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Port Kembla Steelworks","BLUESCOPE STEEL (AIS) PTY. LTD.",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Queensland Alumina Limited Refinery","QUEENSLAND ALUMINA LIMITED",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Rio Tinto Yarwun","RTA Yarwun Pty Ltd",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"YPF AMMONIA PLANT","Yara Pilbara Fertilisers Pty Ltd",2023-07-01,2026-06-30,"Manufacturing",0.01,0.99,0.98,0.97,,"current",
+"Fisherman's Landing - Lime","CEMENT AUSTRALIA (QUEENSLAND) PTY LIMITED",2024-07-01,2027-06-30,"Manufacturing",0.0165,,0.9345,0.918,0.9015,"current",
+"Geelong Refinery","Viva Energy Refining Pty Ltd",2024-07-01,2027-06-30,"Manufacturing",0.01,,0.98,0.97,0.96,"current",
+"Liberty Bell Bay","Liberty Bell Bay Pty Ltd",2024-07-01,2027-06-30,"Manufacturing",0.01,,0.941,0.931,0.921,"current",
+"Murrin Murrin Operations","MURRIN MURRIN OPERATIONS PTY LTD",2024-07-01,2027-06-30,"Manufacturing",0.01,,0.941,0.931,0.921,"current",
+"Portland Aluminium Smelter","Alcoa Portland Aluminium Proprietary Limited",2024-07-01,2027-06-30,"Manufacturing",0.01,,0.941,0.931,0.921,"current",
+"Railton","CEMENT AUSTRALIA (GOLIATH) PTY LIMITED",2024-07-01,2027-06-30,"Manufacturing",0.0421,,0.9089,0.8668,0.8248,"current",
+"Refinery Qld Lytton","Ampol Limited",2024-07-01,2027-06-30,"Manufacturing",0.01,,0.941,0.931,0.921,"current",
