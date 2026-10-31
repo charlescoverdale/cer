@@ -800,7 +800,7 @@ cer_reconcile(value, quarter, measure, sum_column = NULL, warn_pct = 0.02)
 
 - `value`: Numeric scalar or data frame. If a data frame, pass `sum_column` to pick which numeric column to sum.
 - `quarter`: Character, e.g. `"2024-Q4"` or `"2023-24"`.
-- `measure`: Character, matching a `measure` value in `cer_qcmr_reference()`. For example `"accu_cumulative_issuances"`, `"safeguard_covered_emissions_mt"`, `"smc_issuances"`.
+- `measure`: Character, matching a `measure` value in `cer_qcmr_reference()`. For example `"accu_cumulative_issuances"`, `"lgc_validations"`, `"safeguard_accu_surrenders"`.
 - `sum_column`: Column name to sum when `value` is a data frame.
 - `warn_pct`: Warn if |pct_diff| > this threshold. Default 0.02.
 
@@ -811,7 +811,7 @@ A one-row data frame: `measure`, `quarter`, `value`, `reference`, `diff`, `pct_d
 **Example**
 
 ```r
-cer_reconcile(value = 185e6,
+cer_reconcile(value = 158.4e6,
               quarter = "2024-Q4",
               measure = "accu_cumulative_issuances")
 ```
@@ -820,9 +820,9 @@ cer_reconcile(value = 185e6,
 
 ## `cer_safeguard_baseline_trajectory()`
 
-**Compute a declining Safeguard baseline trajectory**
+**Default Safeguard baseline emissions intensity trajectory**
 
-Implements the 4.9% per-annum nominal decline in industry-average default baselines introduced by the 2023 reform. The formula is:
+Returns the baseline emissions intensity, per unit of a production variable, for a facility whose baseline is set at the default emissions intensity in Schedule 1 of the Safeguard Mechanism Rule 2015 and the default emissions reduction contribution (ERC) in section 31:
 
 **Usage**
 
@@ -832,20 +832,19 @@ cer_safeguard_baseline_trajectory(industry, from_year = 2023, to_year = 2030)
 
 **Arguments**
 
-- `industry`: Character scalar matching an `industry` value from `cer_safeguard_industry_baselines()`.
+- `industry`: Character scalar: a `production_variable` from `cer_safeguard_industry_baselines()` (case-insensitive), or its Schedule 1 section number, e.g. `"7"` for aluminium.
 - `from_year`: Start year (default 2023 for FY 2023-24).
-- `to_year`: End year (default 2029 for FY 2029-30).
+- `to_year`: End year (default 2030 for FY 2030-31).
 
 **Returns**
 
-A data frame with `year`, `financial_year`, `baseline`, and `decline_factor` columns.
+A data frame with `year`, `financial_year`, `default_emissions_intensity`, `decline_factor` (the default ERC) and `baseline` (t CO2-e per unit of the production variable).
 
 **Example**
 
 ```r
-cer_safeguard_baseline_trajectory("Aluminium smelting")
-cer_safeguard_baseline_trajectory("Cement clinker",
-                                   from_year = 2023, to_year = 2030)
+cer_safeguard_baseline_trajectory("Aluminium")
+cer_safeguard_baseline_trajectory("63", from_year = 2023, to_year = 2035)
 ```
 
 ---
@@ -885,9 +884,9 @@ options(op)
 
 ## `cer_safeguard_industry_baselines()`
 
-**Bundled Safeguard industry-average default baselines**
+**Safeguard default emissions intensities by production variable**
 
-Bundled Safeguard industry-average default baselines
+The default (industry-average) emissions intensity for every production variable in Schedule 1 of the Safeguard Mechanism Rule 2015 that has one, read from the Rule by `data-raw/safeguard_industry_baselines.R`. Production variables whose default is yet to be specified are omitted.
 
 **Usage**
 
@@ -897,12 +896,13 @@ cer_safeguard_industry_baselines()
 
 **Returns**
 
-A `cer_tbl` of industry default baselines.
+A `cer_tbl` with columns `section`, `production_variable`, `default_emissions_intensity`, `unit` (the Rule's wording) and `source` (section and compilation date).
 
 **Example**
 
 ```r
-cer_safeguard_industry_baselines()
+b <- cer_safeguard_industry_baselines()
+b[b$production_variable %in% c("Aluminium", "Alumina"), ]
 ```
 
 ---
@@ -911,7 +911,7 @@ cer_safeguard_industry_baselines()
 
 **Trade-exposed baseline-adjusted (TEBA) facility list**
 
-Returns the bundled list of facilities declared as TEBA under the 2023 reform. TEBA facilities are eligible for softer baseline treatment reflecting international competitiveness.
+Returns the Clean Energy Regulator's table of trade-exposed baseline-adjusted (TEBA) determinations, bundled by `data-raw/safeguard_teba_facilities.R`. A TEBA determination sets a slower decline in a facility's emissions reduction contribution (ERC) than the default, for the financial years it covers. A facility appears once per determination, so a revoked and replaced determination gives two rows.
 
 **Usage**
 
@@ -921,7 +921,7 @@ cer_safeguard_teba_facilities()
 
 **Returns**
 
-A `cer_tbl` of TEBA facilities.
+A `cer_tbl` with columns `facility_name`, `responsible_emitter`, `start_date`, `end_date` (the financial years covered), `facility_type`, `decline_rate`, `erc_2023_24` to `erc_2026_27` (`NA` where the determination does not apply), `status` (`"current"` or `"historical"`) and `historical_reason`.
 
 **Example**
 
