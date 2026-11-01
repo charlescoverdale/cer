@@ -15,7 +15,13 @@ cer_method_integrity(tier = NULL, status = NULL)
 \code{"expired"}.}
 }
 \value{
-A \code{cer_tbl} with one row per method (19 rows at v0.2.0).
+A \code{cer_tbl} with one row per method (19 rows at v0.2.0). The
+\code{register_pattern} column is the regular expression that assigns the
+ACCU project register's full legal method names (for example,
+"Carbon Credits (Carbon Farming Initiative-Landfill Gas) Methodology
+Determination 2015") to each row; \code{\link[=cer_accu_aggregate]{cer_accu_aggregate()}} and the
+\code{chubb_flag} column of \code{\link[=cer_accu_projects]{cer_accu_projects()}} use it. Register methods
+that no pattern matches are reported as \code{"unclassified"}.
 }
 \description{
 Returns a method-level integrity scorecard for all ACCU methods.

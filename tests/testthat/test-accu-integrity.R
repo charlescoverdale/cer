@@ -67,3 +67,49 @@ test_that("cer_accu_aggregate warns on high contested share", {
   # HIR is "contested" tier; 100% of the total triggers the warn.
   expect_warning(cer_accu_aggregate(fake), "Contested-integrity")
 })
+
+# The register names methods by their full legal title. Matching on the
+# scorecard's short names classified none of them.
+register_methods <- function() {
+  readLines(test_path("fixtures", "accu_register_methods.txt"), encoding = "UTF-8")
+}
+
+test_that("register methods map to at most one scorecard row", {
+  integ <- as.data.frame(cer_method_integrity())
+  m <- register_methods()
+  hits <- vapply(m, function(x) {
+    sum(vapply(integ$register_pattern, grepl, logical(1), x = x,
+               ignore.case = TRUE, perl = TRUE))
+  }, integer(1))
+  expect_true(all(hits <= 1L))
+  # 38 of the register's 75 determinations are covered by the scorecard
+  expect_gte(sum(hits == 1L), 38L)
+})
+
+test_that("register methods are classified by determination", {
+  integ <- as.data.frame(cer_method_integrity())
+  short <- function(x) integ$method_short[cer_method_lookup(x, integ)]
+  m <- register_methods()
+  pick <- function(pattern) m[grepl(pattern, m, fixed = TRUE)]
+  expect_true(all(short(pick("Human-Induced Regeneration")) == "HIR"))
+  expect_true(all(short(pick("Mallee Plantings-FullCAM) Methodology Determination 2014")) == "Plantings_2014"))
+  expect_true(all(short(pick("Mallee Plantings-FullCAM) Methodology Determination 2024")) == "Plantings_2024"))
+  expect_true(all(short(pick("Savanna Fire Management-Emissions Avoidance) Methodology Determination 2018")) == "Savanna_EA_2018"))
+  expect_true(all(short(pick("Methodology Determination 2026")) == "Savanna_2026"))
+  # Not in the scorecard: the 2015 savanna method and the 2021 soil method
+  expect_true(all(is.na(short(pick("Emissions Abatement through Savanna Fire Management")))))
+  expect_true(all(is.na(short(pick("Estimation of Soil Organic Carbon Sequestration")))))
+})
+
+test_that("cer_accu_aggregate sums the register's issuance column by default", {
+  fake <- data.frame(
+    method = c("Carbon Credits (Carbon Farming Initiative) (Human-Induced Regeneration of a Permanent Even-Aged Native Forest-1.1) Methodology Determination 2013 (Compilation No. 3)",
+               "Carbon Credits (Carbon Farming Initiative-Savanna Fire Management-Emissions Avoidance) Methodology Determination 2026"),
+    accus_total_units_issued = c(900, 100),
+    stringsAsFactors = FALSE
+  )
+  agg <- suppressWarnings(cer_accu_aggregate(fake))
+  expect_equal(agg$accus_total_units_issued_sum[agg$integrity_tier == "contested"], 900)
+  expect_equal(agg$accus_total_units_issued_sum[agg$integrity_tier == "high"], 100)
+  expect_warning(cer_accu_aggregate(fake), "Contested-integrity")
+})

@@ -27,7 +27,13 @@
 #'   `"active"`, `"suspended"`, `"under_review"`, `"superseded"`,
 #'   `"expired"`.
 #'
-#' @return A `cer_tbl` with one row per method (19 rows at v0.2.0).
+#' @return A `cer_tbl` with one row per method (19 rows at v0.2.0). The
+#'   `register_pattern` column is the regular expression that assigns the
+#'   ACCU project register's full legal method names (for example,
+#'   "Carbon Credits (Carbon Farming Initiative-Landfill Gas) Methodology
+#'   Determination 2015") to each row; [cer_accu_aggregate()] and the
+#'   `chubb_flag` column of [cer_accu_projects()] use it. Register methods
+#'   that no pattern matches are reported as `"unclassified"`.
 #'
 #' @references
 #' Chubb, I. (2022). \emph{Independent Review of Australian Carbon
@@ -115,15 +121,19 @@ cer_method_determination <- function(method_short) {
 #' the analyst cannot silently aggregate them into a single
 #' headline figure.
 #'
-#' @param x A `cer_tbl` or data frame with columns `method` and
-#'   (typically) `accus_issued`.
-#' @param value_col Column to sum. Default `"accus_issued"`.
+#' @param x A `cer_tbl` or data frame with columns `method` and a
+#'   numeric issuance column.
+#' @param value_col Column to sum. Default `NULL` uses the register's
+#'   `accus_total_units_issued` column (or `accus_issued`, if that is the
+#'   one `x` has).
 #' @param warn_contested_pct Warn if the contested tier exceeds
 #'   this share of the total. Default `0.05` (5%).
 #'
 #' @return A data frame with one row per integrity tier and
-#'   columns `integrity_tier`, `projects`, `accus_issued_sum`,
-#'   `share_pct`.
+#'   columns `integrity_tier`, `projects`, `<value_col>_sum` and
+#'   `share_pct`. Register methods are assigned to a tier through the
+#'   scorecard's `register_pattern`; methods it does not cover are
+#'   `"unclassified"`.
 #' @family accu
 #' @export
 #' @examples
@@ -136,7 +146,7 @@ cer_method_determination <- function(method_short) {
 #' options(op)
 #' }
 cer_accu_aggregate <- function(x,
-                                value_col = "accus_issued",
+                                value_col = NULL,
                                 warn_contested_pct = 0.05) {
   if (is.data.frame(x)) {
     df <- as.data.frame(x, stringsAsFactors = FALSE)
@@ -147,6 +157,11 @@ cer_accu_aggregate <- function(x,
     cli::cli_abort(
       "{.arg x} has no {.val method} column."
     )
+  }
+  if (is.null(value_col)) {
+    value_col <- intersect(c("accus_total_units_issued", "accus_issued"),
+                           names(df))[1]
+    if (is.na(value_col)) value_col <- "accus_total_units_issued"
   }
   if (!value_col %in% names(df)) {
     cli::cli_warn(c(
@@ -159,11 +174,8 @@ cer_accu_aggregate <- function(x,
   }
 
   integ <- as.data.frame(cer_method_integrity())
-  df$method_lower <- tolower(df$method)
-  integ$method_lower <- tolower(integ$method_full_name)
-
-  joined <- merge(df, integ[, c("method_lower", "integrity_tier")],
-                   by = "method_lower", all.x = TRUE)
+  joined <- df
+  joined$integrity_tier <- integ$integrity_tier[cer_method_lookup(df$method, integ)]
   joined$integrity_tier[is.na(joined$integrity_tier)] <- "unclassified"
 
   agg <- stats::aggregate(
@@ -195,11 +207,26 @@ cer_accu_aggregate <- function(x,
 cer_attach_chubb_flag <- function(df) {
   if (!"method" %in% names(df)) return(df)
   integ <- as.data.frame(cer_method_integrity())
-  integ$method_lower <- tolower(integ$method_full_name)
-  df$method_lower <- tolower(df$method)
-  lookup <- stats::setNames(integ$status, integ$method_lower)
-  df$chubb_flag <- unname(lookup[df$method_lower])
+  df$chubb_flag <- integ$status[cer_method_lookup(df$method, integ)]
   df$chubb_flag[is.na(df$chubb_flag)] <- "unclassified"
-  df$method_lower <- NULL
   df
+}
+
+#' @noRd
+# Index of the scorecard row each register method belongs to (NA when the
+# scorecard does not cover it). The register names a method by its full
+# legal title ("Carbon Credits (Carbon Farming Initiative-Landfill Gas)
+# Methodology Determination 2015 (Compilation No. 1)"), never by the
+# scorecard's short name, so an exact join on the name matched nothing
+# and every project came out "unclassified". Rows are matched on
+# `register_pattern`; an exact scorecard name still matches its own row.
+cer_method_lookup <- function(methods,
+                              integ = as.data.frame(cer_method_integrity())) {
+  idx <- match(tolower(methods), tolower(integ$method_full_name))
+  for (i in seq_len(nrow(integ))) {
+    hit <- is.na(idx) &
+      grepl(integ$register_pattern[i], methods, ignore.case = TRUE, perl = TRUE)
+    idx[hit] <- i
+  }
+  idx
 }

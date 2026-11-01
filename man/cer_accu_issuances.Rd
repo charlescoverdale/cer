@@ -23,7 +23,7 @@ A \code{cer_tbl} with one row per project.
 }
 \description{
 Derived from the ACCU Scheme project register: returns one row
-per project with \code{accus_issued}, project metadata, and total
+per project with \code{accus_total_units_issued}, project metadata, and total
 issuance net of relinquishments. For method- or period-level
 issuance tracking, query \code{\link[=cer_accu_projects]{cer_accu_projects()}} directly.
 }

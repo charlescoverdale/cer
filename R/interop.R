@@ -46,7 +46,7 @@ cer_to_carbondata <- function(x) {
   df <- rename_first(df, c("project_name", "name"), "project_name")
   df <- rename_first(df, c("method"), "methodology")
   df <- rename_first(df, c("sector", "method_sector"), "project_type")
-  df <- rename_first(df, c("accus_issued", "issued"),
+  df <- rename_first(df, c("accus_total_units_issued", "accus_issued", "issued"),
                      "issued_credits_to_date")
   df <- rename_first(df, c("accus_surrendered", "accus_relinquished",
                            "relinquished"),

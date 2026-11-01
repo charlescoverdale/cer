@@ -21,16 +21,21 @@ The CER's data is scattered across half a dozen landing pages, published as XLSX
 Getting any of this into R required knowing the right landing page, spotting the current year's `/document/<slug>` link, downloading the XLSX or CSV, navigating heterogeneous header rows, and cleaning column names one release at a time. You did it every quarter.
 
 ```r
-# Without this package
-landing <- "https://cer.gov.au/markets/reports-and-data/safeguard-data"
-html    <- rvest::read_html(landing)
-hrefs   <- rvest::html_attr(rvest::html_elements(html, "a"), "href")
-slug    <- grep("2024-25.*safeguard", hrefs, value = TRUE)[1]
-url     <- paste0("https://cer.gov.au", slug)
-path    <- tempfile(fileext = ".xlsx")
-download.file(url, path)
-raw     <- readxl::read_excel(path, sheet = 1)
-# ... rename columns, strip punctuation, parse emissions figures, ...
+# Without this package: the landing page links to a year page, which
+# links to the table (the first "2024-25" link is a PDF of insights)
+base  <- "https://cer.gov.au"
+links <- function(url) {
+  rvest::html_attr(rvest::html_elements(rvest::read_html(url), "a"), "href")
+}
+year  <- grep("2024-25-baselines-and-emissions-data",
+              links(paste0(base, "/markets/reports-and-data/safeguard-data")),
+              value = TRUE)[1]
+slug  <- grep("^/document/baselines-and-emissions-table-2024-25",
+              links(paste0(base, year)), value = TRUE)[1]
+path  <- tempfile(fileext = ".xlsx")
+download.file(paste0(base, slug), path, mode = "wb")
+raw   <- readxl::read_excel(path, sheet = 1)
+# ... find the header row, rename columns, parse emissions figures, ...
 
 # With this package
 library(cer)
@@ -145,12 +150,12 @@ p <- cer_accu_projects(status = "active")
 
 # Savanna fire management projects in the Northern Territory
 p_savanna <- cer_accu_projects(state = "NT", method = "savanna")
-head(p_savanna[, c("project_name", "method", "accus_issued")])
+head(p_savanna[, c("project_name", "accus_total_units_issued", "chubb_flag")])
 
 # Share of ACCUs by method
-by_method <- aggregate(accus_issued ~ method, data = p,
+by_method <- aggregate(accus_total_units_issued ~ method, data = p,
                         FUN = sum, na.rm = TRUE)
-by_method <- by_method[order(-by_method$accus_issued), ]
+by_method <- by_method[order(-by_method$accus_total_units_issued), ]
 head(by_method, 10)
 ```
 

@@ -35,6 +35,25 @@ records that source row by row.
   `NA`. Columns made up entirely of plain or comma-grouped numbers are
   now numeric; identifier-like columns (postcodes, ABNs) are untouched.
 
+* The method-integrity layer classified nothing. The ACCU project
+  register names each method by its full legal title ("Carbon Credits
+  (Carbon Farming Initiative-Landfill Gas) Methodology Determination
+  2015"), and `cer_accu_aggregate()` and the `chubb_flag` column of
+  `cer_accu_projects()` joined it exactly against the scorecard's short
+  names, which matched none of the register's 75 methods. Every project
+  was "unclassified", so the contested-share warning could never fire.
+  The scorecard now carries a `register_pattern` per method, which
+  assigns 38 of the 75 register methods (86% of ACCUs issued); the rest
+  (among them the 2015 savanna and 2021 soil carbon methods, which the
+  scorecard does not cover) stay "unclassified". Contested methods
+  account for 75% of all ACCUs issued.
+
+* `cer_accu_aggregate()` summed `accus_issued` by default, a column the
+  register does not have, so on `cer_accu_projects()` output it fell
+  back to counting projects (with a warning) and reported shares of
+  projects, not of ACCUs. It now sums `accus_total_units_issued`, and
+  `cer_to_carbondata()` maps that column to `issued_credits_to_date`.
+
 ## Bundled reference tables rebuilt from their sources
 
 * **`cer_qcmr_reference()`** did not match the Quarterly Carbon Market

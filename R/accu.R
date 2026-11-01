@@ -99,7 +99,7 @@ cer_accu_projects <- function(state = NULL, method = NULL,
 #' ACCU issuances by project
 #'
 #' Derived from the ACCU Scheme project register: returns one row
-#' per project with `accus_issued`, project metadata, and total
+#' per project with `accus_total_units_issued`, project metadata, and total
 #' issuance net of relinquishments. For method- or period-level
 #' issuance tracking, query [cer_accu_projects()] directly.
 #'

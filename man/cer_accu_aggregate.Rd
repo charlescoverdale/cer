@@ -4,21 +4,25 @@
 \alias{cer_accu_aggregate}
 \title{Integrity-weighted ACCU aggregation}
 \usage{
-cer_accu_aggregate(x, value_col = "accus_issued", warn_contested_pct = 0.05)
+cer_accu_aggregate(x, value_col = NULL, warn_contested_pct = 0.05)
 }
 \arguments{
-\item{x}{A \code{cer_tbl} or data frame with columns \code{method} and
-(typically) \code{accus_issued}.}
+\item{x}{A \code{cer_tbl} or data frame with columns \code{method} and a
+numeric issuance column.}
 
-\item{value_col}{Column to sum. Default \code{"accus_issued"}.}
+\item{value_col}{Column to sum. Default \code{NULL} uses the register's
+\code{accus_total_units_issued} column (or \code{accus_issued}, if that is the
+one \code{x} has).}
 
 \item{warn_contested_pct}{Warn if the contested tier exceeds
 this share of the total. Default \code{0.05} (5\%).}
 }
 \value{
 A data frame with one row per integrity tier and
-columns \code{integrity_tier}, \code{projects}, \code{accus_issued_sum},
-\code{share_pct}.
+columns \code{integrity_tier}, \code{projects}, \verb{<value_col>_sum} and
+\code{share_pct}. Register methods are assigned to a tier through the
+scorecard's \code{register_pattern}; methods it does not cover are
+\code{"unclassified"}.
 }
 \description{
 Takes an \code{ato_tbl} or data frame of ACCU project records (from
