@@ -53,11 +53,11 @@
 - [`cer_reconcile()`](https://charlescoverdale.github.io/cer/reference/cer_reconcile.md)
   : Reconcile an aggregate against the QCMR headline figure
 - [`cer_safeguard_baseline_trajectory()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_baseline_trajectory.md)
-  : Compute a declining Safeguard baseline trajectory
+  : Default Safeguard baseline emissions intensity trajectory
 - [`cer_safeguard_facilities()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_facilities.md)
   : Safeguard Mechanism facility-level data
 - [`cer_safeguard_industry_baselines()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_industry_baselines.md)
-  : Bundled Safeguard industry-average default baselines
+  : Safeguard default emissions intensities by production variable
 - [`cer_safeguard_teba_facilities()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_teba_facilities.md)
   : Trade-exposed baseline-adjusted (TEBA) facility list
 - [`cer_sha256()`](https://charlescoverdale.github.io/cer/reference/cer_sha256.md)

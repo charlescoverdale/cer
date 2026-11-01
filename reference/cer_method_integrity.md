@@ -27,7 +27,16 @@ cer_method_integrity(tier = NULL, status = NULL)
 
 ## Value
 
-A `cer_tbl` with one row per method (19 rows at v0.2.0).
+A `cer_tbl` with one row per method (19 rows at v0.2.0). The
+`register_pattern` column is the regular expression that assigns the
+ACCU project register's full legal method names (for example, "Carbon
+Credits (Carbon Farming Initiative-Landfill Gas) Methodology
+Determination 2015") to each row;
+[`cer_accu_aggregate()`](https://charlescoverdale.github.io/cer/reference/cer_accu_aggregate.md)
+and the `chubb_flag` column of
+[`cer_accu_projects()`](https://charlescoverdale.github.io/cer/reference/cer_accu_projects.md)
+use it. Register methods that no pattern matches are reported as
+`"unclassified"`.
 
 ## Details
 

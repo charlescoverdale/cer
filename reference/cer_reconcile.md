@@ -27,8 +27,8 @@ cer_reconcile(value, quarter, measure, sum_column = NULL, warn_pct = 0.02)
 
   Character, matching a `measure` value in
   [`cer_qcmr_reference()`](https://charlescoverdale.github.io/cer/reference/cer_qcmr_reference.md).
-  For example `"accu_cumulative_issuances"`,
-  `"safeguard_covered_emissions_mt"`, `"smc_issuances"`.
+  For example `"accu_cumulative_issuances"`, `"lgc_validations"`,
+  `"safeguard_accu_surrenders"`.
 
 - sum_column:
 
@@ -56,7 +56,7 @@ Other reconciliation:
 ## Examples
 
 ``` r
-cer_reconcile(value = 185e6,
+cer_reconcile(value = 158.4e6,
               quarter = "2024-Q4",
               measure = "accu_cumulative_issuances")
 ```

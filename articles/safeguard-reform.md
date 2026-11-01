@@ -29,15 +29,16 @@ The `regime` column is `"pre_reform"` for FY ending in 2023 or earlier;
 
 ``` r
 
-traj <- cer_safeguard_baseline_trajectory("Aluminium smelting",
+traj <- cer_safeguard_baseline_trajectory("Aluminium",
                                             from_year = 2023,
                                             to_year = 2030)
 traj
 ```
 
-In 2029-30, the aluminium smelting default baseline is ~27 per cent
-below its 2023-24 value (`(1 - 0.049)^6 ~= 0.738`). This is the key
-number for emissions-intensity reform analysis.
+In 2029-30 the default baseline for primary aluminium is 0.657 times the
+Schedule 1 default intensity, 31 per cent below its 2023-24 value (0.657
+/ 0.951). This is the key number for emissions-intensity reform
+analysis.
 
 ## TEBA facilities
 
@@ -80,13 +81,18 @@ sum(fac_23_24[, grep("smc", names(fac_23_24))], na.rm = TRUE)
 
 ## Reconciling against the QCMR
 
+The QCMR does not publish annual covered emissions, so there is no
+bundled reference for the facility totals. It does publish Safeguard
+surrenders each quarter, which can be checked against a register
+extract:
+
 ``` r
 
-total_23_24 <- sum(fac_23_24$covered_emissions, na.rm = TRUE)
+cer_qcmr_reference(measure = "safeguard_accu_surrenders")
 cer_reconcile(
-  value   = total_23_24 / 1e6,  # convert t to Mt
-  quarter = "2023-24",
-  measure = "safeguard_covered_emissions_mt"
+  value   = 623613,
+  quarter = "2024-Q4",
+  measure = "safeguard_accu_surrenders"
 )
 ```
 

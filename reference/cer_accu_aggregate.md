@@ -10,19 +10,21 @@ into a single headline figure.
 ## Usage
 
 ``` r
-cer_accu_aggregate(x, value_col = "accus_issued", warn_contested_pct = 0.05)
+cer_accu_aggregate(x, value_col = NULL, warn_contested_pct = 0.05)
 ```
 
 ## Arguments
 
 - x:
 
-  A `cer_tbl` or data frame with columns `method` and (typically)
-  `accus_issued`.
+  A `cer_tbl` or data frame with columns `method` and a numeric issuance
+  column.
 
 - value_col:
 
-  Column to sum. Default `"accus_issued"`.
+  Column to sum. Default `NULL` uses the register's
+  `accus_total_units_issued` column (or `accus_issued`, if that is the
+  one `x` has).
 
 - warn_contested_pct:
 
@@ -32,7 +34,9 @@ cer_accu_aggregate(x, value_col = "accus_issued", warn_contested_pct = 0.05)
 ## Value
 
 A data frame with one row per integrity tier and columns
-`integrity_tier`, `projects`, `accus_issued_sum`, `share_pct`.
+`integrity_tier`, `projects`, `<value_col>_sum` and `share_pct`.
+Register methods are assigned to a tier through the scorecard's
+`register_pattern`; methods it does not cover are `"unclassified"`.
 
 ## See also
 

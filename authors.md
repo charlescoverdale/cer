@@ -10,14 +10,14 @@ Source:
 [`inst/CITATION`](https://github.com/charlescoverdale/cer/blob/main/inst/CITATION)
 
 Coverdale, C. (2026). cer: Download and Tidy Australian Clean Energy
-Regulator Data. R package version 0.1.0.
+Regulator Data. R package version 0.2.0.
 https://cran.r-project.org/package=cer
 
     @Manual{,
       title = {cer: Download and Tidy Australian Clean Energy Regulator Data},
       author = {Charles Coverdale},
       year = {2026},
-      note = {R package version 0.1.0},
+      note = {R package version 0.2.0},
       url = {https://cran.r-project.org/package=cer},
     }
 

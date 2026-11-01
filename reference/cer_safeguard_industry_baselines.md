@@ -1,6 +1,9 @@
-# Bundled Safeguard industry-average default baselines
+# Safeguard default emissions intensities by production variable
 
-Bundled Safeguard industry-average default baselines
+The default (industry-average) emissions intensity for every production
+variable in Schedule 1 of the Safeguard Mechanism Rule 2015 that has
+one, read from the Rule by `data-raw/safeguard_industry_baselines.R`.
+Production variables whose default is yet to be specified are omitted.
 
 ## Usage
 
@@ -10,7 +13,9 @@ cer_safeguard_industry_baselines()
 
 ## Value
 
-A `cer_tbl` of industry default baselines.
+A `cer_tbl` with columns `section`, `production_variable`,
+`default_emissions_intensity`, `unit` (the Rule's wording) and `source`
+(section and compilation date).
 
 ## See also
 
@@ -22,5 +27,6 @@ Other safeguard:
 ## Examples
 
 ``` r
-cer_safeguard_industry_baselines()
+b <- cer_safeguard_industry_baselines()
+b[b$production_variable %in% c("Aluminium", "Alumina"), ]
 ```

@@ -1,7 +1,9 @@
-# Compute a declining Safeguard baseline trajectory
+# Default Safeguard baseline emissions intensity trajectory
 
-Implements the 4.9% per-annum nominal decline in industry-average
-default baselines introduced by the 2023 reform. The formula is:
+Returns the baseline emissions intensity, per unit of a production
+variable, for a facility whose baseline is set at the default emissions
+intensity in Schedule 1 of the Safeguard Mechanism Rule 2015 and the
+default emissions reduction contribution (ERC) in section 31:
 
 ## Usage
 
@@ -13,8 +15,10 @@ cer_safeguard_baseline_trajectory(industry, from_year = 2023, to_year = 2030)
 
 - industry:
 
-  Character scalar matching an `industry` value from
-  [`cer_safeguard_industry_baselines()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_industry_baselines.md).
+  Character scalar: a `production_variable` from
+  [`cer_safeguard_industry_baselines()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_industry_baselines.md)
+  (case-insensitive), or its Schedule 1 section number, e.g. `"7"` for
+  aluminium.
 
 - from_year:
 
@@ -22,29 +26,31 @@ cer_safeguard_baseline_trajectory(industry, from_year = 2023, to_year = 2030)
 
 - to_year:
 
-  End year (default 2029 for FY 2029-30).
+  End year (default 2030 for FY 2030-31).
 
 ## Value
 
-A data frame with `year`, `financial_year`, `baseline`, and
-`decline_factor` columns.
+A data frame with `year`, `financial_year`,
+`default_emissions_intensity`, `decline_factor` (the default ERC) and
+`baseline` (t CO2-e per unit of the production variable).
 
 ## Details
 
-\$\$B_t = B\_{2023\text{-}24} \times (1 - 0.049)^{t - 2023}\$\$
+\$\$B_t = EI \times ERC_t\$\$
 
-where `t` is the starting calendar year of the financial year. Default
-values are drawn from `inst/extdata/safeguard_industry_baselines.csv`.
+where `ERC` is 0.951 for FY 2023-24 and falls by 0.049 a year (a linear
+decline of 4.9 percent of the default intensity) to 0.657 for FY
+2029-30, then by 0.03285 a year, never below zero. Facilities using
+site-specific emissions intensities, and trade-exposed baseline-adjusted
+facilities (see
+[`cer_safeguard_teba_facilities()`](https://charlescoverdale.github.io/cer/reference/cer_safeguard_teba_facilities.md)),
+have different baselines.
 
 ## References
 
-Commonwealth of Australia (2023). *Safeguard Mechanism (Crediting)
-Amendment Act 2023*. Introduces 4.9% p.a. nominal baseline decline to
-2030.
-
-Clean Energy Regulator (annual). *Safeguard Mechanism: declining
-baselines*. Methodology notes accompanying annual baseline
-determinations.
+Commonwealth of Australia. *National Greenhouse and Energy Reporting
+(Safeguard Mechanism) Rule 2015* (F2015L01637), compilation of 31 August
+2024: sections 31 to 33 and Schedule 1.
 
 ## See also
 
@@ -56,7 +62,6 @@ Other safeguard:
 ## Examples
 
 ``` r
-cer_safeguard_baseline_trajectory("Aluminium smelting")
-cer_safeguard_baseline_trajectory("Cement clinker",
-                                   from_year = 2023, to_year = 2030)
+cer_safeguard_baseline_trajectory("Aluminium")
+cer_safeguard_baseline_trajectory("63", from_year = 2023, to_year = 2035)
 ```

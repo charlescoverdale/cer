@@ -49,9 +49,7 @@ contested[, c("method_short", "method_full_name", "status")]
 
 projects <- cer_accu_projects(status = "all")
 
-by_tier <- cer_accu_aggregate(projects,
-                               value_col = "accus_issued",
-                               warn_contested_pct = 0.05)
+by_tier <- cer_accu_aggregate(projects, warn_contested_pct = 0.05)
 by_tier
 ```
 
