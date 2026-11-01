@@ -123,8 +123,8 @@ cer_reconcile <- function(value, quarter, measure,
   if (abs(pct) > warn_pct) {
     cli::cli_warn(c(
       "Reconciliation gap {round(100 * pct, 2)}% for {.val {measure}} ({.val {quarter}}).",
-      "i" = "Live: {.val {format(v, big.mark = ',', scientific = FALSE)}}",
-      "i" = "QCMR reference: {.val {format(ref_v, big.mark = ',', scientific = FALSE)}}",
+      "i" = "Live: {format(v, big.mark = ',', scientific = FALSE)}",
+      "i" = "QCMR reference: {format(ref_v, big.mark = ',', scientific = FALSE)}",
       "i" = "CER data is retroactively revised; check for recent relinquishments or corrections."
     ))
   }
