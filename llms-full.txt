@@ -22,18 +22,18 @@ Takes an `ato_tbl` or data frame of ACCU project records (from `cer_accu_project
 **Usage**
 
 ```r
-cer_accu_aggregate(x, value_col = "accus_issued", warn_contested_pct = 0.05)
+cer_accu_aggregate(x, value_col = NULL, warn_contested_pct = 0.05)
 ```
 
 **Arguments**
 
-- `x`: A `cer_tbl` or data frame with columns `method` and (typically) `accus_issued`.
-- `value_col`: Column to sum. Default `"accus_issued"`.
+- `x`: A `cer_tbl` or data frame with columns `method` and a numeric issuance column.
+- `value_col`: Column to sum. Default `NULL` uses the register's `accus_total_units_issued` column (or `accus_issued`, if that is the one `x` has).
 - `warn_contested_pct`: Warn if the contested tier exceeds this share of the total. Default `0.05` (5%).
 
 **Returns**
 
-A data frame with one row per integrity tier and columns `integrity_tier`, `projects`, `accus_issued_sum`, `share_pct`.
+A data frame with one row per integrity tier and columns `integrity_tier`, `projects`, <value_col>_sum and `share_pct`. Register methods are assigned to a tier through the scorecard's `register_pattern`; methods it does not cover are `"unclassified"`.
 
 **Example**
 
@@ -82,7 +82,7 @@ options(op)
 
 **ACCU issuances by project**
 
-Derived from the ACCU Scheme project register: returns one row per project with `accus_issued`, project metadata, and total issuance net of relinquishments. For method- or period-level issuance tracking, query `cer_accu_projects()` directly.
+Derived from the ACCU Scheme project register: returns one row per project with `accus_total_units_issued`, project metadata, and total issuance net of relinquishments. For method- or period-level issuance tracking, query `cer_accu_projects()` directly.
 
 **Usage**
 
@@ -566,7 +566,7 @@ cer_method_integrity(tier = NULL, status = NULL)
 
 **Returns**
 
-A `cer_tbl` with one row per method (19 rows at v0.2.0).
+A `cer_tbl` with one row per method (19 rows at v0.2.0). The `register_pattern` column is the regular expression that assigns the ACCU project register's full legal method names (for example, "Carbon Credits (Carbon Farming Initiative-Landfill Gas) Methodology Determination 2015") to each row; `cer_accu_aggregate()` and the `chubb_flag` column of `cer_accu_projects()` use it. Register methods that no pattern matches are reported as `"unclassified"`.
 
 **Example**
 
