@@ -22,6 +22,10 @@ records that source row by row.
   `cer_nger_electricity(2025)` 273 of 809. Downloaded CSVs are now
   decoded explicitly, falling back to Windows-1252.
 
+* `cer_nger_corporate()` could not reach 2008-09 to 2011-12: those files
+  are named without "registered-corporation". All years from 2008-09
+  load; column names follow the CER's wording for each year.
+
 * `cer_safeguard_facilities()` failed for 2016-17 to 2021-22 (the CER
   renamed those files `safeguard-facility-data-<year>`) and for 2023-24
   (`<year>-baselines-and-emissions-table`). All years from 2016-17 load.

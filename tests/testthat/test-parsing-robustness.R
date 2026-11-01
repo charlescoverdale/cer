@@ -61,3 +61,10 @@ test_that("NGER files load in full", {
   elec <- cer_nger_electricity(2025)
   expect_gt(nrow(elec), 500L)
 })
+
+test_that("cer_nger_corporate reaches the pre-2012-13 file naming", {
+  skip_on_cran()
+  skip_if_offline()
+  expect_gt(nrow(cer_nger_corporate(2009)), 100L)
+  expect_error(cer_nger_electricity(2010), "No NGER electricity dataset")
+})

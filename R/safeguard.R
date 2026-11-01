@@ -73,7 +73,11 @@ nger_urls <- function(year, kind = c("corporate", "electricity")) {
                           NGER_LANDING, yr_label)
   )
   pattern <- switch(kind,
-    corporate   = sprintf("greenhouse-and-energy-information-registered-corporation-%s",
+    # Before 2012-13 the corporate file has no "registered-corporation" in
+    # its name. Anchoring on the year keeps out the certificate-holder
+    # files published alongside ("...-liability-transfer-certificate-
+    # holders-2012-13").
+    corporate   = sprintf("greenhouse-and-energy-information-(registered-corporation-)?%s(-0)?$",
                           yr_label),
     electricity = sprintf("greenhouse-and-energy-information-designated-generation-facilit(y|ies)-%s",
                           yr_label)

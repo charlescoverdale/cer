@@ -82,6 +82,8 @@ solar <- cer_sres_installations(
 
 ## Functions
 
+### Data
+
 | Function | Description | Coverage |
 |---|---|---|
 | `cer_accu_projects()` | ACCU project register with method, proponent, state, crediting period, ACCUs issued and relinquished | 2012 - present |
@@ -89,14 +91,47 @@ solar <- cer_sres_installations(
 | `cer_accu_contracts()` | Carbon Abatement Contract register (Emissions Reduction Fund auctions) | 2015 - present |
 | `cer_accu_methods()` | Static lookup of approved ACCU methods across Agriculture, Energy Efficiency, Landfill and Waste, Mining, Oil and Gas, Vegetation, Savanna, Blue Carbon | Live + flagged superseded |
 | `cer_accu_relinquishments()` | Projects with non-zero ACCU relinquishments (voluntary plus compliance) | 2012 - present |
-| `cer_safeguard_facilities()` | Covered emissions, baselines, SMCs issued or surrendered for facilities above 100,000 t CO2e | 2016-17 - present |
+| `cer_safeguard_facilities()` | Covered emissions, baselines, SMCs issued or surrendered for facilities above 100,000 t CO2e, with regime and TEBA flags | 2016-17 - present |
 | `cer_nger_corporate()` | Controlling-corporation Scope 1 and 2 emissions above the 50 kt / 200 TJ reporting threshold | 2008-09 - present |
-| `cer_nger_electricity()` | Facility-level Scope 1 emissions and generation for electricity sector above the 25 kt / 100 TJ facility threshold | 2008-09 - present |
+| `cer_nger_electricity()` | Facility-level Scope 1 emissions and generation for the electricity sector above the 25 kt / 100 TJ facility threshold | 2012-13 - present |
 | `cer_lgc_power_stations()` | Accredited LRET power stations (technology, state, capacity, commissioning) | 2001 - present |
 | `cer_sres_installations()` | Monthly rooftop solar PV, solar water heater, heat pump, and battery installations by postcode | 2011 - present |
 | `cer_qcmr()` | Quarterly Carbon Market Report data workbook (certificate volumes, unit surrenders, Safeguard developments) | 2014 Q3 - present |
-| `cer_cache_info()` | Inspect the local cache | - |
-| `cer_clear_cache()` | Clear locally cached files | - |
+
+### Bundled reference tables
+
+Each is built from its published source by a script in `data-raw/`, and records that source row by row.
+
+| Function | Description |
+|---|---|
+| `cer_qcmr_reference()` | Quarterly figures from the QCMR data workbook: ACCU issuances and registrations, Safeguard ACCU and SMC surrenders, LGC validations, rooftop solar installations (quarterly and cumulative) |
+| `cer_safeguard_industry_baselines()` | Default emissions intensity for each of the 81 production variables in Schedule 1 of the Safeguard Mechanism Rule 2015 |
+| `cer_safeguard_baseline_trajectory()` | Default baseline intensity by year: the Schedule 1 intensity times the emissions reduction contribution in section 31 of the Rule |
+| `cer_safeguard_teba_facilities()` | The CER's trade-exposed baseline-adjusted determinations, with dates and emissions reduction contributions |
+| `cer_method_integrity()` | ACCU method integrity scorecard (post-Chubb review status and critiques) |
+| `cer_international_comparator()` | Indicative prices for ACCUs alongside EU, NZ and WCI allowances and voluntary credits |
+
+### Analysis helpers
+
+| Function | Description |
+|---|---|
+| `cer_reconcile()` | Compare an aggregate with the QCMR figure for the same quarter and measure |
+| `cer_accu_aggregate()` | Aggregate ACCU issuances weighted by method integrity |
+| `cer_nger_scope()` | Select NGER columns by emissions scope, with explicit errors when a year lacks one |
+| `cer_nger_climate_active()` | Translate NGER scope columns to Climate Active categories |
+| `cer_to_carbondata()` | Remap ACCU projects to the `carbondata` voluntary-project schema |
+| `cer_method_determination()`, `cer_legislative_instrument()` | Federal Register of Legislation URLs for an ACCU method determination or any instrument |
+
+### Reproducibility and cache
+
+| Function | Description |
+|---|---|
+| `cer_cite()` | Cite a `cer_tbl` (or URL) in BibTeX, plain text or APA |
+| `cer_manifest()`, `cer_manifest_write()`, `cer_manifest_clear()` | The session manifest of fetched datasets: view, write to file, clear |
+| `cer_snapshot()` | Pin or inspect the session snapshot date |
+| `cer_sha256()` | SHA-256 digest of a file |
+| `cer_deposit_zenodo()` | Prepare a Zenodo deposit payload from the session manifest |
+| `cer_cache_info()`, `cer_clear_cache()` | Inspect or clear the local cache |
 
 ## Examples
 
